@@ -1,0 +1,9 @@
+AGENTS.md
+CLAUDE.md
+MEMORY.md
+BACKLOG.md
+COMPARISON.md
+package.json
+package-lock.json
+node_modules
+.DS_Store

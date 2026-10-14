@@ -1,0 +1,817 @@
+/*
+ * Styling for the parts that are specific to the WordPress edition: native
+ * comments and the paginate_links()/wp_link_pages() markup. Everything else
+ * reuses assets/css/style.css's own classes.
+ */
+
+.cmt-wrap {
+	margin-top: 2rem;
+	padding-top: 1.5rem;
+	border-top: 1px solid var(--lLine, #e5e5e5);
+}
+
+.cmt-count {
+	margin-bottom: 1rem;
+}
+
+.cmt-list,
+.cmt-list ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.cmt-list ul {
+	margin-left: 2.5rem;
+}
+
+.cmt-item {
+	margin-bottom: 1.5rem;
+}
+
+.cmt-body {
+	display: flex;
+	gap: 0.75rem;
+}
+
+.cmt-avatar img {
+	border-radius: 50%;
+	display: block;
+}
+
+.cmt-main {
+	flex: 1;
+	min-width: 0;
+}
+
+.cmt-meta {
+	display: flex;
+	gap: 0.5rem;
+	align-items: baseline;
+	flex-wrap: wrap;
+}
+
+.cmt-author {
+	font-weight: 700;
+}
+
+.cmt-date a {
+	opacity: 0.65;
+	font-size: 0.85em;
+	text-decoration: none;
+}
+
+.cmt-text p:first-child {
+	margin-top: 0.35rem;
+}
+
+.cmt-moderation {
+	font-style: italic;
+	opacity: 0.75;
+}
+
+.cmt-reply a {
+	font-size: 0.85em;
+	font-weight: 600;
+}
+
+.cmt-closed {
+	opacity: 0.7;
+	font-style: italic;
+}
+
+/* Comment form (inside the .cmC popup) */
+.cmC .cmt-wrap {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.cmt-wrap > .cmt-count {
+	margin: 0 0 16px;
+}
+
+.cmt-wrap > .cmt-list {
+	margin-bottom: 24px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid var(--contentL, #e6e6e6);
+}
+
+#respond .comment-reply-title:empty,
+#respond .comment-reply-title small:only-child {
+	display: none;
+}
+
+#commentform {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 14px 16px;
+	margin: 0;
+}
+
+#commentform > p {
+	margin: 0;
+	grid-column: 1 / -1;
+}
+
+#commentform .comment-notes,
+#commentform .logged-in-as {
+	font-size: 13px;
+	opacity: 0.7;
+}
+
+#commentform .comment-form-author,
+#commentform .comment-form-email {
+	grid-column: auto;
+}
+
+#commentform label {
+	display: block;
+	margin-bottom: 6px;
+	font-size: 13px;
+	font-weight: 600;
+}
+
+#commentform .required {
+	color: var(--linkB, #482dff);
+}
+
+#commentform input[type="text"],
+#commentform input[type="email"],
+#commentform input[type="url"],
+.cmt-textarea {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 11px 14px;
+	border-radius: 8px;
+	border: 1px solid var(--contentL, #d0d0d0);
+	font: inherit;
+	font-size: 14px;
+	background: var(--contentB, transparent);
+	color: inherit;
+	outline: 0;
+	transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#commentform input:focus,
+.cmt-textarea:focus {
+	border-color: var(--linkB, #482dff);
+	box-shadow: 0 0 0 1px var(--linkB, #482dff) inset;
+}
+
+.cmt-textarea {
+	min-height: 96px;
+	resize: vertical;
+}
+
+#commentform .comment-form-cookies-consent {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 13px;
+}
+
+#commentform .comment-form-cookies-consent label {
+	display: inline;
+	margin: 0;
+	font-weight: 400;
+}
+
+#commentform .form-submit {
+	margin: 0;
+}
+
+#commentform .form-submit .button {
+	margin: 0;
+	cursor: pointer;
+}
+
+@media (max-width: 640px) {
+	#commentform {
+		grid-template-columns: 100%;
+	}
+}
+
+.blogN.numP {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	margin-top: 1.5rem;
+}
+
+.blogN.numP a,
+.blogN.numP span {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 2.2rem;
+	height: 2.2rem;
+	padding: 0 0.5rem;
+	border-radius: 0.5rem;
+}
+
+.blogN.numP a {
+	text-decoration: none;
+	background: rgba(127, 127, 127, 0.1);
+}
+
+.blogN.numP span.current {
+	background: var(--lLinkC, #482dff);
+	color: #fff;
+}
+
+/* Button block: use the theme's .button / .button.ln look instead of core's. */
+.wp-block-buttons {
+	gap: 12px;
+	margin: 0;
+	padding: 10px 0;
+}
+
+.wp-block-button .wp-block-button__link.button {
+	margin: 0;
+	padding: 12px 15px;
+	border: 0;
+	border-radius: var(--linkR);
+	background: var(--linkB);
+	color: #fffdfc;
+	font-family: var(--fontB);
+	font-size: 14px;
+	line-height: 20px;
+	text-decoration: none;
+}
+
+.wp-block-button .wp-block-button__link.button.ln {
+	border: 1px solid var(--bodyCa);
+	background: 0 0;
+	color: inherit;
+}
+
+.wp-block-button .wp-block-button__link.button.ln:hover {
+	border-color: var(--linkB);
+	box-shadow: 0 0 0 1px var(--linkB) inset;
+}
+
+/* Live ad slots: no placeholder frame. */
+.adB.is-live {
+	min-height: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	overflow: hidden;
+}
+
+.adB.is-live::before {
+	content: none;
+}
+
+.pInr .adB.is-live {
+	margin: 1.5em 0;
+}
+
+/* Extra share-button colors (Facebook, WhatsApp and X come from the main stylesheet). */
+.pShc .tg {
+	background: #229ed9;
+}
+
+.pShc .pt {
+	background: #e60023;
+}
+
+.pShc .li {
+	background: #0a66c2;
+}
+
+.pShc .ld {
+	background: #06c755;
+}
+
+.pShc .em {
+	background: #5f6368;
+}
+
+/* Author box: avatar on the left, label, name and optional bio on the right (also on phones). */
+.authorBox {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin: 30px 0;
+	padding: 18px 20px;
+	border: 1px solid var(--contentL);
+	border-radius: 10px;
+	background: var(--contentB);
+}
+
+.authorBox:has(.authorBio) {
+	align-items: flex-start;
+}
+
+.authorAvatar {
+	flex: 0 0 64px;
+	width: 64px;
+	height: 64px;
+}
+
+.authorAvatar img {
+	display: block;
+	width: 64px;
+	height: 64px;
+	max-width: none;
+	aspect-ratio: 1;
+	object-fit: cover;
+	border-radius: 50%;
+	background: var(--contentL);
+}
+
+.authorInfo {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.authorLabel {
+	opacity: 0.7;
+	font-size: 12px;
+	line-height: 1.4;
+}
+
+.authorName {
+	display: inline-block;
+	font-size: 17px;
+	font-weight: 700;
+	line-height: 1.3;
+}
+
+.authorBio {
+	margin: 6px 0 0;
+	font-size: 14px;
+	line-height: 1.6;
+	opacity: 0.9;
+}
+
+@media (max-width: 640px) {
+	.authorBox {
+		gap: 12px;
+		padding: 14px 16px;
+	}
+
+	.authorAvatar {
+		flex-basis: 52px;
+		width: 52px;
+		height: 52px;
+	}
+
+	.authorAvatar img {
+		width: 52px;
+		height: 52px;
+	}
+
+	.authorName {
+		font-size: 16px;
+	}
+}
+
+/* Related posts: rendered by the server, so it must not carry the aRps class the runtime script fills from Blogger feeds. */
+.relPosts {
+	margin: 30px 0;
+}
+
+/* Block output vs. the component markup: keep the original spacing and wrapping. */
+.alert > .wp-block-group__inner-container,
+.note > .wp-block-group__inner-container {
+	margin: 0;
+	padding: 0;
+}
+
+.alert p,
+.alert .wp-block-paragraph {
+	margin: 0;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+pre.wp-block-code > code {
+	overflow-wrap: normal;
+	white-space: pre;
+}
+
+/* The alert heading is the first <b> inside the paragraph block. */
+.alert p > b:first-child,
+.alert p > strong:first-child,
+.alert p > i:first-child {
+	display: block;
+	margin-bottom: 8px;
+	color: var(--clr);
+	font-family: var(--fontC);
+	font-weight: 700;
+}
+
+/* Data table style: the theme draws its own cell borders. */
+.wp-block-table.table td,
+.wp-block-table.table th {
+	border-width: 0;
+}
+
+/* Active menu item: sidebar menu and quick links under the header. */
+.mnMn li:not(.mr).active > a,
+.mnMn li:not(.mr).active > input + label{color:var(--linkC)}
+.mnMn li.active > a svg.line,
+.mnMn li.active > input + label svg.line{stroke:var(--linkC)}
+.navS .l.active{color:var(--linkC)}
+.navS .l.active:after{opacity:1}
+/* Flyout of the collapsed sidebar: scrolls instead of running off the window. */
+.mnMn li:not(.mr) ul{scrollbar-width:thin}
+
+/* Placeholder for posts without a featured image: soft shapes in the accent color. */
+.plcH{
+	--plc-a:color-mix(in srgb,var(--linkC) 20%,transparent);
+	--plc-b:color-mix(in srgb,var(--linkC) 12%,transparent);
+	background:
+		radial-gradient(circle at var(--plc-x1,18%) var(--plc-y1,24%),var(--plc-a) 0 17%,transparent 17.5%),
+		radial-gradient(circle at var(--plc-x2,82%) var(--plc-y2,78%),var(--plc-b) 0 27%,transparent 27.5%),
+		linear-gradient(135deg,color-mix(in srgb,var(--linkC) 8%,var(--contentB)),color-mix(in srgb,var(--linkC) 2%,var(--contentB)));
+}
+.plcV2{--plc-x1:80%;--plc-y1:22%;--plc-x2:16%;--plc-y2:80%}
+.plcV3{--plc-x1:50%;--plc-y1:12%;--plc-x2:88%;--plc-y2:70%}
+.plcV4{--plc-x1:14%;--plc-y1:70%;--plc-x2:70%;--plc-y2:20%}
+span.imgThm.plcH{width:100%;height:100%;align-items:center;justify-content:center}
+span.imgThm.plcH:before{opacity:.5;width:34px;height:34px;filter:none}
+.sldI.plcH{display:block}
+
+/* Contact Form 7: fields, button and messages in the theme's look. */
+.wpcf7 {
+	margin: 24px 0;
+}
+
+.wpcf7 form > p {
+	margin: 0 0 26px;
+}
+
+.wpcf7 label {
+	display: block;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.5;
+}
+
+.wpcf7 .wpcf7-form-control-wrap {
+	display: block;
+	position: relative;
+	margin-top: 6px;
+}
+
+.wpcf7 input[type="text"],
+.wpcf7 input[type="email"],
+.wpcf7 input[type="url"],
+.wpcf7 input[type="tel"],
+.wpcf7 input[type="number"],
+.wpcf7 input[type="date"],
+.wpcf7 input[type="password"],
+.wpcf7 select,
+.wpcf7 textarea {
+	width: 100%;
+	max-width: none;
+	box-sizing: border-box;
+	padding: 11px 14px;
+	border: 1px solid var(--contentL, #d0d0d0);
+	border-radius: 8px;
+	background: var(--contentB, transparent);
+	color: inherit;
+	font: inherit;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.5;
+	outline: 0;
+	transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.wpcf7 textarea {
+	min-height: 140px;
+	resize: vertical;
+}
+
+.wpcf7 select {
+	appearance: none;
+	padding-inline-end: 38px;
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23989b9f' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+	background-position: right 12px center;
+	background-repeat: no-repeat;
+	background-size: 18px;
+}
+
+[dir="rtl"] .wpcf7 select {
+	background-position: left 12px center;
+}
+
+.wpcf7 input:focus,
+.wpcf7 select:focus,
+.wpcf7 textarea:focus {
+	border-color: var(--linkB, #482dff);
+	box-shadow: 0 0 0 1px var(--linkB, #482dff) inset;
+}
+
+.wpcf7 input::placeholder,
+.wpcf7 textarea::placeholder {
+	color: var(--bodyCa, #989b9f);
+	opacity: 1;
+}
+
+.wpcf7 input[type="file"] {
+	width: 100%;
+	font: inherit;
+	font-size: 14px;
+}
+
+.wpcf7 .wpcf7-list-item {
+	display: block;
+	margin: 0 0 6px;
+}
+
+.wpcf7 .wpcf7-list-item label {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: 400;
+}
+
+.wpcf7 input[type="checkbox"],
+.wpcf7 input[type="radio"] {
+	width: 16px;
+	height: 16px;
+	margin: 0;
+	accent-color: var(--linkB, #482dff);
+}
+
+.wpcf7 .wpcf7-submit {
+	display: inline-flex;
+	align-items: center;
+	margin: 0;
+	padding: 12px 26px;
+	border: 0;
+	border-radius: var(--linkR, 8px);
+	background: var(--linkB, #482dff);
+	color: #fffdfc;
+	font: inherit;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 20px;
+	cursor: pointer;
+	transition: filter 0.2s, transform 0.1s;
+}
+
+.wpcf7 .wpcf7-submit:hover {
+	filter: brightness(1.08);
+}
+
+.wpcf7 .wpcf7-submit:active {
+	transform: translateY(1px);
+}
+
+.wpcf7 .wpcf7-submit:focus-visible {
+	outline: 2px solid var(--linkB, #482dff);
+	outline-offset: 2px;
+}
+
+.wpcf7 .wpcf7-submit:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.wpcf7 .wpcf7-spinner {
+	margin: 0 0 0 12px;
+	vertical-align: middle;
+}
+
+.wpcf7 .wpcf7-not-valid {
+	border-color: #d93025;
+}
+
+.wpcf7 .wpcf7-not-valid-tip {
+	/* Out of the flow: showing or hiding a message must not move the button, or a click that starts on it is lost. */
+	position: absolute;
+	top: 100%;
+	left: 0;
+	display: block;
+	margin-top: 3px;
+	color: #d93025;
+	font-size: 12px;
+	font-weight: 400;
+}
+
+.wpcf7 form .wpcf7-response-output {
+	margin: 20px 0 0;
+	padding: 12px 16px;
+	border: 1px solid var(--contentL, #d0d0d0);
+	border-radius: 8px;
+	background: var(--transB, transparent);
+	font-size: 14px;
+}
+
+.wpcf7 form.sent .wpcf7-response-output {
+	border-color: #188038;
+	color: #188038;
+}
+
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output {
+	border-color: #e37400;
+	color: #b06000;
+}
+
+.wpcf7 form.failed .wpcf7-response-output,
+.wpcf7 form.aborted .wpcf7-response-output,
+.wpcf7 form.spam .wpcf7-response-output {
+	border-color: #d93025;
+	color: #d93025;
+}
+
+/* Two fields side by side: wrap them in a group with the class "cf-grid". */
+.wpcf7 .cf-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0 16px;
+}
+
+.wpcf7 .cf-grid > p {
+	margin: 0 0 26px;
+}
+
+@media (max-width: 640px) {
+	.wpcf7 .cf-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Footer link columns: with fewer than four columns, fill the right side first (the about block stays on the left). */
+@media (min-width: 641px) {
+	.fotN.m2 > .fotW > :first-child:nth-last-child(1) {
+		grid-column-start: 4;
+	}
+
+	.fotN.m2 > .fotW > :first-child:nth-last-child(2) {
+		grid-column-start: 3;
+	}
+
+	.fotN.m2 > .fotW > :first-child:nth-last-child(3) {
+		grid-column-start: 2;
+	}
+}
+
+/* Mobile bottom bar (from the original template's mobile menu): phones and tablets only. */
+@media (min-width: 897px) {
+	.section.mobM {
+		display: none;
+	}
+}
+
+.mobM {
+	z-index: 3;
+	width: 100%;
+	position: sticky;
+	bottom: 0;
+}
+
+.mobC {
+	background: var(--mobB);
+	color: var(--mobC);
+	padding: 0 20px;
+	font-size: 12px;
+	position: relative;
+	box-shadow: 0 -20px 30px #1e1e1e1a;
+}
+
+.mobC:not(.crv) {
+	border-top: var(--mobL) solid var(--contentL);
+	border-start-start-radius: 12px;
+	border-start-end-radius: 12px;
+}
+
+.mobC svg.line {
+	opacity: 0.8;
+}
+
+.mobC ul {
+	justify-content: center;
+	align-items: center;
+	height: 55px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+}
+
+.mobC li {
+	flex: 1 0 20%;
+	justify-content: center;
+	display: flex;
+}
+
+.mobC li > * {
+	min-width: 35px;
+	height: 35px;
+	transition: var(--trans-1);
+	color: inherit;
+	cursor: pointer;
+	border: 0;
+	background: none;
+	border-radius: 20px;
+	justify-content: center;
+	align-items: center;
+	padding: 0 8px;
+	display: inline-flex;
+}
+
+.mobC li svg {
+	flex-shrink: 0;
+	width: 20px;
+	height: 20px;
+	margin: 0 3px;
+}
+
+.mobC .nmH {
+	opacity: 0.7;
+}
+
+.MN-3 .mobC li > * {
+	flex-direction: column;
+	position: relative;
+}
+
+.MN-3 .mobC li > :after {
+	content: "";
+	border-radius: 50%;
+	width: 4px;
+	height: 4px;
+	position: absolute;
+	bottom: -2px;
+}
+
+.MN-3 .mobC li > :hover:after {
+	background: var(--linkB);
+	opacity: 0.8;
+}
+
+.MN-3 .mobC li > :hover svg.line {
+	opacity: 1;
+}
+
+.MN-3 .mobC li > :hover svg.line * {
+	stroke: var(--linkB);
+}
+
+/* The compiled style.css repeats its base layout several times; the later copies
+   put the generic `.mainC .widget { margin-top: 40px }` after `.sldW .widget { margin-top: 0 }`.
+   That pushed every carousel slide after the first 40px down and made the carousel 40px
+   taller than the original (5:2) ratio. A higher specificity restores the intended 0. */
+.mainC .sldW .section,
+.mainC .sldW .widget {
+	margin-top: 0;
+}
+
+/* Same repetition: the 768px rule (2 columns) came after the 500px rule (1 column for
+   `.oGrd` lists), so phones got 2 cramped columns instead of one card per row. */
+@media screen and (max-width: 500px) {
+	body.onId .blogP.oGrd {
+		--numI: 1;
+	}
+}
+
+/* Search results beside the sidebar: same columns as the home page (3, then 2). */
+@media screen and (min-width: 1101px) {
+	body.onId.hsSb:not(.onHm) .blogP {
+		--numI: 3;
+	}
+}
+
+@media screen and (max-width: 1100px) {
+	body.onId.hsSb:not(.onHm) .blogP {
+		--numI: 2;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	body.onId.hsSb:not(.onHm) .blogP.oGrd {
+		--numI: 1;
+	}
+}
+
+/* Related posts under a post: one card per row on phones, like the home page (the original keeps two). */
+@media screen and (max-width: 500px) {
+	body .itemRp {
+		--numI: 1;
+	}
+}
+
+/* Post meta row: one date on the left, the read time at the right edge, in line with the icons above. */
+.pInf.ps .pDr {
+	justify-content: space-between;
+	gap: 4px 12px;
+}
+
+.pInf.ps .pDr > :not(:last-child):after {
+	content: none;
+}
+
+.pInf.ps .pDr > .pRd {
+	margin-inline-start: auto;
+	text-align: end;
+}

@@ -1,0 +1,13 @@
+{
+  "name": "wplus-ui-wordpress",
+  "private": true,
+  "description": "Dev tooling for the WPlus UI WordPress theme.",
+  "scripts": {
+    "visual": "node tests/visual/run.mjs http://127.0.0.1:8091",
+    "js-errors": "node tests/visual/js-errors.mjs http://127.0.0.1:8091",
+    "visual:update": "node tests/visual/run.mjs http://127.0.0.1:8091 --update"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^24.0.0"
+  }
+}

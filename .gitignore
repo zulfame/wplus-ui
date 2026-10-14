@@ -1,0 +1,27 @@
+# Local WordPress install: only the theme is versioned.
+/*
+!.gitignore
+!bin/
+!.github/
+!README.md
+!NOTICE.md
+!CONTRIBUTING.md
+!package.json
+!package-lock.json
+!tests/
+!docs/
+!wp-content/
+/wp-content/*
+!/wp-content/themes/
+/wp-content/themes/*
+!/wp-content/themes/wplus-ui/
+!/wp-content/themes/wplus-ui-child/
+.DS_Store
+
+/wp-content/themes/wplus-ui/node_modules/
+/dist/
+# Internal working notes for the maintainer's assistant; not part of the public repository.
+/wp-content/themes/wplus-ui/AGENTS.md
+/wp-content/themes/wplus-ui/CLAUDE.md
+/wp-content/themes/wplus-ui/MEMORY.md
+/wp-content/themes/wplus-ui/COMPARISON.md

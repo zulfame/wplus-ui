@@ -1,0 +1,16 @@
+<wpml-config>
+	<admin-texts>
+		<key name="theme_mods_wplus-ui">
+			<key name="wplusui_notification_text"/>
+			<key name="wplusui_notification_cta_text"/>
+			<key name="wplusui_popular_title"/>
+			<key name="wplusui_related_title"/>
+		</key>
+		<key name="theme_mods_wplus-ui-child">
+			<key name="wplusui_notification_text"/>
+			<key name="wplusui_notification_cta_text"/>
+			<key name="wplusui_popular_title"/>
+			<key name="wplusui_related_title"/>
+		</key>
+	</admin-texts>
+</wpml-config>

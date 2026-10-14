@@ -1,0 +1,2231 @@
+# Copyright (C) 2026 Zulfadli Rizal
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: WPlus UI 1.7.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wplus-ui\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-10-02T18:42:01+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: wplus-ui\n"
+
+#. Theme Name of the theme
+#: style.css
+#: inc/blocks.php:172
+msgid "WPlus UI"
+msgstr ""
+
+#. Theme URI of the theme
+#: style.css
+msgid "https://github.com/zulfame/plus-ui"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "WPlus UI is a WordPress theme forked from Plus UI by Fineshop Design, with light/dark mode, 16 color schemes, a pinned post, carousel, popup comments, bookmarks and block editor support."
+msgstr ""
+
+#. Author of the theme
+#: style.css
+msgid "Zulfadli Rizal"
+msgstr ""
+
+#. Author URI of the theme
+#: style.css
+msgid "https://github.com/zulfame"
+msgstr ""
+
+#: 404.php:15
+msgid "Something Wrong!"
+msgstr ""
+
+#: 404.php:16
+msgid "The page you've requested can't be found. Why don't you browse around?"
+msgstr ""
+
+#: 404.php:17
+msgid "Take me back"
+msgstr ""
+
+#: archive.php:77
+#: inc/json-data.php:174
+#: inc/template-tags.php:394
+#: page.php:22
+#: search.php:17
+#: single.php:34
+msgid "Home"
+msgstr ""
+
+#: archive.php:92
+#: inc/json-data.php:195
+#: index.php:61
+msgid "There's nothing here!"
+msgstr ""
+
+#. translators: %s: number of comments
+#: comments.php:24
+#, php-format
+msgid "%s Comment"
+msgid_plural "%s Comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:44
+msgid "Comments are closed."
+msgstr ""
+
+#: comments.php:53
+msgid "Your email address will not be published. Required fields are marked *"
+msgstr ""
+
+#: comments.php:56
+msgid "Post Comment"
+msgstr ""
+
+#: comments.php:57
+msgid "Comment message"
+msgstr ""
+
+#: footer.php:16
+msgid "Made with tea by"
+msgstr ""
+
+#: footer.php:67
+msgid "All rights reserved."
+msgstr ""
+
+#: footer.php:69
+msgid "Forked from Plus UI by"
+msgstr ""
+
+#: footer.php:69
+msgid "adapted by"
+msgstr ""
+
+#: footer.php:69
+msgid "powered by"
+msgstr ""
+
+#: functions.php:79
+msgid "Primary Menu (desktop + mobile drawer)"
+msgstr ""
+
+
+#: functions.php:81
+msgid "Footer Column: Product"
+msgstr ""
+
+#: functions.php:82
+msgid "Footer Column: Resources"
+msgstr ""
+
+#: functions.php:83
+msgid "Footer Column: Support"
+msgstr ""
+
+#: functions.php:84
+msgid "Footer Column: Company"
+msgstr ""
+
+#: functions.php:85
+msgid "Under-header Quick Links"
+msgstr ""
+
+#: functions.php:138
+msgid "Footer Column 1 (Product)"
+msgstr ""
+
+#: functions.php:139
+msgid "Footer Column 2 (Resources)"
+msgstr ""
+
+#: functions.php:140
+msgid "Footer Column 3 (Support)"
+msgstr ""
+
+#: functions.php:141
+msgid "Footer Column 4 (Company)"
+msgstr ""
+
+#: functions.php:159
+msgid "Blog Sidebar (below Popular Posts / Labels)"
+msgstr ""
+
+#: header.php:53
+#: header.php:211
+msgid "Navigation menu"
+msgstr ""
+
+#: header.php:79
+#: inc/json-data.php:188
+msgid "Search this site"
+msgstr ""
+
+#: header.php:79
+msgid "Looking for something?"
+msgstr ""
+
+#: header.php:83
+msgid "Clear"
+msgstr ""
+
+#: header.php:96
+#: inc/json-data.php:187
+msgid "Search"
+msgstr ""
+
+#: header.php:104
+msgid "Bookmark"
+msgstr ""
+
+#: header.php:118
+#: header.php:132
+#: inc/json-data.php:219
+msgid "Appearance"
+msgstr ""
+
+#: header.php:126
+#: inc/json-data.php:220
+msgid "Mode"
+msgstr ""
+
+#: header.php:136
+#: header.php:137
+#: header.php:142
+#: inc/json-data.php:221
+msgid "Theme"
+msgstr ""
+
+#. translators: %d: color scheme number
+#: header.php:145
+#, php-format
+msgid "Color scheme %d"
+msgstr ""
+
+#: header.php:154
+msgid "Bookmark Posts"
+msgstr ""
+
+#: header.php:155
+#: header.php:157
+#: header.php:187
+#: header.php:189
+#: header.php:295
+#: inc/json-data.php:208
+#: inc/template-tags.php:340
+#: single.php:144
+#: single.php:146
+#: template-parts/share.php:46
+#: template-parts/share.php:48
+msgid "Close"
+msgstr ""
+
+#: header.php:170
+msgid "The list of favorite articles does not exist yet..."
+msgstr ""
+
+#: header.php:171
+msgid "View all articles"
+msgstr ""
+
+#: header.php:217
+msgid "Sitemap"
+msgstr ""
+
+#: header.php:218
+msgid "Disclaimer"
+msgstr ""
+
+#: header.php:219
+msgid "Privacy"
+msgstr ""
+
+#: inc/ads.php:23
+msgid "Under header"
+msgstr ""
+
+#: inc/ads.php:24
+msgid "Above pinned post (home)"
+msgstr ""
+
+#: inc/ads.php:25
+msgid "Above posts (desktop only)"
+msgstr ""
+
+#: inc/ads.php:26
+msgid "Below posts (home and archives)"
+msgstr ""
+
+#: inc/ads.php:27
+msgid "Sticky sidebar (desktop only)"
+msgstr ""
+
+#: inc/ads.php:39
+msgid "Ads go here (Under Header Ad)"
+msgstr ""
+
+#: inc/ads.php:40
+msgid "Ads go here (Above Pinned Post Ad)"
+msgstr ""
+
+#: inc/ads.php:41
+msgid "Ads go here (Above Posts Ad [Desktop])"
+msgstr ""
+
+#: inc/ads.php:42
+msgid "Ads go here (Below Posts Ad)"
+msgstr ""
+
+#: inc/ads.php:43
+msgid "Ads go here (Sticky Ad [Desktop])"
+msgstr ""
+
+#: inc/ads.php:96
+msgid "WPlus UI: Ads"
+msgstr ""
+
+#: inc/ads.php:97
+msgid "Paste ad code (AdSense or any HTML/script) for each slot. Empty slots print nothing."
+msgstr ""
+
+#: inc/ads.php:112
+msgid "Show ad placeholders on empty slots"
+msgstr ""
+
+#: inc/ads.php:146
+msgid "In-article ad (single posts)"
+msgstr ""
+
+#: inc/ads.php:161
+msgid "Insert in-article ad after paragraph"
+msgstr ""
+
+#: inc/ads.php:174
+msgid "WPlus UI: Header/footer code"
+msgstr ""
+
+#: inc/ads.php:175
+msgid "Analytics, site verification or other snippets. Printed on every page."
+msgstr ""
+
+#: inc/ads.php:180
+msgid "Code before </head>"
+msgstr ""
+
+#: inc/ads.php:181
+msgid "Code before </body>"
+msgstr ""
+
+#: inc/appearance.php:35
+msgid "WPlus UI: Colors and fonts"
+msgstr ""
+
+#: inc/appearance.php:36
+msgid "Leave a field empty to keep the theme default. Visitors can still choose another color scheme."
+msgstr ""
+
+#: inc/appearance.php:42
+msgid "Accent color (light mode)"
+msgstr ""
+
+#: inc/appearance.php:43
+msgid "Accent color (dark mode)"
+msgstr ""
+
+#: inc/appearance.php:76
+msgid "Button and link corner radius (px)"
+msgstr ""
+
+#: inc/appearance.php:87
+msgid "Body font (Google Fonts name)"
+msgstr ""
+
+#: inc/appearance.php:88
+msgid "Heading font (Google Fonts name)"
+msgstr ""
+
+#: inc/appearance.php:101
+msgid "For example: Inter, Lora, Merriweather. Loaded from fonts.googleapis.com."
+msgstr ""
+
+#: inc/blocks.php:21
+msgid "Alert"
+msgstr ""
+
+#: inc/blocks.php:22
+msgid "Alert: info"
+msgstr ""
+
+#: inc/blocks.php:23
+msgid "Alert: success"
+msgstr ""
+
+#: inc/blocks.php:24
+msgid "Alert: warning"
+msgstr ""
+
+#: inc/blocks.php:25
+msgid "Alert: error"
+msgstr ""
+
+#. translators: %s: alert style label
+#: inc/blocks.php:30
+#, php-format
+msgid "%s (outline)"
+msgstr ""
+
+#: inc/blocks.php:37
+#: inc/blocks.php:188
+msgid "Note"
+msgstr ""
+
+#: inc/blocks.php:38
+msgid "Note: warning"
+msgstr ""
+
+#: inc/blocks.php:39
+msgid "First line indent"
+msgstr ""
+
+#: inc/blocks.php:40
+msgid "Reference"
+msgstr ""
+
+#: inc/blocks.php:43
+msgid "Accordion group"
+msgstr ""
+
+#: inc/blocks.php:46
+msgid "Data table"
+msgstr ""
+
+#: inc/blocks.php:49
+#: inc/blocks.php:195
+msgid "Steps"
+msgstr ""
+
+#: inc/blocks.php:52
+msgid "Highlighted"
+msgstr ""
+
+#: inc/blocks.php:53
+msgid "With quote icon"
+msgstr ""
+
+#: inc/blocks.php:56
+#: inc/blocks.php:198
+msgid "Accordion"
+msgstr ""
+
+#: inc/blocks.php:57
+msgid "Accordion (alternate)"
+msgstr ""
+
+#: inc/blocks.php:58
+#: inc/blocks.php:199
+msgid "Spoiler"
+msgstr ""
+
+#: inc/blocks.php:178
+msgid "Your message goes here."
+msgstr ""
+
+#: inc/blocks.php:184
+msgid "Your text goes here."
+msgstr ""
+
+#: inc/blocks.php:188
+msgid "Info!"
+msgstr ""
+
+#: inc/blocks.php:188
+msgid "Your note goes here."
+msgstr ""
+
+#: inc/blocks.php:189
+msgid "Warning note"
+msgstr ""
+
+#: inc/blocks.php:189
+msgid "Warning!"
+msgstr ""
+
+#: inc/blocks.php:189
+msgid "Your warning goes here."
+msgstr ""
+
+#: inc/blocks.php:191
+msgid "Alerts"
+msgstr ""
+
+#: inc/blocks.php:192
+msgid "Info"
+msgstr ""
+
+#: inc/blocks.php:192
+msgid "Success"
+msgstr ""
+
+#: inc/blocks.php:192
+msgid "Warning"
+msgstr ""
+
+#: inc/blocks.php:192
+msgid "Error"
+msgstr ""
+
+#: inc/blocks.php:196
+msgid "First step"
+msgstr ""
+
+#: inc/blocks.php:196
+msgid "Second step"
+msgstr ""
+
+#: inc/blocks.php:196
+msgid "Third step"
+msgstr ""
+
+#: inc/blocks.php:198
+msgid "Question or title"
+msgstr ""
+
+#: inc/blocks.php:199
+msgid "Spoiler:"
+msgstr ""
+
+#: inc/blocks.php:201
+msgid "Buttons"
+msgstr ""
+
+#: inc/blocks.php:202
+msgid "Button text"
+msgstr ""
+
+#: inc/blocks.php:202
+msgid "Outline button"
+msgstr ""
+
+#: inc/blocks.php:205
+msgid "Quotes"
+msgstr ""
+
+#: inc/blocks.php:206
+msgid "A highlighted quote."
+msgstr ""
+
+#: inc/blocks.php:206
+msgid "A quote with an icon."
+msgstr ""
+
+#: inc/blocks.php:209
+msgid "Download box"
+msgstr ""
+
+#: inc/blocks.php:210
+msgid "Download"
+msgstr ""
+
+#: inc/blocks.php:213
+msgid "Tabs"
+msgstr ""
+
+#: inc/blocks.php:214
+msgid "First"
+msgstr ""
+
+#: inc/blocks.php:214
+msgid "First tab content"
+msgstr ""
+
+#: inc/blocks.php:214
+msgid "Second"
+msgstr ""
+
+#: inc/blocks.php:214
+msgid "Second tab content"
+msgstr ""
+
+#: inc/comments.php:35
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: inc/comments.php:46
+#: inc/json-data.php:225
+msgid "Reply"
+msgstr ""
+
+#: inc/content-options.php:22
+msgid "Popular Posts"
+msgstr ""
+
+#: inc/content-options.php:111
+msgid "Please enable JavaScript to view the comments."
+msgstr ""
+
+#: inc/content-options.php:124
+msgid "WPlus UI: Popular posts and comments"
+msgstr ""
+
+#: inc/content-options.php:139
+msgid "Show Popular Posts in the sidebar"
+msgstr ""
+
+#: inc/content-options.php:155
+msgid "Popular Posts title"
+msgstr ""
+
+#: inc/content-options.php:156
+#: inc/post-options.php:121
+msgid "Leave empty for the default."
+msgstr ""
+
+#: inc/content-options.php:172
+msgid "Number of popular posts"
+msgstr ""
+
+#: inc/content-options.php:194
+msgid "Rank popular posts by"
+msgstr ""
+
+#: inc/content-options.php:198
+msgid "Views, then comments"
+msgstr ""
+
+#: inc/content-options.php:199
+#: inc/json-data.php:180
+#: single.php:57
+msgid "Comments"
+msgstr ""
+
+#: inc/content-options.php:200
+#: inc/template-tags.php:389
+#: inc/template-tags.php:391
+msgid "Newest"
+msgstr ""
+
+#: inc/content-options.php:215
+msgid "Hide categories from the home page"
+msgstr ""
+
+#: inc/content-options.php:216
+msgid "Comma-separated category slugs or IDs. They still show in archives and search."
+msgstr ""
+
+#: inc/content-options.php:232
+msgid "Disqus shortname"
+msgstr ""
+
+#: inc/content-options.php:233
+msgid "Use Disqus instead of WordPress comments. Leave empty to keep native comments."
+msgstr ""
+
+#: inc/customizer.php:48
+msgid "Facebook"
+msgstr ""
+
+#: inc/customizer.php:49
+msgid "Instagram"
+msgstr ""
+
+#: inc/customizer.php:50
+msgid "X / Twitter"
+msgstr ""
+
+#: inc/customizer.php:51
+msgid "Pinterest"
+msgstr ""
+
+#: inc/customizer.php:52
+msgid "Snapchat"
+msgstr ""
+
+#: inc/customizer.php:53
+msgid "Discord"
+msgstr ""
+
+#: inc/customizer.php:54
+msgid "YouTube"
+msgstr ""
+
+#: inc/customizer.php:55
+msgid "TikTok"
+msgstr ""
+
+#: inc/customizer.php:56
+msgid "Telegram"
+msgstr ""
+
+#: inc/customizer.php:57
+msgid "LinkedIn"
+msgstr ""
+
+#: inc/customizer.php:102
+msgid "WPlus UI Theme Options"
+msgstr ""
+
+#: inc/customizer.php:119
+msgid "Default light/dark mode"
+msgstr ""
+
+#: inc/customizer.php:123
+#: inc/json-data.php:222
+msgid "Light"
+msgstr ""
+
+#: inc/customizer.php:124
+#: inc/json-data.php:223
+msgid "Dark"
+msgstr ""
+
+#: inc/customizer.php:125
+#: inc/json-data.php:224
+msgid "System"
+msgstr ""
+
+#: inc/customizer.php:140
+msgid "Default accent color scheme (0-15)"
+msgstr ""
+
+#: inc/customizer.php:160
+msgid "Dismissible notification bar text (leave empty to hide)"
+msgstr ""
+
+#: inc/customizer.php:161
+msgid "HTML allowed, e.g. links. Visitors who dismiss it won’t see it again for 24h."
+msgstr ""
+
+#: inc/customizer.php:177
+msgid "Notification bar button label (optional, e.g. \"Reach out!\")"
+msgstr ""
+
+#: inc/customizer.php:193
+msgid "Notification bar button URL"
+msgstr ""
+
+#: inc/customizer.php:209
+msgid "Homepage category sections"
+msgstr ""
+
+#: inc/customizer.php:210
+msgid "Comma-separated category slugs shown under Latest Posts (6 posts each). Leave empty to hide."
+msgstr ""
+
+#. translators: %d: slide number
+#: inc/customizer.php:231
+#, php-format
+msgid "Carousel slide %d image (optional)"
+msgstr ""
+
+#. translators: %d: slide number
+#: inc/customizer.php:247
+#, php-format
+msgid "Carousel slide %d title"
+msgstr ""
+
+#. translators: %d: slide number
+#: inc/customizer.php:277
+#, php-format
+msgid "Carousel slide %d caption (optional)"
+msgstr ""
+
+#. translators: %d: slide number
+#: inc/customizer.php:263
+#, php-format
+msgid "Carousel slide %d link"
+msgstr ""
+
+#: inc/customizer.php:273
+msgid "A modern, responsive WordPress theme."
+msgstr ""
+
+#: inc/customizer.php:280
+msgid "Footer \"about\" blurb"
+msgstr ""
+
+#. translators: %s: social network name
+#: inc/customizer.php:299
+#, php-format
+msgid "%s URL"
+msgstr ""
+
+#: inc/demo-setup.php:17
+#: inc/demo-setup.php:18
+#: inc/demo-setup.php:56
+msgid "WPlus UI Demo"
+msgstr ""
+
+#. translators: 1: link to the XML file, 2: link to Tools > Import
+#: inc/demo-setup.php:65
+#, php-format
+msgid "Download the <a href=\"%1$s\" download>demo content file</a>, then open <a href=\"%2$s\">Tools &rarr; Import</a>, install the WordPress Importer and import it. Assign the posts to your user and leave \"Download and import file attachments\" unticked."
+msgstr ""
+
+#: inc/demo-setup.php:71
+msgid "Demo posts found."
+msgstr ""
+
+#: inc/demo-setup.php:74
+msgid "Press the button below. It attaches the bundled images, assigns the menus and footer widgets, applies the Customizer settings and sets the sticky and featured posts. It is safe to run more than once."
+msgstr ""
+
+#: inc/demo-setup.php:78
+msgid "Finish demo setup"
+msgstr ""
+
+#: inc/demo-setup.php:80
+msgid "This also sets \"Blog pages show at most\" to 6 and removes the default \"Hello world!\" post and sample page."
+msgstr ""
+
+#. translators: %s: search query
+#: inc/json-data.php:93
+#: search.php:21
+#, php-format
+msgid "Search results for: %s"
+msgstr ""
+
+#: inc/json-data.php:96
+msgid "Page not found"
+msgstr ""
+
+#: inc/json-data.php:175
+#: inc/template-tags.php:67
+msgid "Edit"
+msgstr ""
+
+#: inc/json-data.php:176
+#: single.php:136
+#: single.php:142
+msgid "Post a Comment"
+msgstr ""
+
+#: inc/json-data.php:177
+#: single.php:62
+#: single.php:64
+#: template-parts/share.php:31
+msgid "Share"
+msgstr ""
+
+#: inc/json-data.php:178
+msgid "Newer Posts"
+msgstr ""
+
+#: inc/json-data.php:179
+msgid "Older Posts"
+msgstr ""
+
+#: inc/json-data.php:181
+msgid "Link copied to clipboard!"
+msgstr ""
+
+#: inc/json-data.php:182
+#: sidebar.php:86
+msgid "Show less"
+msgstr ""
+
+#: inc/json-data.php:183
+#: sidebar.php:86
+msgid "Show more"
+msgstr ""
+
+#: inc/json-data.php:185
+msgid "Posts"
+msgstr ""
+
+#: inc/json-data.php:186
+#: sidebar.php:78
+msgid "Labels"
+msgstr ""
+
+#: inc/json-data.php:189
+#: index.php:45
+msgid "Latest Posts"
+msgstr ""
+
+#: inc/json-data.php:190
+#: template-parts/share.php:83
+msgid "Copy to clipboard"
+msgstr ""
+
+#: inc/json-data.php:191
+msgid "Load more posts"
+msgstr ""
+
+#: inc/json-data.php:192
+msgid "Loading&hellip;"
+msgstr ""
+
+#: inc/json-data.php:193
+#: search.php:39
+msgid "No results found"
+msgstr ""
+
+#: inc/json-data.php:194
+msgid "Posted by"
+msgstr ""
+
+#: inc/json-data.php:196
+msgid "Ads go here"
+msgstr ""
+
+#: inc/json-data.php:197
+msgid "Email Address"
+msgstr ""
+
+#: inc/json-data.php:198
+#: inc/template-tags.php:148
+msgid "Keep reading"
+msgstr ""
+
+#: inc/json-data.php:201
+#: inc/template-tags.php:127
+#: sidebar.php:50
+msgid "in"
+msgstr ""
+
+#: inc/json-data.php:202
+msgid "Location:"
+msgstr ""
+
+#: inc/json-data.php:205
+msgid "New!"
+msgstr ""
+
+#: inc/json-data.php:206
+msgid "Free!"
+msgstr ""
+
+#: inc/json-data.php:207
+msgid "Open"
+msgstr ""
+
+#: inc/json-data.php:209
+msgid "Hide all"
+msgstr ""
+
+#: inc/json-data.php:210
+msgid "Show all"
+msgstr ""
+
+#: inc/json-data.php:211
+#: inc/template-tags.php:302
+#: inc/template-tags.php:435
+msgid "Previous"
+msgstr ""
+
+#: inc/json-data.php:212
+#: inc/template-tags.php:310
+#: inc/template-tags.php:437
+msgid "Next"
+msgstr ""
+
+#: inc/json-data.php:213
+#: template-parts/share.php:89
+msgid "Copy"
+msgstr ""
+
+#: inc/json-data.php:214
+msgid "Copied"
+msgstr ""
+
+#: inc/json-data.php:215
+#: single.php:71
+msgid "Published"
+msgstr ""
+
+#: inc/json-data.php:216
+#: inc/template-tags.php:147
+#: single.php:72
+msgid "Updated"
+msgstr ""
+
+#: inc/json-data.php:217
+#: inc/template-tags.php:45
+msgid "Save"
+msgstr ""
+
+#: inc/json-data.php:218
+#: inc/template-tags.php:46
+msgid "Saved"
+msgstr ""
+
+#: inc/json-data.php:226
+msgid "Delete"
+msgstr ""
+
+#: inc/json-data.php:227
+#: single.php:25
+msgid "Welcome!"
+msgstr ""
+
+#: inc/json-data.php:228
+msgid "Good morning!"
+msgstr ""
+
+#: inc/json-data.php:229
+msgid "Good afternoon!"
+msgstr ""
+
+#: inc/json-data.php:230
+msgid "Good evening!"
+msgstr ""
+
+#: inc/json-data.php:231
+msgid "Good night!"
+msgstr ""
+
+#: inc/json-data.php:232
+msgid "Time to sleep!"
+msgstr ""
+
+#: inc/json-data.php:233
+msgid "Have sweet dreams!"
+msgstr ""
+
+#: inc/json-data.php:234
+#: single.php:73
+msgid "Estimated read time"
+msgstr ""
+
+#: inc/json-data.php:235
+msgid "Continue reading..."
+msgstr ""
+
+#: inc/json-data.php:236
+msgid "Code block"
+msgstr ""
+
+#: inc/json-data.php:237
+msgid "Inline code"
+msgstr ""
+
+#: inc/json-data.php:238
+msgid "Copy code"
+msgstr ""
+
+#: inc/json-data.php:239
+msgid "Copied code!"
+msgstr ""
+
+#: inc/json-data.php:240
+#: template-parts/share.php:83
+msgid "or copy link"
+msgstr ""
+
+#: inc/json-data.php:241
+msgid "You are offline"
+msgstr ""
+
+#: inc/json-data.php:242
+msgid "You are online"
+msgstr ""
+
+#: inc/json-data.php:243
+#: inc/post-options.php:41
+msgid "Related Posts"
+msgstr ""
+
+#: inc/json-data.php:244
+msgid "Added to bookmarks"
+msgstr ""
+
+#: inc/json-data.php:245
+msgid "Removed from bookmarks"
+msgstr ""
+
+#: inc/meta-boxes.php:48
+msgid "Tab"
+msgstr ""
+
+#: inc/post-options.php:60
+msgid "Written by"
+msgstr ""
+
+#: inc/post-options.php:79
+msgid "WPlus UI: Layout and posts"
+msgstr ""
+
+#: inc/post-options.php:85
+msgid "Show sidebar on the home page"
+msgstr ""
+
+#: inc/post-options.php:86
+msgid "Show sidebar on single posts"
+msgstr ""
+
+#: inc/post-options.php:87
+msgid "Show sidebar on search results"
+msgstr ""
+
+#: inc/post-options.php:88
+msgid "Show the table of contents button on posts and pages"
+msgstr ""
+
+#: inc/post-options.php:89
+msgid "Show an author box under posts"
+msgstr ""
+
+#: inc/post-options.php:90
+msgid "Show related posts"
+msgstr ""
+
+#: inc/post-options.php:120
+msgid "Related posts title"
+msgstr ""
+
+#: inc/post-options.php:136
+msgid "Number of related posts"
+msgstr ""
+
+#: inc/share.php:64
+msgid "— None —"
+msgstr ""
+
+#: inc/share.php:72
+msgid "WPlus UI: Sharing"
+msgstr ""
+
+#: inc/share.php:87
+msgid "Show share buttons on posts"
+msgstr ""
+
+#. translators: %d: button number
+#: inc/share.php:109
+#, php-format
+msgid "Quick button %d"
+msgstr ""
+
+#. translators: %s: network name
+#: inc/share.php:130
+#, php-format
+msgid "Popup: %s"
+msgstr ""
+
+#: inc/template-tags.php:67
+msgid "Edit this post"
+msgstr ""
+
+#: inc/template-tags.php:70
+msgid "Add to bookmark"
+msgstr ""
+
+#: inc/template-tags.php:184
+msgid "View all"
+msgstr ""
+
+#: inc/template-tags.php:339
+#: inc/template-tags.php:342
+msgid "Table of contents"
+msgstr ""
+
+#: inc/template-tags.php:399
+#: inc/template-tags.php:401
+msgid "Oldest"
+msgstr ""
+
+#. translators: 1: current page, 2: total pages
+#: inc/template-tags.php:427
+#, php-format
+msgid "Page %1$d of %2$d:"
+msgstr ""
+
+#. translators: %d: page number
+#: inc/template-tags.php:440
+#, php-format
+msgid "Page %d"
+msgstr ""
+
+#: index.php:23
+msgid "Pinned Post"
+msgstr ""
+
+#: single.php:49
+msgid "Published by"
+msgstr ""
+
+#. translators: %s: author name
+#: single.php:49
+#, php-format
+msgid "Published by %s"
+msgstr ""
+
+#: single.php:53
+msgid "Read later"
+msgstr ""
+
+#: template-parts/share.php:28
+msgid "Share:"
+msgstr ""
+
+#: template-parts/share.php:37
+#: template-parts/share.php:45
+msgid "Share to other apps"
+msgstr ""
+
+#: inc/custom-blocks.php:124
+msgid "Table of Contents"
+msgstr ""
+
+#: inc/custom-blocks.php:233
+#: assets/js/editor.js:213
+msgid "Lazy YouTube"
+msgstr ""
+
+#: inc/custom-blocks.php:303
+msgid "Show all image"
+msgstr ""
+
+#: inc/custom-blocks.php:303
+msgid "Show All"
+msgstr ""
+
+#: inc/custom-blocks.php:326
+msgid "Image grid"
+msgstr ""
+
+#: inc/custom-blocks.php:327
+msgid "Image grid with Show All"
+msgstr ""
+
+#: inc/custom-blocks.php:328
+msgid "Scrolling images"
+msgstr ""
+
+#: inc/custom-blocks.php:342
+msgid "Related links"
+msgstr ""
+
+#: inc/engagement.php:18
+msgid "WPlus UI: Engagement"
+msgstr ""
+
+#: inc/engagement.php:24
+msgid "Show floating WhatsApp button"
+msgstr ""
+
+#: inc/engagement.php:25
+msgid "WhatsApp number (digits with country code)"
+msgstr ""
+
+#: inc/engagement.php:26
+msgid "WhatsApp opening message"
+msgstr ""
+
+#: inc/engagement.php:27
+msgid "WhatsApp button side"
+msgstr ""
+
+#: inc/engagement.php:28
+msgid "Show call-to-action popup"
+msgstr ""
+
+#: inc/engagement.php:29
+msgid "Popup title"
+msgstr ""
+
+#: inc/engagement.php:30
+msgid "Popup text"
+msgstr ""
+
+#: inc/engagement.php:31
+msgid "Popup button text"
+msgstr ""
+
+#: inc/engagement.php:32
+msgid "Popup button link"
+msgstr ""
+
+#: inc/engagement.php:33
+msgid "Popup delay (seconds)"
+msgstr ""
+
+#: inc/engagement.php:34
+msgid "Enable Coming Soon page (visitors only)"
+msgstr ""
+
+#: inc/engagement.php:35
+msgid "Coming Soon title"
+msgstr ""
+
+#: inc/engagement.php:36
+msgid "Coming Soon text"
+msgstr ""
+
+#: inc/engagement.php:72
+msgid "Right"
+msgstr ""
+
+#: inc/engagement.php:73
+msgid "Left"
+msgstr ""
+
+#: inc/engagement.php:124
+msgid "Chat on WhatsApp"
+msgstr ""
+
+#: inc/engagement.php:170
+msgid "Coming Soon"
+msgstr ""
+
+#: assets/js/editor.js:64
+msgid "Style"
+msgstr ""
+
+#: assets/js/editor.js:68
+msgid "Code tabs (use Code blocks inside)"
+msgstr ""
+
+#: assets/js/editor.js:75
+msgid "Keep the tab bar visible while scrolling"
+msgstr ""
+
+#: assets/js/editor.js:89
+msgid "Tab 1"
+msgstr ""
+
+#: assets/js/editor.js:90
+msgid "Tab 2"
+msgstr ""
+
+#: assets/js/editor.js:109
+msgid "Tab title"
+msgstr ""
+
+#: assets/js/editor.js:146
+msgid "File"
+msgstr ""
+
+#: assets/js/editor.js:147
+msgid "File type label (zip, pdf…)"
+msgstr ""
+
+#: assets/js/editor.js:148
+msgid "File name"
+msgstr ""
+
+#: assets/js/editor.js:149
+msgid "File size"
+msgstr ""
+
+#: assets/js/editor.js:150
+msgid "Download URL"
+msgstr ""
+
+#: assets/js/editor.js:173
+msgid "Title (empty = default)"
+msgstr ""
+
+#: assets/js/editor.js:175
+msgid "Open by default"
+msgstr ""
+
+#: assets/js/editor.js:183
+msgid "Built from the headings of the post when the page loads."
+msgstr ""
+
+#: assets/js/editor.js:203
+msgid "Video"
+msgstr ""
+
+#: assets/js/editor.js:204
+msgid "YouTube video ID"
+msgstr ""
+
+#: assets/js/editor.js:205
+msgid "Aspect ratio (default 16 / 9)"
+msgstr ""
+
+#: assets/js/editor.js:213
+msgid "Enter the video ID in the block settings."
+msgstr ""
+
+#: assets/js/editor.js:261
+msgid "Code sample header"
+msgstr ""
+
+#: assets/js/editor.js:262
+msgid "File name (e.g. src/index.html)"
+msgstr ""
+
+#: assets/js/editor.js:263
+msgid "Comment (e.g. .html)"
+msgstr ""
+
+#: assets/js/editor.js:273
+msgid "Mark"
+msgstr ""
+
+#: assets/js/editor.js:274
+msgid "Mark: block"
+msgstr ""
+
+#: assets/js/editor.js:275
+msgid "Mark: purple"
+msgstr ""
+
+#: assets/js/editor.js:276
+msgid "Mark: block purple"
+msgstr ""
+
+#: assets/js/editor.js:277
+msgid "Mark: blue"
+msgstr ""
+
+#: assets/js/editor.js:278
+msgid "Mark: green block"
+msgstr ""
+
+#: assets/js/editor.js:279
+msgid "Mark: red"
+msgstr ""
+
+#: assets/js/editor.js:280
+msgid "Mark: orange"
+msgstr ""
+
+#: assets/js/editor.js:281
+msgid "Mark: gray"
+msgstr ""
+
+#: assets/js/editor.js:284
+#: assets/js/editor.js:317
+msgid "Code mark"
+msgstr ""
+
+#: assets/js/editor.js:303
+msgid "Set label…"
+msgstr ""
+
+#: assets/js/editor.js:305
+msgid "Label shown before the marked text"
+msgstr ""
+
+#: assets/js/editor.js:312
+msgid "Remove mark"
+msgstr ""
+
+#: inc/customizer.php:304
+msgid "Footer menu column %1$d title (default: %2$s)"
+msgstr ""
+
+#: inc/customizer.php:305
+msgid "Used when a menu is assigned to a \"Footer Column\" location. Columns without a menu show their widgets."
+msgstr ""
+
+#: inc/template-tags.php:458
+msgid "Product"
+msgstr ""
+
+#: inc/template-tags.php:459
+msgid "Resources"
+msgstr ""
+
+#: inc/template-tags.php:460
+msgid "Support"
+msgstr ""
+
+#: inc/template-tags.php:461
+msgid "Company"
+msgstr ""
+
+#: inc/customizer.php:223
+msgid "Show the homepage carousel"
+msgstr ""
+
+#: inc/customizer.php:224
+msgid "Show the Pinned Post box on the homepage"
+msgstr ""
+
+#: inc/nav-icon-library.php:20
+msgid "User"
+msgstr ""
+
+#: inc/nav-icon-library.php:21
+msgid "Users"
+msgstr ""
+
+#: inc/nav-icon-library.php:22
+msgid "Mail"
+msgstr ""
+
+#: inc/nav-icon-library.php:23
+msgid "Phone"
+msgstr ""
+
+#: inc/nav-icon-library.php:24
+msgid "Location"
+msgstr ""
+
+#: inc/nav-icon-library.php:25
+msgid "Star"
+msgstr ""
+
+#: inc/nav-icon-library.php:26
+msgid "Heart"
+msgstr ""
+
+#: inc/nav-icon-library.php:28
+msgid "Tag"
+msgstr ""
+
+#: inc/nav-icon-library.php:29
+msgid "Document"
+msgstr ""
+
+#: inc/nav-icon-library.php:30
+msgid "Image"
+msgstr ""
+
+#: inc/nav-icon-library.php:32
+msgid "Music"
+msgstr ""
+
+#: inc/nav-icon-library.php:33
+msgid "Code"
+msgstr ""
+
+#: inc/nav-icon-library.php:34
+msgid "Terminal"
+msgstr ""
+
+#: inc/nav-icon-library.php:35
+msgid "Settings"
+msgstr ""
+
+#: inc/nav-icon-library.php:37
+msgid "Cart"
+msgstr ""
+
+#: inc/nav-icon-library.php:38
+msgid "Shopping bag"
+msgstr ""
+
+#: inc/nav-icon-library.php:39
+msgid "Payment"
+msgstr ""
+
+#: inc/nav-icon-library.php:40
+msgid "Calendar"
+msgstr ""
+
+#: inc/nav-icon-library.php:41
+msgid "Clock"
+msgstr ""
+
+#: inc/nav-icon-library.php:42
+msgid "Globe"
+msgstr ""
+
+#: inc/nav-icon-library.php:43
+msgid "Link"
+msgstr ""
+
+#: inc/nav-icon-library.php:45
+msgid "Help"
+msgstr ""
+
+#: inc/nav-icon-library.php:46
+msgid "Notifications"
+msgstr ""
+
+#: inc/nav-icon-library.php:47
+msgid "RSS"
+msgstr ""
+
+#: inc/nav-icon-library.php:49
+msgid "Grid"
+msgstr ""
+
+#: inc/nav-icon-library.php:50
+msgid "Layers"
+msgstr ""
+
+#: inc/nav-icon-library.php:51
+msgid "Award"
+msgstr ""
+
+#: inc/nav-icon-library.php:52
+msgid "Briefcase"
+msgstr ""
+
+#: inc/nav-icon-library.php:53
+msgid "Book"
+msgstr ""
+
+#: inc/nav-icon-library.php:54
+msgid "Camera"
+msgstr ""
+
+#: inc/nav-icon-library.php:55
+msgid "Lock"
+msgstr ""
+
+#: inc/nav-icon-library.php:56
+msgid "Security"
+msgstr ""
+
+#: inc/nav-icon-library.php:57
+msgid "Lightning"
+msgstr ""
+
+#: inc/nav-icon-library.php:58
+msgid "Trends"
+msgstr ""
+
+#: inc/nav-icon-library.php:59
+msgid "Chart"
+msgstr ""
+
+#: inc/nav-icon-library.php:60
+msgid "Tools"
+msgstr ""
+
+#: inc/nav-icon-library.php:61
+msgid "Coffee"
+msgstr ""
+
+#: inc/nav-icon-library.php:62
+msgid "Chat"
+msgstr ""
+
+#: inc/nav-icon-library.php:63
+msgid "Folder (default)"
+msgstr ""
+
+#: inc/nav-icon-library.php:93
+msgid "WPlus UI icon"
+msgstr ""
+
+#: inc/nav-icon-library.php:95
+msgid "Automatic (theme default)"
+msgstr ""
+
+#: inc/nav-icon-library.php:96
+msgid "No icon"
+msgstr ""
+
+#: inc/nav-icon-library.php:102
+msgid "In the Customizer menu editor, add the CSS class ico-home, ico-mail, ico-none, etc. instead."
+msgstr ""
+
+#: inc/nav-icon-library.php:109
+msgid "WPlus UI menu options"
+msgstr ""
+
+#: inc/nav-icon-library.php:110
+msgid "Divider line after this item"
+msgstr ""
+
+#: inc/nav-icon-library.php:111
+msgid "Notification dot"
+msgstr ""
+
+#: inc/nav-icon-library.php:112
+msgid "Collapsible \"More...\" group that starts open (for items with sub-items)"
+msgstr ""
+
+#: inc/nav-icon-library.php:113
+msgid "Badge"
+msgstr ""
+
+#: inc/nav-icon-library.php:115
+msgid "None"
+msgstr ""
+
+#: inc/nav-icon-library.php:116
+msgid "New"
+msgstr ""
+
+#: inc/nav-icon-library.php:117
+msgid "Free"
+msgstr ""
+
+#: inc/nav-icon-library.php:120
+msgid "Tip: a Custom Link titled --- (three hyphens) draws a divider line on its own. In the Customizer, use the CSS classes br, nt, mr, new or free."
+msgstr ""
+
+#: inc/post-options.php:96
+msgid "Left menu on desktop"
+msgstr ""
+
+#: inc/post-options.php:97
+msgid "How the left menu looks when a page opens. Visitors can still open or close it with the button next to the site name. On phones the menu is always a drawer."
+msgstr ""
+
+#: inc/post-options.php:101
+msgid "Collapsed (icons only)"
+msgstr ""
+
+#: inc/post-options.php:102
+msgid "Expanded (icons and labels)"
+msgstr ""
+
+#: inc/template-tags.php:105
+msgid "No image"
+msgstr ""
+
+#: inc/json-data.php:216
+msgid "Failed to load"
+msgstr ""
+
+#: inc/customizer.php:51
+msgid "Threads"
+msgstr ""
+
+#: inc/customizer.php:52
+msgid "Bluesky"
+msgstr ""
+
+#: inc/customizer.php:53
+msgid "WhatsApp"
+msgstr ""
+
+#: inc/coming-soon.php:23
+msgid "We will be back soon"
+msgstr ""
+
+#: inc/coming-soon.php:25
+msgid "The site is being updated. Please check back in a little while."
+msgstr ""
+
+#: inc/coming-soon.php:26
+msgid "Something new is on its way. Stay tuned!"
+msgstr ""
+
+#: inc/coming-soon.php:27
+msgid "Maintenance"
+msgstr ""
+
+#: inc/coming-soon.php:28
+msgid "Days, Hours, Minutes, Seconds"
+msgstr ""
+
+#: inc/coming-soon.php:29
+msgid "We are almost back. Please refresh in a moment."
+msgstr ""
+
+#: inc/coming-soon.php:29
+msgid "We are live! Refresh the page to come in."
+msgstr ""
+
+#: inc/coming-soon.php:83
+msgid "Coming Soon / Maintenance page for visitors"
+msgstr ""
+
+#: inc/coming-soon.php:84
+msgid "Visitors see a single page instead of the site. People who can edit posts still see the site; to see the page yourself add ?wplusui-preview=1 to an address of your site."
+msgstr ""
+
+#: inc/coming-soon.php:88
+msgid "Off (the site is open)"
+msgstr ""
+
+#: inc/coming-soon.php:89
+msgid "Coming Soon (before launch)"
+msgstr ""
+
+#: inc/coming-soon.php:90
+msgid "Maintenance (back soon)"
+msgstr ""
+
+#: inc/coming-soon.php:95
+msgid "Leave empty to use the default text."
+msgstr ""
+
+#: inc/coming-soon.php:96
+msgid "Page title"
+msgstr ""
+
+#: inc/coming-soon.php:96
+msgid "Default: \"Coming Soon\", or \"We will be back soon\" in Maintenance mode."
+msgstr ""
+
+#: inc/coming-soon.php:97
+msgid "Page text"
+msgstr ""
+
+#: inc/coming-soon.php:98
+msgid "Small label above the title"
+msgstr ""
+
+#: inc/coming-soon.php:98
+msgid "Default: \"Coming Soon\" or \"Maintenance\"."
+msgstr ""
+
+#: inc/coming-soon.php:101
+msgid "Launch / back-online date and time"
+msgstr ""
+
+#: inc/coming-soon.php:107
+msgid "Optional. Uses the time zone of the site (Settings > General). Shows a countdown."
+msgstr ""
+
+#: inc/coming-soon.php:110
+msgid "Countdown labels"
+msgstr ""
+
+#: inc/coming-soon.php:110
+msgid "Four words separated by commas, in this order: days, hours, minutes, seconds. Default: Days, Hours, Minutes, Seconds."
+msgstr ""
+
+#: inc/coming-soon.php:111
+msgid "Message when the countdown ends"
+msgstr ""
+
+#: inc/coming-soon.php:114
+msgid "Open the site automatically when the countdown ends"
+msgstr ""
+
+#: inc/coming-soon.php:115
+msgid "Show the social icons from Customizer > WPlus UI"
+msgstr ""
+
+#: inc/coming-soon.php:146
+msgid "Background picture (optional)"
+msgstr ""
+
+#: inc/coming-soon.php:152
+msgid "Button text (optional)"
+msgstr ""
+
+#: inc/coming-soon.php:153
+msgid "Button link (optional)"
+msgstr ""
+
+#: inc/coming-soon.php:153
+msgid "For example a contact page, WhatsApp link or mailto: address."
+msgstr ""
+
+#: inc/ads.php:97
+msgid "Paste ad code (AdSense or any HTML/script) for each slot. Empty slots print nothing unless \"Show ad placeholders\" is ticked."
+msgstr ""
+
+#: inc/contact-form.php:30
+msgid "Your name"
+msgstr ""
+
+#: inc/contact-form.php:33
+msgid "Your email"
+msgstr ""
+
+#: inc/contact-form.php:37
+msgid "Subject"
+msgstr ""
+
+#: inc/contact-form.php:40
+msgid "Your message"
+msgstr ""
+
+#: inc/contact-form.php:43
+msgid "Send message"
+msgstr ""
+
+#: inc/contact-form.php:75
+msgid "Create a form in Contact > Add New and it will appear here."
+msgstr ""
+
+#: inc/contact-form.php:76
+msgid "Install and activate the Contact Form 7 plugin to show the contact form here."
+msgstr ""
+
+#: inc/contact-form.php:77
+msgid "Contact form"
+msgstr ""
+
+#: inc/contact-form.php:88
+msgid "Have a question or an idea? Send us a message with the form below and we will reply as soon as we can."
+msgstr ""
+
+#: inc/contact-form.php:96
+msgid "Good to know"
+msgstr ""
+
+#: inc/contact-form.php:96
+msgid "We usually answer within one or two working days."
+msgstr ""
+
+#: inc/contact-form.php:107
+msgid "Contact page (Contact Form 7)"
+msgstr ""
+
+#: inc/contact-form.php:131
+msgid "Contact form 1"
+msgstr ""
+
+#: inc/contact-form.php:145
+msgid "Contact"
+msgstr ""
+
+#: inc/nav-icon-library.php:112
+msgid "Sub-menu starts open (for items with sub-items)"
+msgstr ""
+
+#: inc/nav-icon-library.php:113
+msgid "Flat \"More...\" group instead of a sub-menu (small label, no indent, always open)"
+msgstr ""
+
+#: inc/nav-icon-library.php:121
+msgid "Tip: a Custom Link titled --- (three hyphens) draws a divider line on its own. In the Customizer, use the CSS classes br, nt, open, mr, new or free."
+msgstr ""
+
+#: inc/footer-options.php:22
+msgid "WPlus UI: Footer"
+msgstr ""
+
+#: inc/footer-options.php:23
+msgid "The footer has an about block, four link columns, social icons and a copyright line."
+msgstr ""
+
+#: inc/footer-options.php:38
+msgid "About text under the site name"
+msgstr ""
+
+#: inc/footer-options.php:44
+msgid "No menu (use the widgets of this column)"
+msgstr ""
+
+#: inc/footer-options.php:50
+msgid "Pick a menu for this column, or create one in %s. Without a menu the column shows its widgets (Appearance > Widgets)."
+msgstr ""
+
+#: inc/footer-options.php:51
+msgid "Appearance > Menus"
+msgstr ""
+
+#: inc/footer-options.php:66
+msgid "Column %d: menu"
+msgstr ""
+
+#: inc/footer-options.php:85
+msgid "Column %1$d: title (default: %2$s)"
+msgstr ""
+
+#: inc/footer-options.php:86
+msgid "The title is used when the column shows a menu. A column that shows widgets keeps the title of its widget."
+msgstr ""
+
+#: inc/footer-options.php:104
+msgid "Copyright text"
+msgstr ""
+
+#: inc/footer-options.php:105
+msgid "Leave empty for \"© year · Site name · All rights reserved.\" Write {year} to print the current year."
+msgstr ""
+
+#: inc/footer-options.php:125
+msgid "Social icons show only for the networks with a link. They appear in the footer, the menu drawer and the Coming Soon page."
+msgstr ""
+
+#: inc/engagement.php:88
+msgid "Popup picture (optional)"
+msgstr ""
+
+#: inc/engagement.php:89
+msgid "A wide picture works best. Leave empty for a text-only popup."
+msgstr ""
+
+#: inc/engagement.php:107
+msgid "Picture position"
+msgstr ""
+
+#: inc/engagement.php:111
+msgid "Above the text"
+msgstr ""
+
+#: inc/engagement.php:112
+msgid "Beside the text (on wide screens)"
+msgstr ""
+
+
+
+
+
+
+#: inc/mobile-bar.php:100
+#: inc/mobile-bar.php:100
+msgid "Menu"
+msgstr ""
+
+#: inc/mobile-bar.php:105
+#: inc/mobile-bar.php:105
+msgid "Top"
+msgstr ""
+
+#: inc/mobile-bar.php:31
+msgid "Show the mobile bottom bar"
+msgstr ""
+
+#: inc/mobile-bar.php:32
+msgid "A row of icons at the bottom of the screen on phones and tablets: Home, Search, Menu, Appearance and, depending on the page, Top, Share or Comments."
+msgstr ""
+
+#: inc/post-options.php:94
+msgid "Box design"
+msgstr ""
+
+#: inc/post-options.php:95
+msgid "Draw post cards, popular and related posts, tables, quotes, accordions and pop-ups in bordered boxes instead of flat blocks."
+msgstr ""
+
+#: inc/customizer-order.php:23
+msgid "WPlus UI: Look and feel"
+msgstr ""
+
+#: inc/customizer-order.php:23
+msgid "Colors, fonts and the general style of the theme. Visitors can still switch light/dark mode and pick another color scheme."
+msgstr ""
+
+#: inc/customizer-order.php:24
+msgid "WPlus UI: Header and menus"
+msgstr ""
+
+#: inc/customizer-order.php:24
+msgid "The notification bar, the left menu and the mobile bottom bar. Create the menus themselves in Appearance > Menus."
+msgstr ""
+
+#: inc/customizer-order.php:25
+msgid "WPlus UI: Homepage"
+msgstr ""
+
+#: inc/customizer-order.php:25
+msgid "What the front page shows, from top to bottom: carousel, pinned post, then the latest posts and category sections."
+msgstr ""
+
+#: inc/customizer-order.php:26
+msgid "WPlus UI: Posts and comments"
+msgstr ""
+
+#: inc/customizer-order.php:26
+msgid "What a single post shows around the article: table of contents, author box, related posts and comments."
+msgstr ""
+
+#: inc/customizer-order.php:27
+msgid "WPlus UI: Sidebar"
+msgstr ""
+
+#: inc/customizer-order.php:27
+msgid "Where the sidebar appears and how the Popular Posts box is built."
+msgstr ""
+
+#: inc/customizer-order.php:30
+msgid "Paste ad code (AdSense or any HTML/script) for each slot, listed from the top of the page down. Empty slots print nothing unless \"Show ad placeholders\" is ticked."
+msgstr ""
+
+#: inc/customizer-order.php:31
+msgid "Optional extras, all off by default: WhatsApp button, call-to-action popup, and the Coming Soon / Maintenance page."
+msgstr ""
+
+#: inc/customizer-order.php:32
+msgid "WPlus UI: Advanced code"
+msgstr ""
+
+#: inc/customizer-order.php:32
+msgid "Code printed in the head and at the end of every page. For tracking and verification codes only."
+msgstr ""
+
+#: inc/customizer-order.php:116
+msgid "Mode and colors"
+msgstr ""
+
+#: inc/customizer-order.php:117
+msgid "Shape and style"
+msgstr ""
+
+#: inc/customizer-order.php:118
+msgid "Fonts"
+msgstr ""
+
+#: inc/customizer-order.php:119
+msgid "Notification bar"
+msgstr ""
+
+#: inc/customizer-order.php:120
+msgid "Navigation"
+msgstr ""
+
+#: inc/customizer-order.php:121
+msgid "Carousel"
+msgstr ""
+
+#: inc/customizer-order.php:122
+msgid "Pinned post and category sections"
+msgstr ""
+
+#: inc/customizer-order.php:123
+msgid "Around the article"
+msgstr ""
+
+#: inc/customizer-order.php:125
+msgid "Where the sidebar shows"
+msgstr ""
+
+#: inc/customizer-order.php:126
+msgid "Popular Posts box"
+msgstr ""
+
+#: inc/customizer-order.php:127
+msgid "Quick buttons (shown next to the post)"
+msgstr ""
+
+#: inc/customizer-order.php:128
+msgid "Networks in the share popup"
+msgstr ""
+
+#: inc/customizer-order.php:129
+msgid "About block"
+msgstr ""
+
+#: inc/customizer-order.php:130
+msgid "Social links (also in the menu drawer)"
+msgstr ""
+
+#: inc/customizer-order.php:131
+msgid "Link columns"
+msgstr ""
+
+#: inc/customizer-order.php:132
+msgid "Copyright line"
+msgstr ""
+
+#: inc/customizer-order.php:133
+msgid "Floating WhatsApp button"
+msgstr ""
+
+#: inc/customizer-order.php:134
+msgid "Call-to-action popup"
+msgstr ""
+
+#: inc/customizer-order.php:135
+msgid "Coming Soon / Maintenance page"
+msgstr ""
+
+#: inc/ads.php:182
+#: inc/customizer-order.php:30
+msgid "Enter your AdSense publisher ID once, then fill the slots from the top of the page down: an ad unit number, AdSense code, any HTML, or an image address. Empty slots print nothing unless \"Show ad placeholders\" is ticked."
+msgstr ""
+
+#: inc/ads.php:197
+msgid "Google AdSense publisher ID"
+msgstr ""
+
+#: inc/ads.php:198
+msgid "Enter it once, for example pub-1234567890123456 (AdSense > Account > Account information). Then, in a slot below, write only the ad unit number, for example 1234567890, and the theme builds a responsive ad. A slot also takes the AdSense code, any HTML, or an image address (put the link on the next line to make the image clickable)."
+msgstr ""
+
+#: inc/ads.php:214
+msgid "Load AdSense after the visitor scrolls or taps (faster first load)"
+msgstr ""
+
+#: inc/term-banner.php:35
+msgid "Choose image"
+msgstr ""
+
+#: inc/term-banner.php:36
+msgid "Remove image"
+msgstr ""
+
+#: inc/term-banner.php:37
+msgid "Shown on the blurred card at the top of this archive. Leave empty to use the featured image of the newest post."
+msgstr ""
+
+#: inc/term-banner.php:46
+#: inc/term-banner.php:57
+msgid "Archive banner image (WPlus UI)"
+msgstr ""
+
+#: inc/cookie-notice.php:21
+msgid "Show a cookie notice"
+msgstr ""
+
+#: inc/cookie-notice.php:22
+msgid "Cookie notice text"
+msgstr ""
+
+#: inc/cookie-notice.php:22
+msgid "Leave empty for the default text."
+msgstr ""
+
+#: inc/cookie-notice.php:23
+msgid "Cookie notice OK button text"
+msgstr ""
+
+#: inc/cookie-notice.php:24
+msgid "Cookie policy button text"
+msgstr ""
+
+#: inc/cookie-notice.php:25
+msgid "Cookie policy link"
+msgstr ""
+
+#: inc/cookie-notice.php:25
+msgid "Leave empty to use the page with the address /cookie-policy. Without a link and without that page the button is hidden."
+msgstr ""
+
+#: inc/cookie-notice.php:26
+msgid "Load ads and scripts only after OK"
+msgstr ""
+
+#: inc/cookie-notice.php:26
+msgid "Holds the AdSense loader and the script tags in Advanced code (and in ad slots) until the visitor presses OK. Meta tags, such as verification codes, still print at once."
+msgstr ""
+
+#: inc/cookie-notice.php:130
+msgid "We use cookies to understand preferences and optimize your experience using our site, this includes advertising affiliated with Google."
+msgstr ""
+
+#: inc/cookie-notice.php:133
+msgid "OK, got it."
+msgstr ""
+
+#: inc/cookie-notice.php:136
+msgid "Cookie Policy"
+msgstr ""
+
+#: inc/cookie-notice.php:140
+msgid "Cookie notice"
+msgstr ""
+
+#: inc/customizer-order.php:125
+msgid "Site name and logo"
+msgstr ""
+
+#: inc/post-options.php:149
+msgid "Site name in the header"
+msgstr ""
+
+#: inc/post-options.php:150
+msgid "The logo comes from Site Identity. Without a logo the site name is always shown as text."
+msgstr ""
+
+#: inc/post-options.php:154
+msgid "Site name only"
+msgstr ""
+
+#: inc/post-options.php:155
+msgid "Logo and site name"
+msgstr ""
+
+#: inc/post-options.php:156
+msgid "Logo only"
+msgstr ""
+
+#: inc/post-options.php:170
+msgid "Header label text"
+msgstr ""
+
+#: inc/post-options.php:171
+msgid "Leave empty to show the theme version."
+msgstr ""
+
+#: inc/post-options.php:204
+msgid "Show the estimated read time under the post title"
+msgstr ""
+
+#: inc/post-options.php:205
+msgid "Show a small label next to the site name in the header"
+msgstr ""

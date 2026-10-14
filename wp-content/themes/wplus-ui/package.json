@@ -1,0 +1,12 @@
+{
+  "name": "wplus-ui-wordpress-theme",
+  "version": "1.7.0",
+  "private": true,
+  "description": "Build step for the WPlus UI WordPress theme: minified CSS/JS used when SCRIPT_DEBUG is off.",
+  "scripts": {
+    "build": "cat assets/css/style.css assets/css/wp-extras.css | esbuild --loader=css --minify > assets/css/style.min.css && esbuild assets/js/script.js --minify --target=es2020 --outfile=assets/js/script.min.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}
