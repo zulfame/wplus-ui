@@ -22,7 +22,7 @@ msgstr ""
 
 #. Theme URI of the theme
 #: style.css
-msgid "https://github.com/zulfame/plus-ui"
+msgid "https://github.com/zulfame/wplus-ui"
 msgstr ""
 
 #. Description of the theme
