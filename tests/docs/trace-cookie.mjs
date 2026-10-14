@@ -3,7 +3,7 @@
 import * as L from './lib.mjs';
 const { wp, mods, open, launch, close, claim, summary, sleep } = L;
 await launch();
-const KEYS = ['wplusui_cookie_enabled', 'wplusui_cookie_text', 'wplusui_cookie_ok', 'wplusui_cookie_policy_label', 'wplusui_cookie_policy_url', 'wplusui_cookie_gate', 'wplusui_head_code', 'wplusui_footer_code', 'wplusui_adsense_id', 'wplusui_adsense_lazy', 'wplusui_mobile_bar_show'];
+const KEYS = ['wplusui_cookie_enabled', 'wplusui_cookie_text', 'wplusui_cookie_ok', 'wplusui_cookie_policy_label', 'wplusui_cookie_policy_url', 'wplusui_cookie_gate', 'wplusui_ad_sidebar_sticky', 'wplusui_head_code', 'wplusui_footer_code', 'wplusui_adsense_id', 'wplusui_adsense_lazy', 'wplusui_mobile_bar_show'];
 const saved = JSON.parse(wp(`$o=[];foreach(${JSON.stringify(KEYS)} as $k)$o[$k]=get_theme_mod($k,null);echo json_encode($o);`));
 const reset = () => mods(Object.fromEntries(KEYS.map((k) => [k, saved[k]])));
 const vis = (p) => p.evaluate(() => { const n = document.querySelector('.puCk'); return !!n && !n.hidden && getComputedStyle(n).display !== 'none'; });
@@ -73,6 +73,10 @@ try {
   r = { shown: await vis(p), ls: await p.evaluate(() => localStorage.getItem('wplusui_cookie_ok')) };
   claim('I04-16', 'tombol reset menghapus pilihan dan banner tampil lagi', r.shown && r.ls === null, r); await p._ctx.close();
 
+  // a promo picture in an ad slot is not held back: only scripts (and the AdSense loader) wait for the OK
+  mods({ wplusui_cookie_gate: true, wplusui_ad_sidebar_sticky: '<a href="https://example.com/p"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" width="300" height="250" alt="Promo" id="x-promo"></a>' });
+  p = await open('/', 'desktop'); r = await p.evaluate(() => { const i = document.getElementById('x-promo'); return { banner: !document.querySelector('.puCk').hidden, img: !!i && i.getBoundingClientRect().height > 0 }; });
+  claim('I04-18', 'gambar promosi di slot iklan tampil sebelum OK (hanya skrip dan pemuat AdSense yang menunggu)', r.banner && r.img, r); await p._ctx.close();
   // phones: the card sits above the bottom bar and does not cover it
   mods({ wplusui_mobile_bar_show: true });
   p = await open('/', 'mobile');

@@ -272,7 +272,7 @@ Di **Customizer > WPlus UI: Ads** (semua kosong secara bawaan; slot kosong tidak
 | Sticky sidebar (desktop only) | Halaman bersidebar, hanya desktop |
 | In-article ad | Di dalam pos, setelah paragraf ke-N (**Insert in-article ad after paragraph**, bawaan 3). Hanya paragraf tingkat atas yang dihitung; bila paragraf kurang dari N, iklan tidak dicetak. |
 
-**Membantu penempatan (H02).** Nyalakan **Show ad placeholders on empty slots** untuk melihat kotak putus-putus "Ads go here" di setiap slot kosong; matikan sebelum situs dibuka untuk umum.
+**Ukuran gambar dan slot kosong (H02).** Slot yang tidak diisi tidak tampil sama sekali, jadi isi hanya slot yang Anda mau. Di bawah kolom tiap slot tertulis ukuran gambar yang disarankan (bawah header 970 x 90; atas pinned post, atas dan bawah daftar pos 728 x 90; sidebar sticky 300 x 250). Untuk promosi sendiri cukup tempel tag gambar, mis. `<img src="https://alamat-gambar-anda/promo.jpg" width="728" height="90" alt="Promo">`, dibungkus `<a href="...">` bila perlu tautan; untuk mencoba tata letak pakai gambar contoh `https://placehold.co/728x90?text=728x90`. Gambar otomatis mengecil mengikuti lebar kolom. Mengosongkan kolom langsung menyembunyikan slot itu.
 
 **Catatan:** iklan AdSense nyata baru tampil setelah akun Anda disetujui oleh Google **(diuji sebagian: pemuat dan markup sudah diuji, pengisian iklan oleh Google belum)**.
 

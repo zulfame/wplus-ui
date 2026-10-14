@@ -829,3 +829,11 @@ span.imgThm.plcH:before{opacity:.5;width:34px;height:34px;filter:none}
 code mark.red {
 	--c: #d63636;
 }
+
+/* A picture in an ad slot never gets wider than its column and keeps its proportions (the width and height attributes reserve the space before it loads). */
+.adB.is-live img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin: 0 auto;
+}

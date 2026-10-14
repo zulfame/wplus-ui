@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.7.3 - 2026-10-15
+
+- Changed: an ad slot you leave empty is no longer shown at all, with no frame, no text and no space. The "Show ad placeholders" checkbox is gone; to see where a slot sits, fill it with a picture.
+- New: every ad slot in the Customizer tells you the picture size that fits (for example 728 x 90 px) and shows an example image tag. Pictures never get wider than their column.
+- Improved: the demo fills the ad slots with sample pictures of those sizes.
+- Fix: the WPlus UI Update page no longer shows a strange "last checked" time right after an update.
+
 ## 1.7.2 - 2026-10-15
 
 - Smaller download: the demo content (sample posts and pictures) is no longer inside the theme zip, which went from 6 MB to under 1 MB. Press Download demo content in Appearance > WPlus UI Demo when you want the sample site.

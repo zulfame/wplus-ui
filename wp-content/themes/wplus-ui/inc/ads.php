@@ -29,20 +29,20 @@ function wplusui_ad_slots() {
 }
 
 /**
- * Label shown inside a placeholder box.
+ * Recommended picture size of each slot (width, height in pixels): the slot is as wide as its column on the page
+ * (992 px under the header, about 667 px above and below the posts, 300 px in the sidebar) and a larger picture
+ * shrinks to fit, so these sizes keep the picture sharp without making it taller than the column.
  *
- * @param string $key Slot key.
- * @return string
+ * @return array<string,array{0:int,1:int}>
  */
-function wplusui_ad_placeholder_text( $key ) {
-	$labels = array(
-		'under_header'   => __( 'Ads go here (Under Header Ad)', 'wplus-ui' ),
-		'above_pinned'   => __( 'Ads go here (Above Pinned Post Ad)', 'wplus-ui' ),
-		'above_posts'    => __( 'Ads go here (Above Posts Ad [Desktop])', 'wplus-ui' ),
-		'below_posts'    => __( 'Ads go here (Below Posts Ad)', 'wplus-ui' ),
-		'sidebar_sticky' => __( 'Ads go here (Sticky Ad [Desktop])', 'wplus-ui' ),
+function wplusui_ad_slot_sizes() {
+	return array(
+		'under_header'   => array( 970, 90 ),
+		'above_pinned'   => array( 728, 90 ),
+		'above_posts'    => array( 728, 90 ),
+		'below_posts'    => array( 728, 90 ),
+		'sidebar_sticky' => array( 300, 250 ),
 	);
-	return isset( $labels[ $key ] ) ? $labels[ $key ] : '';
 }
 
 /**
@@ -147,20 +147,16 @@ function wplusui_ad_slot( $key ) {
 	}
 	list( $id, , $class, $versioned ) = $slots[ $key ];
 	$code                             = wplusui_ad_markup( get_theme_mod( "wplusui_ad_$key", '' ) );
-	$placeholder                      = (bool) get_theme_mod( 'wplusui_ad_placeholders', false );
 
-	if ( '' === $code && ! $placeholder ) {
+	// An empty slot prints nothing at all: no frame, no text, no space.
+	if ( '' === $code ) {
 		return;
 	}
 
 	$data_version = $versioned ? ' data-version="2"' : '';
-	$classes      = implode( ' ', array_filter( array( 'adB', $class, '' !== $code ? 'is-live' : '' ) ) );
+	$classes      = implode( ' ', array_filter( array( 'adB', $class, 'is-live' ) ) );
 	echo '<div class="widget LinkList show-if-js"' . $data_version . ' id="' . esc_attr( $id ) . '">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	if ( '' !== $code ) {
-		echo '<div class="' . esc_attr( $classes ) . '">' . $code . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- ad code is trusted admin input.
-	} else {
-		echo '<div class="' . esc_attr( $classes ) . '" data-text="' . esc_attr( wplusui_ad_placeholder_text( $key ) ) . '"></div>';
-	}
+	echo '<div class="' . esc_attr( $classes ) . '">' . $code . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- ad code is trusted admin input.
 	echo '</div>';
 }
 
@@ -222,22 +218,6 @@ function wplusui_ads_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_setting(
-		'wplusui_ad_placeholders',
-		array(
-			'default'           => false,
-			'sanitize_callback' => 'rest_sanitize_boolean',
-		)
-	);
-	$wp_customize->add_control(
-		'wplusui_ad_placeholders',
-		array(
-			'label'   => __( 'Show ad placeholders on empty slots', 'wplus-ui' ),
-			'section' => 'wplusui_ads',
-			'type'    => 'checkbox',
-		)
-	);
-
 	foreach ( wplusui_ad_slots() as $key => $row ) {
 		$wp_customize->add_setting(
 			"wplusui_ad_$key",
@@ -246,13 +226,16 @@ function wplusui_ads_customize_register( $wp_customize ) {
 				'sanitize_callback' => 'wplusui_sanitize_code',
 			)
 		);
+		$size = wplusui_ad_slot_sizes()[ $key ];
 		$wp_customize->add_control(
 			"wplusui_ad_$key",
 			array(
 				'label'       => $row[1],
+				/* translators: 1: width in pixels, 2: height in pixels */
+				'description' => sprintf( __( 'Recommended picture size: %1$d x %2$d px. Leave empty to hide this slot.', 'wplus-ui' ), $size[0], $size[1] ),
 				'section'     => 'wplusui_ads',
 				'type'        => 'textarea',
-				'input_attrs' => array( 'placeholder' => '1234567890   |   <ins class="adsbygoogle" ...>   |   https://example.com/banner.jpg' ),
+				'input_attrs' => array( 'placeholder' => sprintf( '<img src="https://placehold.co/%1$dx%2$d?text=%1$dx%2$d" width="%1$d" height="%2$d" alt="">', $size[0], $size[1] ) ),
 			)
 		);
 	}

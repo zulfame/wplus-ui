@@ -2,7 +2,7 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPlus UI 1.7.2\n"
+"Project-Id-Version: WPlus UI 1.7.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wplus-ui\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -265,36 +265,12 @@ msgstr ""
 msgid "Sticky sidebar (desktop only)"
 msgstr ""
 
-#: inc/ads.php:39
-msgid "Ads go here (Under Header Ad)"
-msgstr ""
-
-#: inc/ads.php:40
-msgid "Ads go here (Above Pinned Post Ad)"
-msgstr ""
-
-#: inc/ads.php:41
-msgid "Ads go here (Above Posts Ad [Desktop])"
-msgstr ""
-
-#: inc/ads.php:42
-msgid "Ads go here (Below Posts Ad)"
-msgstr ""
-
-#: inc/ads.php:43
-msgid "Ads go here (Sticky Ad [Desktop])"
-msgstr ""
-
 #: inc/ads.php:96
 msgid "WPlus UI: Ads"
 msgstr ""
 
 #: inc/ads.php:97
 msgid "Paste ad code (AdSense or any HTML/script) for each slot. Empty slots print nothing."
-msgstr ""
-
-#: inc/ads.php:112
-msgid "Show ad placeholders on empty slots"
 msgstr ""
 
 #: inc/ads.php:146
@@ -2352,4 +2328,10 @@ msgstr ""
 
 #: inc/demo-setup.php:195
 msgid "Press the button below. It adds the demo pictures to the media library, assigns the menus and footer widgets, applies the Customizer settings and sets the sticky and featured posts. It is safe to run more than once."
+msgstr ""
+
+#. translators: 1: width in pixels, 2: height in pixels
+#: inc/ads.php:200
+#, php-format
+msgid "Recommended picture size: %1$d x %2$d px. Leave empty to hide this slot."
 msgstr ""

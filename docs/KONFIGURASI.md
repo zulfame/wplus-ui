@@ -266,7 +266,7 @@ Ringkasan hasil pengukuran pada pengaturan bawaan:
 
 Kerjakan berurutan; setiap butir bisa diperiksa dari browser di jendela pribadi.
 
-- [ ] WPlus UI: Ads: **Show ad placeholders** dimatikan (kotak putus-putus "Ads go here" tidak boleh terlihat).
+- [ ] WPlus UI: Ads: tidak ada slot berisi gambar contoh (mis. alamat `placehold.co`); slot yang tidak dipakai dikosongkan supaya tidak tampil.
 - [ ] WPlus UI: Engagement: **Coming Soon / Maintenance** dimatikan (situs tidak lagi menampilkan satu halaman 503).
 - [ ] Konten demo dihapus (pos, halaman, menu, dan gambar demo), dan **Tampilan > WPlus UI Demo** tidak dijalankan lagi.
 - [ ] Pengaturan > Membaca: **Cegah mesin pencari** tidak dicentang.

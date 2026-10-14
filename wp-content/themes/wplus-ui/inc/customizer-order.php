@@ -82,7 +82,6 @@ function wplusui_customizer_map() {
 		// Ads: AdSense account first, then the slots from the top of the page down.
 		'wplusui_adsense_id'            => array( 'wplusui_ads', 10 ),
 		'wplusui_adsense_lazy'          => array( 'wplusui_ads', 20 ),
-		'wplusui_ad_placeholders'       => array( 'wplusui_ads', 30 ),
 		'wplusui_ad_under_header'       => array( 'wplusui_ads', 40 ),
 		'wplusui_ad_above_pinned'       => array( 'wplusui_ads', 50 ),
 		'wplusui_ad_above_posts'        => array( 'wplusui_ads', 60 ),
