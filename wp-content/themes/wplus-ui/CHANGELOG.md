@@ -15,7 +15,9 @@
 - Fix: author box redesigned (avatar left, "Written by", name and bio; compact without a bio; same layout on phones).
 - New: header logo styles (site name only, logo and name, logo only) using the custom logo; the small label next to the site name is dynamic (theme version by default, custom text, or off).
 - New: optional cookie notice (WPlus UI: Engagement): a small card with a Cookie Policy button (Customizer link or the page /cookie-policy) and an OK button; the choice is kept in the browser. With "Load ads and scripts only after OK" the AdSense loader and the script tags in Advanced code and ad slots wait for the OK; meta tags and JSON-LD print at once. The demo content brings a sample Cookie Policy page with a "Forget my choice" button.
-- Docs and tests: `tests/docs/trace-cookie.mjs`, `tests/docs/bugs-pdf-2.mjs`, `tests/docs/bugs-pdf-1.mjs` covers these findings.
+- Performance (found with Lighthouse): the first three card images of the home page, archives and search results load at once (the first with high priority) instead of lazily, which was the largest image on screen; search results beside the sidebar use the critical CSS that has the sidebar layout (layout shift 0.52 -> 0); the theme's WooCommerce stylesheet loads only on shop, product, cart, checkout and account pages (filter `wplusui_load_woocommerce_css`).
+- Accessibility: category labels in cards are at least 24x24 px to tap; the red badge in code samples meets the contrast minimum.
+- Docs and tests: `tests/docs/bugs-pdf-3.mjs`, `tests/docs/trace-cookie.mjs`, `tests/docs/bugs-pdf-2.mjs`, `tests/docs/bugs-pdf-1.mjs` covers these findings.
 
 ## 3.2.10 - 2026-10-14
 

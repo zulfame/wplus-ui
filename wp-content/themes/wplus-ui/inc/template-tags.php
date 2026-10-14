@@ -110,6 +110,28 @@ function wplusui_placeholder_thumb( $pinned = false ) {
 }
 
 /**
+ * Loading attributes for a card thumbnail. The first three cards of a listing sit in the first screen and one of them
+ * is usually the largest image there (LCP), so they load at once and the very first with high priority; the rest
+ * wait until they come near the screen. Under a post (related posts) every card is far down and stays lazy.
+ *
+ * @return array{loading:string,fetchpriority?:string}
+ */
+function wplusui_card_loading_attrs() {
+	static $count = 0;
+	if ( is_singular() ) {
+		return array( 'loading' => 'lazy' );
+	}
+	++$count;
+	if ( $count > 3 ) {
+		return array( 'loading' => 'lazy' );
+	}
+	return 1 === $count ? array(
+		'loading'       => 'eager',
+		'fetchpriority' => 'high',
+	) : array( 'loading' => 'eager' );
+}
+
+/**
  * One post card. The theme has two distinct card layouts for this (verified
  * directly against the original Plus UI markup lines ~1380 and ~1545):
  *
@@ -138,10 +160,7 @@ function wplusui_post_card( $variant = 'grid' ) {
 				<?php
 				the_post_thumbnail(
 					'post-thumbnail',
-					array(
-						'class'   => 'imgThm lblr',
-						'loading' => 'lazy',
-					)
+					array_merge( array( 'class' => 'imgThm lblr' ), wplusui_card_loading_attrs() )
 				);
 				?>
 			</a>

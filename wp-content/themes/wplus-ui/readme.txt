@@ -55,6 +55,8 @@ Use the child theme (wplus-ui-child) or Appearance > Customize > Additional CSS.
 * Fix: home page, search results, archives and Related Posts show one card per row on phones.
 * Fix: search results beside the sidebar use 3 columns on desktop, like the home page.
 * Fix: the bookmark panel failed for posts without a featured image.
+* Performance: first card images load at once, search results no longer shift the layout, the shop stylesheet loads only on shop pages.
+* Accessibility: category labels are easier to tap; better contrast of the red code badge.
 * New: optional caption for each custom carousel slide.
 * New: optional cookie notice with a Cookie Policy button and an OK button; ads and scripts can wait for the OK. The demo content has a sample Cookie Policy page.
 * Demo content: removed the in-page Table of Contents, Related Posts sample and Blogger statistics chart.

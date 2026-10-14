@@ -40,7 +40,7 @@ if ( $popular && $exclude && ! $popular->have_posts() ) {
 									'post-thumbnail',
 									array(
 										'class'   => 'imgThm lblr',
-										'loading' => 'lazy',
+										'loading' => 'eager', // Top of the sidebar beside the article on desktop: often the largest image in view.
 									)
 								);
 								?>

@@ -815,3 +815,17 @@ span.imgThm.plcH:before{opacity:.5;width:34px;height:34px;filter:none}
 	margin-inline-start: auto;
 	text-align: end;
 }
+
+/* Touch targets: category labels in cards are at least 24px high and wide (the extra padding is pulled back with a negative margin, so the layout does not move). */
+.pLbls > a {
+	display: inline-block;
+	min-width: 24px;
+	padding: 6px 0;
+	margin: -6px 0;
+	text-align: center;
+}
+
+/* Code sample badge: white text on the soft red failed the contrast minimum (3.3 : 1); a deeper red gives 4.7 : 1. */
+code mark.red {
+	--c: #d63636;
+}

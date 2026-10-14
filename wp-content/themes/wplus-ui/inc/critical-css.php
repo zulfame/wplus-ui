@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return string home, single or archive.
  */
 function wplusui_critical_kind() {
-	if ( is_front_page() || is_home() ) {
+	if ( is_front_page() || is_home() || ( is_search() && wplusui_show_sidebar( 'search' ) ) ) {
 		return 'home';
 	}
 	return is_singular() ? 'single' : 'archive';

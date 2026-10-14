@@ -22,6 +22,15 @@ add_action( 'after_setup_theme', 'wplusui_woocommerce_setup' );
  * Shop styling that maps WooCommerce markup onto the theme tokens.
  */
 function wplusui_woocommerce_styles() {
+	/**
+	 * Filters whether the shop stylesheet loads on this page. By default only on shop, product, cart, checkout and
+	 * account pages, so other pages do not wait for it.
+	 *
+	 * @param bool $load Whether to load it.
+	 */
+	if ( ! apply_filters( 'wplusui_load_woocommerce_css', is_woocommerce() || is_cart() || is_checkout() || is_account_page() ) ) {
+		return;
+	}
 	wp_enqueue_style( 'wplusui-woocommerce', WPLUSUI_URI . '/assets/css/woocommerce.css', array( 'wplusui-style' ), wplusui_asset_version( 'assets/css/woocommerce.css' ) );
 }
 add_action( 'wp_enqueue_scripts', 'wplusui_woocommerce_styles', 20 );
