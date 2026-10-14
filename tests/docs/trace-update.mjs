@@ -14,6 +14,8 @@ const PORT = 8093;
 const API = `http://127.0.0.1:${PORT}/releases/latest`;
 const PKG = `http://127.0.0.1:${PORT}/dl/`;
 const THEME = path.join(root, 'wp-content/themes/wplus-ui');
+// The installed version is whatever the theme says now, so the claims keep working after every release.
+const CUR = /Version:\s*(\S+)/.exec(fs.readFileSync(path.join(THEME, 'style.css'), 'utf8'))[1];
 fs.mkdirSync(path.join(FAKE, 'dl'));
 fs.writeFileSync(path.join(FAKE, 'router.php'), `<?php
 $f = '${FAKE}'; $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -31,7 +33,7 @@ const makeZip = (version, extra = '') => {
   const dir = path.join(FAKE, 'build-' + version);
   fs.mkdirSync(dir, { recursive: true });
   execFileSync('rsync', ['-a', '--exclude', 'node_modules', '--exclude', 'AGENTS.md', '--exclude', 'CLAUDE.md', '--exclude', 'MEMORY.md', '--exclude', 'COMPARISON.md', THEME + '/', dir + '/wplus-ui/']);
-  for (const [f, a, b] of [['style.css', 'Version: 1.7.1', 'Version: ' + version], ['functions.php', "'WPLUSUI_VERSION', '1.7.1'", `'WPLUSUI_VERSION', '${version}'`]]) {
+  for (const [f, a, b] of [['style.css', 'Version: ' + CUR, 'Version: ' + version], ['functions.php', `'WPLUSUI_VERSION', '${CUR}'`, `'WPLUSUI_VERSION', '${version}'`]]) {
     const p = path.join(dir, 'wplus-ui', f); fs.writeFileSync(p, fs.readFileSync(p, 'utf8').replace(a, b));
   }
   if (extra) fs.writeFileSync(path.join(dir, 'wplus-ui', 'marker.txt'), extra);
@@ -45,19 +47,19 @@ const PRE = `add_filter('wplusui_update_api_url',function(){return '${API}';});a
 const run = (code, pre = PRE) => wp(pre + code);
 const J = (code, pre) => JSON.parse(run(code, pre));
 const SLUG = 'wplus-ui';
-const probe = `delete_site_transient('wplusui_latest_release');$t=new stdClass();$t->checked=['${SLUG}'=>'1.7.1'];$t=apply_filters('pre_set_site_transient_update_themes',$t);echo json_encode(['resp'=>$t->response['${SLUG}']??null,'noup'=>isset($t->no_update['${SLUG}'])]);`;
+const probe = `delete_site_transient('wplusui_latest_release');$t=new stdClass();$t->checked=['${SLUG}'=>'${CUR}'];$t=apply_filters('pre_set_site_transient_update_themes',$t);echo json_encode(['resp'=>$t->response['${SLUG}']??null,'noup'=>isset($t->no_update['${SLUG}'])]);`;
 
 try {
   const z = makeZip('1.7.9');
   // O01-1 newer version: update offered with the package and the notes window address
   serve(release('v1.7.9', { digest: 'sha256:' + z.sha }));
   let r = J(probe);
-  claim('O01-1', 'versi GitHub lebih baru (1.7.9 > 1.7.1): pembaruan ditawarkan dengan paket dan alamat catatan rilis', r.resp?.new_version === '1.7.9' && r.resp.package === `${PKG}wplus-ui-1.7.9.zip` && /wplusui-notes=1/.test(r.resp.url) && r.noup === false, r);
+  claim('O01-1', 'versi GitHub lebih baru (1.7.9 > versi terpasang): pembaruan ditawarkan dengan paket dan alamat catatan rilis', r.resp?.new_version === '1.7.9' && r.resp.package === `${PKG}wplus-ui-1.7.9.zip` && /wplusui-notes=1/.test(r.resp.url) && r.noup === false, r);
   // O01-2 same, older, draft, prerelease
-  serve(release('v1.7.1')); r = J(probe);
-  claim('O01-2', 'versi sama: tidak ada pembaruan; tema tercatat di no_update (supaya pembaruan otomatis tampil)', r.resp === null && r.noup === true, r);
-  serve(release('v1.7.0')); r = J(probe);
-  claim('O01-3', 'versi GitHub lebih lama: tidak ada pembaruan', r.resp === null, r);
+  serve(release('v' + CUR)); r = J(probe);
+  claim('O01-2', 'versi sama dengan yang terpasang: tidak ada pembaruan; tema tercatat di no_update (supaya pembaruan otomatis tampil)', r.resp === null && r.noup === true, r);
+  serve(release('v0.0.1')); r = J(probe);
+  claim('O01-3', 'versi GitHub lebih lama (0.0.1): tidak ada pembaruan', r.resp === null, r);
   serve(release('v1.8.0', { draft: true })); const d1 = J(probe); serve(release('v1.8.0', { pre: true })); const d2 = J(probe);
   claim('O01-4', 'draft dan pra-rilis diabaikan', d1.resp === null && d2.resp === null, [d1, d2]);
   // O01-5 not usable releases
@@ -78,7 +80,7 @@ try {
   claim('O01-7', 'GitHub gagal (HTTP 500): tanpa pembaruan, tanpa galat, kegagalan diingat (hanya 1 permintaan)', f[0] === null && f[1] === null && f[2] === 'none' && hits() === 1, [f, hits()]);
   // O01-8 switched off
   serve(release('v1.7.9')); resetHits();
-  const off = J(`add_filter('wplusui_updates_enabled','__return_false');delete_site_transient('wplusui_latest_release');$t=new stdClass();$t->checked=['${SLUG}'=>'1.7.1'];$t=apply_filters('pre_set_site_transient_update_themes',$t);echo json_encode(['resp'=>$t->response??null,'noup'=>$t->no_update??null,'rel'=>wplusui_latest_release()]);`);
+  const off = J(`add_filter('wplusui_updates_enabled','__return_false');delete_site_transient('wplusui_latest_release');$t=new stdClass();$t->checked=['${SLUG}'=>'${CUR}'];$t=apply_filters('pre_set_site_transient_update_themes',$t);echo json_encode(['resp'=>$t->response??null,'noup'=>$t->no_update??null,'rel'=>wplusui_latest_release()]);`);
   claim('O01-8', 'dimatikan (filter wplusui_updates_enabled): tidak ada permintaan jaringan dan tidak ada data pembaruan', off.rel === null && !off.resp && !off.noup && hits() === 0, [off, hits()]);
   // O01-9 checksum: right, wrong, unknown
   const pkg = `${PKG}wplus-ui-1.7.9.zip`;
@@ -100,14 +102,18 @@ try {
   const get = (u, hdr = cookieHeader) => execFileSync('curl', ['-s', '-i', '-H', 'Cookie: ' + hdr, L.base + u], { encoding: 'utf8', maxBuffer: 1 << 26 });
   run(`$d=json_decode(${JSON.stringify(rel)},true);set_site_transient('wplusui_latest_release',wplusui_parse_release($d),3600);`);
   let page = get('/wp-admin/index.php?wplusui-notes=1');
-  claim('O01-11', 'jendela catatan ("View version details"): halaman polos tanpa menu admin, memuat versi dan catatan rilis; tanpa login diarahkan ke halaman masuk', /WPlus UI 1\.7\.9/.test(page) && /<li>Catatan <strong>uji<\/strong> <code>kode<\/code><\/li>/.test(page) && !/id="adminmenu"/.test(page) && /^HTTP\/\S+ 302/m.test(get('/wp-admin/index.php?wplusui-notes=1', 'x=1')), page.slice(0, 120));
+  const text = (h) => h.replace(/<style[\s\S]*?<\/style>/gi, '').replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ');
+  const warn = (text(page).match(/\b(Warning|Notice|Deprecated|Fatal error)\s*:/gi) || []).length;
+  claim('O01-11', 'jendela catatan ("View version details"): halaman mandiri tanpa menu admin, tanpa peringatan PHP (mode debug nyala) dan tanpa menyebut GitHub, memuat versi dan catatan rilis dengan label tebal; tanpa login diarahkan ke halaman masuk', /WPlus UI 1\.7\.9/.test(page) && /<li>Catatan <strong>uji<\/strong> <code>kode<\/code><\/li>/.test(page) && /<h1>WPlus UI 1\.7\.9<\/h1>/.test(page) && !/id="adminmenu"/.test(page) && warn === 0 && !/github/i.test(text(page)) && /^HTTP\/\S+ 302/m.test(get('/wp-admin/index.php?wplusui-notes=1', 'x=1')), page.slice(0, 120));
   page = get('/wp-admin/themes.php?page=wplusui-updates');
-  claim('O01-12', 'Tampilan > WPlus UI updates: versi terpasang, "Version 1.7.9 is available", tombol Update now (bernonce), tombol Check now, catatan rilis dan riwayat terpasang', /Installed version: 1\.7\.1/.test(page) && /Version 1\.7\.9 is available/.test(page) && /update\.php\?action=upgrade-theme&(?:amp;|#038;)theme=wplus-ui&(?:amp;|#038;)_wpnonce=[a-f0-9]+/.test(page) && /name="action" value="wplusui_check_updates"/.test(page) && /What is new in 1\.7\.9/.test(page) && /Recent changes in the installed version/.test(page), null);
-  run(`$d=json_decode(${JSON.stringify(release('v1.7.1'))},true);set_site_transient('wplusui_latest_release',wplusui_parse_release($d),3600);`);
+  const pt = text(page.slice(page.indexOf('<div class="wrap">')));
+  claim('O01-12', 'Tampilan > WPlus UI Update: "Version 1.7.9 is available", versi terpasang, Update now (bernonce), Check now, catatan versi baru satu kali, tanpa sebutan GitHub', /Version 1\.7\.9 is available/.test(pt) && new RegExp('You have version ' + CUR.replace(/\./g, '\\.')).test(pt) && /update\.php\?action=upgrade-theme&(?:amp;|#038;)theme=wplus-ui&(?:amp;|#038;)_wpnonce=[a-f0-9]+/.test(page) && /name="action" value="wplusui_check_updates"/.test(page) && (pt.match(/What is new in 1\.7\.9/g) || []).length === 1 && !/Recent changes/.test(pt) && !/github/i.test(pt) && /Last checked/.test(pt), pt.slice(0, 300));
+  claim('O01-12b', 'menu admin bernama "WPlus UI Update" (Tampilan) dan judul halaman sama', />\s*WPlus UI Update\s*</.test(page) && /<h1>WPlus UI Update<\/h1>/.test(page), null);
+  run(`$d=json_decode(${JSON.stringify(release('v' + CUR))},true);set_site_transient('wplusui_latest_release',wplusui_parse_release($d),3600);`);
   page = get('/wp-admin/themes.php?page=wplusui-updates');
-  claim('O01-13', 'versi terbaru: halaman menulis "You have the latest version." dan tidak menawarkan Update now', /You have the latest version\./.test(page) && !/Update now/.test(page), null);
+  claim('O01-13', 'versi terbaru: halaman menulis "You have the latest version (…)" dan tidak menawarkan Update now', /You have the latest version \(/.test(page) && !/Update now/.test(page), null);
   // O01-14 the update notice in Appearance > Themes
-  const nt = J(`$t=new stdClass();$t->last_checked=time();$t->checked=['${SLUG}'=>'1.7.1'];$t->response=[];$t->no_update=[];
+  const nt = J(`$t=new stdClass();$t->last_checked=time();$t->checked=['${SLUG}'=>'${CUR}'];$t->response=[];$t->no_update=[];
     set_site_transient('wplusui_latest_release',wplusui_parse_release(json_decode(${JSON.stringify(rel)},true)),3600);
     $t=apply_filters('pre_set_site_transient_update_themes',$t); set_site_transient('update_themes',$t);
     require_once ABSPATH.'wp-admin/includes/theme.php'; require_once ABSPATH.'wp-admin/includes/update.php'; wp_set_current_user(1);
@@ -124,7 +130,7 @@ try {
     fs.mkdirSync(W + '/wp-content/themes', { recursive: true }); fs.mkdirSync(W + '/wp-content/uploads', { recursive: true });
     sh('rsync', ['-a', root + '/wp-content/themes/twentytwentyfive/', W + '/wp-content/themes/twentytwentyfive/']);
     // the installed theme is the built zip of the current version, like a real install
-    const base = makeZip('1.7.1');
+    const base = makeZip(CUR);
     sh('unzip', ['-q', base.zip, '-d', W + '/wp-content/themes']);
     sh('mysql', ['-u', 'root', '-e', `DROP DATABASE IF EXISTS ${DB}; CREATE DATABASE ${DB} CHARACTER SET utf8mb4;`]);
     fs.writeFileSync(W + '/wp-config.php', `<?php
@@ -146,7 +152,7 @@ if(!defined('ABSPATH'))define('ABSPATH',__DIR__.'/');require_once ABSPATH.'wp-se
       wp_clean_themes_cache(); $th=wp_get_theme('wplus-ui');
       echo json_encode(['res'=>is_wp_error($res)?$res->get_error_message():$res,'version'=>$th->get('Version'),'marker'=>file_exists(get_theme_root().'/wplus-ui/marker.txt'),'active'=>get_option('stylesheet'),'text'=>get_theme_mod('wplusui_cookie_text'),'on'=>(bool)get_theme_mod('wplusui_cookie_enabled'),'messages'=>$up->skin->get_upgrade_messages()]);`);
     const u = JSON.parse(out.slice(out.indexOf('{')));
-    claim('O01-15', `pembaruan sungguhan (Theme_Upgrader, paket dari "GitHub" palsu dengan checksum): ${before} -> versi baru, tema tetap aktif, pengaturan Customizer utuh`, before === '1.7.1' && u.version === '1.7.9' && u.marker === true && u.active === 'wplus-ui' && u.text === 'Teks pemilik' && u.on === true && u.res !== false, u);
+    claim('O01-15', `pembaruan sungguhan (Theme_Upgrader, paket dari "GitHub" palsu dengan checksum): ${before} -> 1.7.9, tema tetap aktif, pengaturan Customizer utuh`, before === CUR && u.version === '1.7.9' && u.marker === true && u.active === 'wplus-ui' && u.text === 'Teks pemilik' && u.on === true && u.res !== false, u);
     // and a wrong checksum stops the upgrade before anything is replaced
     makeZip('1.8.0', 'jangan terpasang');
     serve(release('v1.8.0', { digest: 'sha256:' + 'b'.repeat(64) }));

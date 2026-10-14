@@ -168,6 +168,7 @@ Jumlah fitur: **91**. Status per batch ada di bagian bawah.
 |---|---|---|---|---|---|---|---|
 | M01 | Konten demo | ☑ | ☑ | ☑ | ☑ | ☑ | XML dibaca parser WordPress Importer: 19 pos, 1 halaman, 25 item menu, 10 kategori, 1 tag; 23 gambar. `batch7-m1.mjs` |
 | M02 | Selesaikan demo | ☑ | ☑ | ☑ | ☑ | ☑ | Dijalankan dua kali: jumlah pos (20), halaman, lampiran (19), menu (2, 25 item), sticky, dan gambar unggulan (19) tidak berubah; hasil kedua sama dengan pertama; uji visual 11 halaman sama dengan baseline. Dokumen diberi peringatan: menimpa pengaturan Customizer. `batch7-m1.mjs` |
+| M03 | Paket demo terpisah | ☑ | ☑ | ☑ | ☑ | ☑ | Zip tema 0,70 MB tanpa demo; paket demo 30 gambar; WordPress baru dari zip tema: halaman menawarkan unduh, checksum salah dan rilis tanpa paket ditolak, unduh membuka ke uploads, impor + setup (19 gambar unggulan, 7 gambar galeri ke media library), setup ulang aman, 17 jenis halaman tanpa galat JS, log PHP kosong. `trace-demo.mjs` |
 
 ## N. Placeholder dan media
 

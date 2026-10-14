@@ -1,29 +1,26 @@
 # Changelog
 
+## 1.7.2 - 2026-10-15
+
+- Smaller download: the demo content (sample posts and pictures) is no longer inside the theme zip, which went from 6 MB to under 1 MB. Press Download demo content in Appearance > WPlus UI Demo when you want the sample site.
+- Improved: the WPlus UI Update page is shorter and clearer. It shows whether you are up to date, an Update button when there is a new version, and what is new.
+- Fix: the "View version details" window no longer shows warnings from WordPress or other plugins.
+
 ## 1.7.1 - 2026-10-15
 
-- New: updates from the WordPress dashboard. The theme asks the GitHub releases of `zulfame/wplus-ui` (at most every 12 hours, cached) and WordPress shows "update available" under Appearance > Themes and Dashboard > Updates, with an update button and optional automatic updates. "View version details" opens the release notes. The downloaded zip is checked against the checksum GitHub publishes before it is installed, and only files from this repository's releases are ever offered. Appearance > WPlus UI updates shows the installed and latest version, a "Check now" button and the notes. Turn it off with `define( 'WPLUSUI_DISABLE_UPDATES', true );` or the `wplusui_updates_enabled` filter. Sites on 1.7.0 install this version once by uploading the zip; later versions arrive from the dashboard.
-- Releases: the GitHub release text now comes from this changelog instead of an automatic list of commits.
-- Docs and tests: `tests/docs/trace-update.mjs`.
+- New: update WPlus UI from the WordPress dashboard. When a new version is released, WordPress shows it under Appearance > Themes with an Update button, and you can turn on automatic updates.
+- New: Appearance > WPlus UI Update shows your version, the latest version and what is new.
+- Safe: the download is checked before it is installed.
 
 ## 1.7.0 - 2026-10-14
 
-- Rebranding: the theme is now called WPlus UI (folder and slug `wplus-ui`, child theme `wplus-ui-child`, text domain `wplus-ui`, option and function prefix `wplusui_`, constants `WPLUSUI_`, blocks `wplusui/`). "Plus UI v3.2.0" by Fineshop Design is credited as the `Source` of the fork.
-- Versioning: the theme now has its own version number. Releases 3.2.0 to 3.2.10 used the number of the source Blogger template (Plus UI v3.2.0); from here on that is only recorded as `Source` in the Template Information block. Minor changes raise the last number (1.7.1, 1.7.2, ...).
-- Fix: carousel slides after the first were drawn 40px too low (grey gap above the image, title cut off) and the carousel was 40px taller than its 5:2 ratio, because a later copy of the generic widget margin in the compiled stylesheet overrode the carousel's own reset.
-- Fix: on phones the home page, search results and archives showed two cramped columns; they now show one card per row (the 500px rule was overridden by the later 768px rule).
-- Fix: search results beside the sidebar showed 4 columns on desktop; they now use the same 3 columns (2 on tablets) as the home page.
-- Fix: Related Posts under a post showed two cramped columns on phones; they now show one card per row, like the home page.
-- New: optional caption for each custom carousel slide (Customizer); slides built from posts use the post excerpt as caption.
-- Demo content: removed the in-page "Table of Contents" blocks (the floating panel at the right edge already lists the headings); the block itself still exists.
-- Demo content: removed the in-page "Related Posts" sample from the UI Components post, which showed the related posts twice (the theme already prints them under every post).
-- Fix: the post header shows one date only (Published, or Updated when the post was changed on a later day); the estimated read time sits at the right edge, in line with the icons above, and can be switched off (WPlus UI: Posts and comments).
-- Fix: author box redesigned (avatar left, "Written by", name and bio; compact without a bio; same layout on phones).
-- New: header logo styles (site name only, logo and name, logo only) using the custom logo; the small label next to the site name is dynamic (theme version by default, custom text, or off).
-- New: optional cookie notice (WPlus UI: Engagement): a small card with a Cookie Policy button (Customizer link or the page /cookie-policy) and an OK button; the choice is kept in the browser. With "Load ads and scripts only after OK" the AdSense loader and the script tags in Advanced code and ad slots wait for the OK; meta tags and JSON-LD print at once. The demo content brings a sample Cookie Policy page with a "Forget my choice" button.
-- Performance (found with Lighthouse): the first three card images of the home page, archives and search results load at once (the first with high priority) instead of lazily, which was the largest image on screen; search results beside the sidebar use the critical CSS that has the sidebar layout (layout shift 0.52 -> 0); the theme's WooCommerce stylesheet loads only on shop, product, cart, checkout and account pages (filter `wplusui_load_woocommerce_css`).
-- Accessibility: category labels in cards are at least 24x24 px to tap; the red badge in code samples meets the contrast minimum.
-- Docs and tests: `tests/docs/bugs-pdf-3.mjs`, `tests/docs/trace-cookie.mjs`, `tests/docs/bugs-pdf-2.mjs`, `tests/docs/bugs-pdf-1.mjs` covers these findings.
+- First release as WPlus UI.
+- New: cookie notice with a Cookie Policy page (optional). Ads and scripts can wait until the visitor presses OK.
+- New: header logo options, a header label you can change or hide, and an optional caption on each carousel slide.
+- Better post pages: one date (Published or Updated), a read time you can switch off, a tidier author box, and no repeated table of contents or related posts.
+- Better on phones: one card per row on the home page, search results and related posts, and no gap above the carousel slides.
+- Faster and steadier: the first images load at once, search results no longer jump, and shop styles load only on shop pages.
+- Easier to read and tap: bigger tap area for category labels and better contrast.
 
 ## 3.2.10 - 2026-10-14
 

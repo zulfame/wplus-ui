@@ -26,3 +26,17 @@ for theme in wplus-ui wplus-ui-child; do
 	rm -rf "$tmp"
 	echo "$out ($(du -h "$out" | cut -f1))"
 done
+
+# The demo content (sample posts, pictures, import script) is not part of the theme zip: it is its own, optional zip in
+# the same release, which the theme downloads from Appearance > WPlus UI Demo when the owner asks for it.
+demo_src="$THEMES/wplus-ui/demo-content"
+if [[ -d "$demo_src" ]]; then
+	ver="$(version "$THEMES/wplus-ui")"
+	out="$DIST/wplus-ui-demo-$ver.zip"
+	rm -f "$out"
+	tmp="$(mktemp -d)"
+	rsync -a --exclude '.DS_Store' "$demo_src/" "$tmp/wplus-ui-demo/"
+	(cd "$tmp" && zip -qr "$out" wplus-ui-demo)
+	rm -rf "$tmp"
+	echo "$out ($(du -h "$out" | cut -f1))"
+fi

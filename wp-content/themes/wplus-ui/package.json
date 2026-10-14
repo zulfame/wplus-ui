@@ -1,6 +1,6 @@
 {
   "name": "wplus-ui-wordpress-theme",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "private": true,
   "description": "Build step for the WPlus UI WordPress theme: minified CSS/JS used when SCRIPT_DEBUG is off.",
   "scripts": {

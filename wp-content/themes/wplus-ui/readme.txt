@@ -6,7 +6,7 @@ Tags: blog, two-columns, right-sidebar, custom-logo, custom-menu, featured-image
 Requires at least: 6.3
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.7.1
+Stable tag: 1.7.2
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
@@ -51,24 +51,24 @@ The theme checks for updates by asking the GitHub releases of its repository (ap
 
 == Changelog ==
 
+= 1.7.2 - Oct 15, 2026 =
+
+* Smaller download: the demo content is a separate download (Appearance > WPlus UI Demo); the theme zip went from 6 MB to under 1 MB.
+* Improved: the WPlus UI Update page is shorter and clearer.
+* Fix: the "View version details" window no longer shows warnings.
+
 = 1.7.1 - Oct 15, 2026 =
 
-* New: updates from the WordPress dashboard (GitHub releases, checksum checked), with release notes in the "View version details" window and Appearance > WPlus UI updates.
-* Releases: the release text comes from the changelog.
+* New: update the theme from the WordPress dashboard, with an Update button and optional automatic updates.
+* New: Appearance > WPlus UI Update shows your version, the latest version and what is new.
+* Safe: the download is checked before it is installed.
 
 = 1.7.0 - Oct 14, 2026 =
 
-* Rebranding: the theme is now called WPlus UI (slug wplus-ui). Plus UI v3.2.0 by Fineshop Design is the source of the fork and stays credited.
-* Versioning: the theme has its own version number now (releases 3.2.0 to 3.2.10 used the Blogger template's number, which is kept as "Source: Plus UI v3.2.0" in the Template Information block).
-* Fix: carousel slides after the first were 40px too low and the carousel was 40px taller than its 5:2 ratio.
-* Fix: home page, search results, archives and Related Posts show one card per row on phones.
-* Fix: search results beside the sidebar use 3 columns on desktop, like the home page.
-* Fix: the bookmark panel failed for posts without a featured image.
-* Performance: first card images load at once, search results no longer shift the layout, the shop stylesheet loads only on shop pages.
-* Accessibility: category labels are easier to tap; better contrast of the red code badge.
-* New: optional caption for each custom carousel slide.
-* New: optional cookie notice with a Cookie Policy button and an OK button; ads and scripts can wait for the OK. The demo content has a sample Cookie Policy page.
-* Demo content: removed the in-page Table of Contents, Related Posts sample and Blogger statistics chart.
+* First release as WPlus UI.
+* New: optional cookie notice with a Cookie Policy page; ads and scripts can wait for the OK.
+* New: header logo options, a changeable header label, optional carousel captions.
+* Better post pages, better on phones, faster and steadier, easier to read and tap.
 
 = 3.2.10 - Oct 14, 2026 =
 

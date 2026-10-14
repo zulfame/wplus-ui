@@ -2,7 +2,7 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPlus UI 1.7.1\n"
+"Project-Id-Version: WPlus UI 1.7.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wplus-ui\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2247,7 +2247,7 @@ msgid "Open the release on GitHub"
 msgstr ""
 
 #: inc/updater.php:326
-msgid "WPlus UI updates"
+msgid "WPlus UI Update"
 msgstr ""
 
 #: inc/updater.php:335
@@ -2292,4 +2292,64 @@ msgstr ""
 
 #: inc/updater.php:388
 msgid "Recent changes in the installed version"
+msgstr ""
+
+#: inc/updater.php:380
+msgid "Version %s is available"
+msgstr ""
+
+#: inc/updater.php:382
+msgid "You have version %s."
+msgstr ""
+
+#: inc/updater.php:385
+msgid "You have the latest version (%s)"
+msgstr ""
+
+#: inc/updater.php:388
+msgid "Version %s. The latest version could not be checked right now."
+msgstr ""
+
+#: inc/updater.php:401
+msgid "Last checked %s ago."
+msgstr ""
+
+#: inc/updater.php:406
+msgid "What was new in %s"
+msgstr ""
+
+#: inc/demo-setup.php:76
+msgid "The demo content could not be found online right now. Please try again later."
+msgstr ""
+
+#: inc/demo-setup.php:85
+msgid "The downloaded demo file does not match its checksum, so it was not used."
+msgstr ""
+
+#: inc/demo-setup.php:89
+msgid "WordPress cannot write files here. Check the permissions of the uploads folder."
+msgstr ""
+
+#: inc/demo-setup.php:102
+msgid "The demo file is not complete."
+msgstr ""
+
+#: inc/demo-setup.php:122
+msgid "The demo content is ready."
+msgstr ""
+
+#: inc/demo-setup.php:136
+msgid "The demo content is not installed yet. Download it first."
+msgstr ""
+
+#: inc/demo-setup.php:174
+msgid "The demo content (sample posts and pictures, about 3 MB) is not part of the theme, to keep the theme small. It is downloaded once, and only when you press the button."
+msgstr ""
+
+#: inc/demo-setup.php:178
+msgid "Download demo content"
+msgstr ""
+
+#: inc/demo-setup.php:195
+msgid "Press the button below. It adds the demo pictures to the media library, assigns the menus and footer widgets, applies the Customizer settings and sets the sticky and featured posts. It is safe to run more than once."
 msgstr ""

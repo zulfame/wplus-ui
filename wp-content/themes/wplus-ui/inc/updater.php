@@ -66,8 +66,10 @@ function wplusui_parse_release( $data ) {
 	if ( ! preg_match( '/^\d+\.\d+\.\d+$/', $version ) ) {
 		return null;
 	}
-	$package = '';
-	$sha256  = '';
+	$package  = '';
+	$sha256   = '';
+	$demo     = '';
+	$demo_sha = '';
 	foreach ( (array) ( isset( $data['assets'] ) ? $data['assets'] : array() ) as $asset ) {
 		if ( is_array( $asset ) && isset( $asset['name'], $asset['browser_download_url'] ) && 'wplus-ui-' . $version . '.zip' === $asset['name'] ) {
 			$package = esc_url_raw( (string) $asset['browser_download_url'] );
@@ -75,14 +77,27 @@ function wplusui_parse_release( $data ) {
 				$sha256 = strtolower( $m[1] );
 			}
 		}
+		if ( is_array( $asset ) && isset( $asset['name'], $asset['browser_download_url'] ) && 'wplus-ui-demo-' . $version . '.zip' === $asset['name'] ) {
+			$demo = esc_url_raw( (string) $asset['browser_download_url'] );
+			if ( isset( $asset['digest'] ) && preg_match( '/^sha256:([a-f0-9]{64})$/i', (string) $asset['digest'], $m ) ) {
+				$demo_sha = strtolower( $m[1] );
+			}
+		}
+	}
+	if ( '' !== $demo && 0 !== strpos( $demo, wplusui_update_package_prefix() ) ) {
+		$demo     = '';
+		$demo_sha = '';
 	}
 	if ( '' === $package || 0 !== strpos( $package, wplusui_update_package_prefix() ) ) {
 		return null;
 	}
 	return array(
+		'checked'   => (string) time(),
 		'version'   => $version,
 		'package'   => $package,
 		'sha256'    => $sha256,
+		'demo'      => $demo,
+		'demo_sha'  => $demo_sha,
 		'notes'     => isset( $data['body'] ) ? (string) $data['body'] : '',
 		'published' => isset( $data['published_at'] ) ? (string) $data['published_at'] : '',
 		'page'      => isset( $data['html_url'] ) ? esc_url_raw( (string) $data['html_url'] ) : '',
@@ -224,7 +239,12 @@ function wplusui_notes_html( $text ) {
 	foreach ( preg_split( '/\R/', (string) $text ) as $line ) {
 		$line = rtrim( $line );
 		if ( preg_match( '/^\s*[-*]\s+(.*)$/', $line, $m ) ) {
-			$html   .= ( $in_list ? '' : '<ul>' ) . '<li>' . wplusui_notes_inline( $m[1] ) . '</li>';
+			$label = '';
+			if ( preg_match( '/^(New|Fix|Improved|Safe)\s*:\s*(.*)$/', $m[1], $l ) ) {
+				$label = '<strong>' . esc_html( $l[1] ) . '</strong> ';
+				$m[1]  = $l[2];
+			}
+			$html   .= ( $in_list ? '' : '<ul>' ) . '<li>' . $label . wplusui_notes_inline( $m[1] ) . '</li>';
 			$in_list = true;
 			continue;
 		}
@@ -266,7 +286,7 @@ function wplusui_notes_inline( $line ) {
  * @param int $versions How many versions.
  * @return string Markdown.
  */
-function wplusui_installed_changelog( $versions = 3 ) {
+function wplusui_installed_changelog( $versions = 1 ) {
 	$file = WPLUSUI_DIR . '/CHANGELOG.md';
 	if ( ! is_readable( $file ) ) {
 		return '';
@@ -279,56 +299,58 @@ function wplusui_installed_changelog( $versions = 3 ) {
 			if ( $count > $versions ) {
 				break;
 			}
+			continue; // The version is shown in the heading of the screen, not repeated here.
 		}
 		if ( $count > 0 ) {
 			$out[] = $line;
 		}
 	}
-	return implode( "\n", $out );
+	return trim( implode( "\n", $out ) );
 }
 
 /**
- * The release notes window opened from the update notice: a bare admin page, like the plugin details window.
+ * Small style sheet for the two screens that show release notes.
+ *
+ * @return string
+ */
+function wplusui_notes_css() {
+	return '.wplusui-notes{font-size:14px;line-height:1.55}.wplusui-notes ul{list-style:disc;margin:0 0 0 1.3em;padding:0}.wplusui-notes li{margin:0 0 .6em}.wplusui-notes p{margin:.4em 0 .8em}.wplusui-notes code{background:#f0f0f1;padding:1px 4px;border-radius:3px;font-size:13px}';
+}
+
+/**
+ * The release notes window opened from "View version details": one small self-contained page (it does not load the
+ * rest of the admin, so no other plugin can add anything to it).
  */
 function wplusui_render_notes_window() {
 	if ( ! isset( $_GET['wplusui-notes'] ) || ! current_user_can( 'update_themes' ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only page.
 		return;
 	}
 	$release = wplusui_latest_release();
-	require_once ABSPATH . 'wp-admin/includes/template.php';
-	iframe_header( __( 'WPlus UI release notes', 'wplus-ui' ) );
-	echo '<div style="padding:0 20px 20px;max-width:760px">';
-	if ( $release ) {
-		/* translators: %s: version number */
-		echo '<h2>' . esc_html( sprintf( __( 'WPlus UI %s', 'wplus-ui' ), $release['version'] ) ) . '</h2>';
-		if ( '' !== $release['published'] ) {
-			echo '<p class="description">' . esc_html( mysql2date( get_option( 'date_format' ), $release['published'] ) ) . '</p>';
-		}
-		echo wp_kses_post( wplusui_notes_html( $release['notes'] ) );
-		if ( '' !== $release['page'] ) {
-			echo '<p><a href="' . esc_url( $release['page'] ) . '" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Open the release on GitHub', 'wplus-ui' ) . '</a></p>';
-		}
-	} else {
-		/* translators: %s: version number */
-		echo '<h2>' . esc_html( sprintf( __( 'WPlus UI %s', 'wplus-ui' ), WPLUSUI_VERSION ) ) . '</h2>';
-		echo wp_kses_post( wplusui_notes_html( wplusui_installed_changelog( 1 ) ) );
+	$version = $release ? $release['version'] : WPLUSUI_VERSION;
+	$notes   = $release ? $release['notes'] : wplusui_installed_changelog( 1 );
+	header( 'Content-Type: text/html; charset=' . get_option( 'blog_charset' ) );
+	echo '<!DOCTYPE html><html lang="' . esc_attr( get_bloginfo( 'language' ) ) . '"><head><meta charset="' . esc_attr( get_option( 'blog_charset' ) ) . '"><meta name="viewport" content="width=device-width,initial-scale=1"><title>' . esc_html__( 'WPlus UI release notes', 'wplus-ui' ) . '</title>';
+	echo '<style>body{margin:0;padding:20px 24px;background:#fff;color:#1d2327;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}h1{font-size:20px;margin:0 0 4px}.d{color:#646970;margin:0 0 16px;font-size:13px}' . wplusui_notes_css() . '</style></head><body>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- fixed style strings.
+	/* translators: %s: version number */
+	echo '<h1>' . esc_html( sprintf( __( 'WPlus UI %s', 'wplus-ui' ), $version ) ) . '</h1>';
+	if ( $release && '' !== $release['published'] ) {
+		echo '<p class="d">' . esc_html( mysql2date( get_option( 'date_format' ), $release['published'] ) ) . '</p>';
 	}
-	echo '</div>';
-	iframe_footer();
+	echo '<div class="wplusui-notes">' . wp_kses_post( wplusui_notes_html( $notes ) ) . '</div></body></html>';
 	exit;
 }
 add_action( 'admin_init', 'wplusui_render_notes_window' );
 
 /**
- * Appearance > WPlus UI updates: installed and latest version, a button to check now, and the notes.
+ * Appearance > WPlus UI Update.
  */
 function wplusui_updates_menu() {
-	add_theme_page( __( 'WPlus UI updates', 'wplus-ui' ), __( 'WPlus UI updates', 'wplus-ui' ), 'update_themes', 'wplusui-updates', 'wplusui_render_updates_page' );
+	add_theme_page( __( 'WPlus UI Update', 'wplus-ui' ), __( 'WPlus UI Update', 'wplus-ui' ), 'update_themes', 'wplusui-updates', 'wplusui_render_updates_page' );
 }
 add_action( 'admin_menu', 'wplusui_updates_menu' );
 
 /**
- * Check now: ask GitHub again and refresh the stored update information without waiting for the 12 hours.
+ * Check now: ask again and refresh the stored update information without waiting for the 12 hours.
  */
 function wplusui_check_updates_now() {
 	if ( ! current_user_can( 'update_themes' ) ) {
@@ -346,7 +368,7 @@ function wplusui_check_updates_now() {
 add_action( 'admin_post_wplusui_check_updates', 'wplusui_check_updates_now' );
 
 /**
- * Page content for Appearance > WPlus UI updates.
+ * Page content for Appearance > WPlus UI Update: where you stand, one button, and what is new.
  */
 function wplusui_render_updates_page() {
 	if ( ! current_user_can( 'update_themes' ) ) {
@@ -356,36 +378,47 @@ function wplusui_render_updates_page() {
 	$release = $enabled ? wplusui_latest_release() : null;
 	$newer   = $release && version_compare( $release['version'], WPLUSUI_VERSION, '>' );
 	$slug    = wplusui_theme_slug();
-	echo '<div class="wrap"><h1>' . esc_html__( 'WPlus UI updates', 'wplus-ui' ) . '</h1>';
+	$notes   = $newer ? $release['notes'] : wplusui_installed_changelog( 1 );
+	$about   = $newer ? $release['version'] : WPLUSUI_VERSION;
+
+	echo '<div class="wrap"><h1>' . esc_html__( 'WPlus UI Update', 'wplus-ui' ) . '</h1>';
 	if ( isset( $_GET['checked'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only message.
 		echo '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Checked just now.', 'wplus-ui' ) . '</p></div>';
 	}
-	/* translators: %s: version number */
-	echo '<p>' . esc_html( sprintf( __( 'Installed version: %s', 'wplus-ui' ), WPLUSUI_VERSION ) ) . '</p>';
+	echo '<style>' . wplusui_notes_css() . '.wplusui-card{max-width:640px;margin-top:16px;padding:4px 24px 20px}.wplusui-status{display:flex;align-items:center;gap:8px;font-size:16px;margin:16px 0 4px}.wplusui-status .dashicons{width:24px;height:24px;font-size:24px}.wplusui-actions{display:flex;align-items:center;gap:8px;margin:12px 0}.wplusui-actions form{margin:0}.wplusui-card h2{font-size:15px;margin:20px 0 8px;padding:0}</style>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- fixed style strings.
+	echo '<div class="card wplusui-card">';
 	if ( ! $enabled ) {
-		echo '<p>' . esc_html__( 'Update checks are turned off for this site.', 'wplus-ui' ) . '</p>';
+		echo '<p class="wplusui-status"><span class="dashicons dashicons-minus" style="color:#646970"></span> <strong>' . esc_html__( 'Update checks are turned off for this site.', 'wplus-ui' ) . '</strong></p>';
 	} elseif ( $newer ) {
 		/* translators: %s: version number */
-		echo '<p><strong>' . esc_html( sprintf( __( 'Version %s is available.', 'wplus-ui' ), $release['version'] ) ) . '</strong> ';
-		echo '<a class="button button-primary" href="' . esc_url( wp_nonce_url( self_admin_url( 'update.php?action=upgrade-theme&theme=' . rawurlencode( $slug ) ), 'upgrade-theme_' . $slug ) ) . '">' . esc_html__( 'Update now', 'wplus-ui' ) . '</a></p>';
+		echo '<p class="wplusui-status"><span class="dashicons dashicons-update" style="color:#2271b1"></span> <strong>' . esc_html( sprintf( __( 'Version %s is available', 'wplus-ui' ), $release['version'] ) ) . '</strong></p>';
+		/* translators: %s: version number */
+		echo '<p class="description">' . esc_html( sprintf( __( 'You have version %s.', 'wplus-ui' ), WPLUSUI_VERSION ) ) . '</p>';
 	} elseif ( $release ) {
-		echo '<p>' . esc_html__( 'You have the latest version.', 'wplus-ui' ) . '</p>';
+		/* translators: %s: version number */
+		echo '<p class="wplusui-status"><span class="dashicons dashicons-yes-alt" style="color:#00a32a"></span> <strong>' . esc_html( sprintf( __( 'You have the latest version (%s)', 'wplus-ui' ), WPLUSUI_VERSION ) ) . '</strong></p>';
 	} else {
-		echo '<p>' . esc_html__( 'The latest version could not be checked right now. It is tried again later.', 'wplus-ui' ) . '</p>';
+		/* translators: %s: version number */
+		echo '<p class="wplusui-status"><span class="dashicons dashicons-warning" style="color:#996800"></span> <strong>' . esc_html( sprintf( __( 'Version %s. The latest version could not be checked right now.', 'wplus-ui' ), WPLUSUI_VERSION ) ) . '</strong></p>';
 	}
 	if ( $enabled ) {
-		echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '">';
-		echo '<input type="hidden" name="action" value="wplusui_check_updates" />';
+		echo '<div class="wplusui-actions">';
+		if ( $newer ) {
+			echo '<a class="button button-primary" href="' . esc_url( wp_nonce_url( self_admin_url( 'update.php?action=upgrade-theme&theme=' . rawurlencode( $slug ) ), 'upgrade-theme_' . $slug ) ) . '">' . esc_html__( 'Update now', 'wplus-ui' ) . '</a>';
+		}
+		echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '"><input type="hidden" name="action" value="wplusui_check_updates" />';
 		wp_nonce_field( 'wplusui_check_updates' );
 		submit_button( __( 'Check now', 'wplus-ui' ), 'secondary', 'submit', false );
-		echo '</form>';
+		echo '</form></div>';
+		if ( $release && '' !== $release['checked'] ) {
+			/* translators: %s: how long ago, for example "5 minutes" */
+			echo '<p class="description">' . esc_html( sprintf( __( 'Last checked %s ago.', 'wplus-ui' ), human_time_diff( (int) $release['checked'] ) ) ) . '</p>';
+		}
 	}
-	if ( $newer ) {
+	if ( '' !== $notes ) {
 		/* translators: %s: version number */
-		echo '<h2>' . esc_html( sprintf( __( 'What is new in %s', 'wplus-ui' ), $release['version'] ) ) . '</h2>';
-		echo '<div style="max-width:760px">' . wp_kses_post( wplusui_notes_html( $release['notes'] ) ) . '</div>';
+		echo '<h2>' . esc_html( $newer ? sprintf( __( 'What is new in %s', 'wplus-ui' ), $about ) : sprintf( __( 'What was new in %s', 'wplus-ui' ), $about ) ) . '</h2>';
+		echo '<div class="wplusui-notes">' . wp_kses_post( wplusui_notes_html( $notes ) ) . '</div>';
 	}
-	echo '<h2>' . esc_html__( 'Recent changes in the installed version', 'wplus-ui' ) . '</h2>';
-	echo '<div style="max-width:760px">' . wp_kses_post( wplusui_notes_html( wplusui_installed_changelog( 3 ) ) ) . '</div>';
-	echo '</div>';
+	echo '</div></div>';
 }

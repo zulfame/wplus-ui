@@ -159,6 +159,20 @@ foreach ( array(
 
 // Placeholder host -> this site (content, excerpts, menu item URLs).
 global $wpdb;
+// The demo posts point some pictures (the galleries) at the theme folder; the theme no longer carries them, so they
+// become media-library files and the posts get their addresses.
+foreach ( $wpdb->get_col( "SELECT post_content FROM {$wpdb->posts} WHERE post_type IN ('post','page') AND post_content LIKE '%/assets/images/%'" ) as $content ) {
+	if ( preg_match_all( '#/wp-content/themes/[A-Za-z0-9_-]+/assets/images/([A-Za-z0-9._-]+\.(?:jpe?g|png|webp))#', $content, $found, PREG_SET_ORDER ) ) {
+		foreach ( $found as $hit ) {
+			$att_id = wplusui_demo_attachment( $dir, $hit[1] );
+			$url    = $att_id ? wp_get_attachment_url( $att_id ) : '';
+			if ( $url ) {
+				$wpdb->query( $wpdb->prepare( "UPDATE {$wpdb->posts} SET post_content = REPLACE(post_content, %s, %s) WHERE post_type IN ('post','page')", $hit[0], wp_make_link_relative( $url ) ) );
+			}
+		}
+	}
+}
+
 $home = untrailingslashit( home_url() );
 $wpdb->query( $wpdb->prepare( "UPDATE {$wpdb->posts} SET post_content = REPLACE(post_content, %s, %s), post_excerpt = REPLACE(post_excerpt, %s, %s)", 'https://wplusui-demo.invalid', $home, 'https://wplusui-demo.invalid', $home ) );
 $wpdb->query( $wpdb->prepare( "UPDATE {$wpdb->postmeta} SET meta_value = REPLACE(meta_value, %s, %s) WHERE meta_key = '_menu_item_url'", 'https://wplusui-demo.invalid', $home ) );
