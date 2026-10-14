@@ -121,6 +121,10 @@ try {
     echo json_encode(['update'=>$u,'auto'=>$themes[0]['autoupdate']['supported']??null]);`);
   claim('O01-14', 'Tampilan > Tema: pemberitahuan pembaruan menyebut versi baru dan menautkan "View version 1.7.9 details" ke jendela catatan; pembaruan otomatis didukung', /1\.7\.9/.test(nt.update) && /wplusui-notes=1/.test(nt.update) && nt.auto === true, nt);
 
+  // O01-14b an answer cached by an older version of the theme (fewer fields) is asked again instead of read half-empty
+  serve(release('v1.7.9', { digest: 'sha256:' + z.sha })); resetHits();
+  const old = J(`delete_site_transient('wplusui_latest_release');set_site_transient('wplusui_latest_release',['version'=>'1.7.5','package'=>'${PKG}wplus-ui-1.7.5.zip','sha256'=>'','notes'=>'x','published'=>'','page'=>''],3600);$r=wplusui_latest_release();echo json_encode(['v'=>$r['version']??null,'checked'=>isset($r['checked']),'demo'=>array_key_exists('demo',$r)]);`);
+  claim('O01-14b', 'jawaban lama di cache (bentuk dari versi tema sebelumnya, tanpa kolom waktu dan paket demo) dianggap kosong dan diambil ulang, bukan dibaca setengah kosong', old.v === '1.7.9' && old.checked === true && old.demo === true && hits() === 1, [old, hits()]);
   // O01-15 the real upgrade in a throw-away WordPress: Theme_Upgrader replaces the folder, settings and active theme stay
   const W = fs.mkdtempSync(path.join(os.tmpdir(), 'wp-upg-'));
   const DB = 'plusui_update_test';

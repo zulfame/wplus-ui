@@ -116,6 +116,10 @@ function wplusui_latest_release( $force = false ) {
 		return null;
 	}
 	$cached = get_site_transient( 'wplusui_latest_release' );
+	// An answer stored by an older version of the theme may lack fields the current code reads: treat it as no answer.
+	if ( is_array( $cached ) && array_diff( array( 'checked', 'version', 'package', 'sha256', 'demo', 'demo_sha', 'notes', 'published', 'page' ), array_keys( $cached ) ) ) {
+		$cached = false;
+	}
 	if ( ! $force && false !== $cached ) {
 		return is_array( $cached ) ? $cached : null;
 	}
@@ -212,7 +216,7 @@ function wplusui_verify_download( $reply, $package ) {
 		return $reply;
 	}
 	$cached = get_site_transient( 'wplusui_latest_release' );
-	if ( ! is_array( $cached ) || $package !== $cached['package'] || '' === $cached['sha256'] ) {
+	if ( ! is_array( $cached ) || ! isset( $cached['package'], $cached['sha256'] ) || $package !== $cached['package'] || '' === $cached['sha256'] ) {
 		return $reply;
 	}
 	$file = download_url( $package );
