@@ -37,6 +37,7 @@ Cara membaca:
 17. [Yang diingat browser pengunjung](#yang-diingat-browser-pengunjung)
 18. [Pemecahan masalah](#18-pemecahan-masalah)
 19. [Referensi cepat: opsi dan ID fitur](#19-referensi-cepat-opsi-dan-id-fitur)
+20. [Memperbarui tema](#20-memperbarui-tema)
 
 ---
 
@@ -395,3 +396,16 @@ Saat menguji, pakai **jendela pribadi** agar selalu seperti pengunjung baru.
 | WPlus UI: Engagement | WhatsApp, pop-up, Coming Soon | I01 sampai I03 |
 | WPlus UI: Advanced code | Kode head dan footer | H03 |
 | Di luar Customizer | Menu (E01 sampai E08), widget (F07), blok dan pola (G01 sampai G15), banner arsip (D02), halaman kontak (D05), demo (M01, M02) | lihat [FITUR.md](FITUR.md) |
+
+---
+
+## 20. Memperbarui tema
+
+**Dari panel WordPress (O01).** Mulai versi 1.7.1 tema memeriksa rilis terbaru di GitHub. Bila ada versi baru, muncul pemberitahuan di **Tampilan > Tema** dan **Dasbor > Pembaruan**, lengkap dengan tombol perbarui; pembaruan otomatis tema juga bisa dinyalakan di sana. Tautan **View version details** membuka catatan rilis.
+1. Buka **Tampilan > WPlus UI updates** untuk melihat versi terpasang dan terbaru, catatan rilis, dan tombol **Check now** (tanpa menunggu pengecekan 12 jam).
+2. Tekan **Update now**. WordPress mengunduh zip dari rilis resmi repositori, mencocokkannya dengan checksum yang dipublikasikan GitHub (dibatalkan bila tidak cocok), lalu mengganti folder tema. Pengaturan Customizer, menu, dan widget tetap utuh.
+3. Tema anak tidak diperbarui lewat cara ini; bila ada versi baru tema anak, pasang zip-nya dari halaman rilis.
+4. Privasi: hanya alamat IP situs dan versi tema yang terlihat oleh GitHub; tidak ada data pengunjung. Untuk mematikan, tambahkan `define( 'WPLUSUI_DISABLE_UPDATES', true );` di `wp-config.php` (atau pakai filter `wplusui_updates_enabled`).
+
+**Situs yang masih memakai 1.7.0** tidak punya pemeriksa ini: unggah zip 1.7.1 sekali lewat **Tampilan > Tema > Tambah Baru > Unggah Tema** dan pilih "Ganti tema aktif dengan yang diunggah". Setelah itu semua pembaruan lewat panel.
+

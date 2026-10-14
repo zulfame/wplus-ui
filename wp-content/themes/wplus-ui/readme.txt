@@ -6,7 +6,7 @@ Tags: blog, two-columns, right-sidebar, custom-logo, custom-menu, featured-image
 Requires at least: 6.3
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.7.0
+Stable tag: 1.7.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
@@ -45,7 +45,16 @@ Make a post sticky.
 = Where do I add my own CSS? =
 Use the child theme (wplus-ui-child) or Appearance > Customize > Additional CSS. Do not edit assets/css/style.css.
 
+== Privacy ==
+
+The theme checks for updates by asking the GitHub releases of its repository (api.github.com) at most once every 12 hours. Only the IP address of the site and a user agent with the theme version are visible to GitHub; no visitor data is sent. Add `define( 'WPLUSUI_DISABLE_UPDATES', true );` to wp-config.php to turn it off.
+
 == Changelog ==
+
+= 1.7.1 - Oct 15, 2026 =
+
+* New: updates from the WordPress dashboard (GitHub releases, checksum checked), with release notes in the "View version details" window and Appearance > WPlus UI updates.
+* Releases: the release text comes from the changelog.
 
 = 1.7.0 - Oct 14, 2026 =
 

@@ -17,8 +17,12 @@ jobs:
           node-version: 20
       - name: Build zips
         run: bin/build-zip.sh
+      - name: Release notes from the changelog
+        run: |
+          bin/release-notes.sh "${GITHUB_REF_NAME}" > dist/release-notes.md
+          test -s dist/release-notes.md || { echo "No CHANGELOG.md section for ${GITHUB_REF_NAME}" >&2; exit 1; }
       - name: Publish release
         uses: softprops/action-gh-release@v2
         with:
           files: dist/*.zip
-          generate_release_notes: true
+          body_path: dist/release-notes.md

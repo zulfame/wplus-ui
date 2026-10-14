@@ -2,7 +2,7 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPlus UI 1.7.0\n"
+"Project-Id-Version: WPlus UI 1.7.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/wplus-ui\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2228,4 +2228,68 @@ msgstr ""
 
 #: inc/post-options.php:205
 msgid "Show a small label next to the site name in the header"
+msgstr ""
+
+#: inc/updater.php:209
+msgid "The downloaded theme file does not match its checksum, so it was not installed."
+msgstr ""
+
+#: inc/updater.php:299
+msgid "WPlus UI release notes"
+msgstr ""
+
+#: inc/updater.php:303
+msgid "WPlus UI %s"
+msgstr ""
+
+#: inc/updater.php:309
+msgid "Open the release on GitHub"
+msgstr ""
+
+#: inc/updater.php:326
+msgid "WPlus UI updates"
+msgstr ""
+
+#: inc/updater.php:335
+msgid "You are not allowed to do this."
+msgstr ""
+
+#: inc/updater.php:361
+msgid "Checked just now."
+msgstr ""
+
+#: inc/updater.php:364
+msgid "Installed version: %s"
+msgstr ""
+
+#: inc/updater.php:366
+msgid "Update checks are turned off for this site."
+msgstr ""
+
+#: inc/updater.php:369
+msgid "Version %s is available."
+msgstr ""
+
+#: inc/updater.php:370
+msgid "Update now"
+msgstr ""
+
+#: inc/updater.php:372
+msgid "You have the latest version."
+msgstr ""
+
+#: inc/updater.php:374
+msgid "The latest version could not be checked right now. It is tried again later."
+msgstr ""
+
+#: inc/updater.php:380
+msgid "Check now"
+msgstr ""
+
+#: inc/updater.php:385
+msgid "What is new in %s"
+msgstr ""
+
+#: inc/updater.php:388
+msgid "Recent changes in the installed version"
 msgstr ""

@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'WPLUSUI_VERSION', '1.7.0' );
+define( 'WPLUSUI_VERSION', '1.7.1' );
 define( 'WPLUSUI_DIR', get_template_directory() );
 define( 'WPLUSUI_URI', get_template_directory_uri() );
 
@@ -50,6 +50,7 @@ require WPLUSUI_DIR . '/inc/critical-css.php';
 require WPLUSUI_DIR . '/inc/multilingual.php';
 require WPLUSUI_DIR . '/inc/engagement.php';
 require WPLUSUI_DIR . '/inc/cookie-notice.php';
+require WPLUSUI_DIR . '/inc/updater.php';
 require WPLUSUI_DIR . '/inc/coming-soon.php';
 require WPLUSUI_DIR . '/inc/contact-form.php';
 require WPLUSUI_DIR . '/inc/term-banner.php';

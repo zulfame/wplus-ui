@@ -189,6 +189,12 @@ Persyaratan: WordPress 6.3+, PHP 7.4+. Tidak ada dukungan RTL (disengaja).
 
 ---
 
+## O. Pembaruan
+
+| ID | Fitur | Di mana diatur | Bawaan | Perilaku | Kode |
+|---|---|---|---|---|---|
+| O01 | Pembaruan tema dari panel WordPress | Tampilan > WPlus UI updates; `define( 'WPLUSUI_DISABLE_UPDATES', true );` atau filter `wplusui_updates_enabled` untuk mematikan | Nyala | Tema menanyakan rilis terbaru di GitHub (`zulfame/wplus-ui`, paling sering tiap 12 jam, hasil dicache; kegagalan diingat 1 jam). Bila versinya lebih baru WordPress menampilkan pembaruan di Tampilan > Tema dan Dasbor > Pembaruan, dengan tombol perbarui dan opsi pembaruan otomatis. "View version details" membuka jendela catatan rilis (teks dari CHANGELOG, format dasar saja, HTML dari rilis tidak pernah menjadi markup). Hanya zip dari rilis repositori itu yang ditawarkan; zip yang diunduh dicocokkan dengan checksum yang dipublikasikan GitHub dan dibatalkan bila tidak cocok. Halaman Tampilan > WPlus UI updates menampilkan versi terpasang dan terbaru, tombol Update now dan Check now, catatan rilis, dan riwayat versi terpasang. Draft, pra-rilis, tag bukan angka versi, paket tanpa nama yang benar, dan paket di luar repositori diabaikan. Hanya alamat IP situs dan user agent dengan versi tema yang terlihat oleh GitHub. Tema anak tidak ikut diperbarui lewat ini. | `inc/updater.php`, `bin/release-notes.sh`, `.github/workflows/release.yml` |
+
 ## Hal yang belum punya antarmuka (catatan batch 1)
 
 - **Gambar banner kategori** (D02): sudah punya kolom di layar edit Kategori dan Tag (diperbaiki di batch 3).

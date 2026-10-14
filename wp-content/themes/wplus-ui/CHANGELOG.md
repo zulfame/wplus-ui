@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.7.1 - 2026-10-15
+
+- New: updates from the WordPress dashboard. The theme asks the GitHub releases of `zulfame/wplus-ui` (at most every 12 hours, cached) and WordPress shows "update available" under Appearance > Themes and Dashboard > Updates, with an update button and optional automatic updates. "View version details" opens the release notes. The downloaded zip is checked against the checksum GitHub publishes before it is installed, and only files from this repository's releases are ever offered. Appearance > WPlus UI updates shows the installed and latest version, a "Check now" button and the notes. Turn it off with `define( 'WPLUSUI_DISABLE_UPDATES', true );` or the `wplusui_updates_enabled` filter. Sites on 1.7.0 install this version once by uploading the zip; later versions arrive from the dashboard.
+- Releases: the GitHub release text now comes from this changelog instead of an automatic list of commits.
+- Docs and tests: `tests/docs/trace-update.mjs`.
+
 ## 1.7.0 - 2026-10-14
 
 - Rebranding: the theme is now called WPlus UI (folder and slug `wplus-ui`, child theme `wplus-ui-child`, text domain `wplus-ui`, option and function prefix `wplusui_`, constants `WPLUSUI_`, blocks `wplusui/`). "Plus UI v3.2.0" by Fineshop Design is credited as the `Source` of the fork.
