@@ -259,6 +259,11 @@ set_theme_mod( 'wplusui_notification_cta_text', 'Reach out!' );
 set_theme_mod( 'wplusui_notification_cta_url', $about ? get_permalink( $about ) : '' );
 set_theme_mod( 'wplusui_footer_about', 'WPlus UI is a sleek, modern, and fully responsive WordPress theme designed to provide an exceptional user experience across all devices.' );
 set_theme_mod( 'wplusui_home_categories', 'documentation,product' );
+// A second import adds every menu item again; keep one copy.
+if ( function_exists( 'wplusui_demo_remove_duplicate_menu_items' ) ) {
+	wplusui_demo_remove_duplicate_menu_items();
+}
+
 // Each ad slot shows a picture placeholder of the recommended size (an empty slot would not show at all).
 foreach ( wplusui_ad_slot_sizes() as $slot => $size ) {
 	set_theme_mod( 'wplusui_ad_' . $slot, sprintf( '<img src="https://placehold.co/%1$dx%2$d?text=Ad+%1$dx%2$d" width="%1$d" height="%2$d" alt="Ad space %1$d x %2$d">', $size[0], $size[1] ) );

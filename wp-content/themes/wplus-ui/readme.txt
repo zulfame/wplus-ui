@@ -6,7 +6,7 @@ Tags: blog, two-columns, right-sidebar, custom-logo, custom-menu, featured-image
 Requires at least: 6.3
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.7.3
+Stable tag: 1.7.4
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
@@ -50,6 +50,12 @@ Use the child theme (wplus-ui-child) or Appearance > Customize > Additional CSS.
 The theme checks for updates by asking the GitHub releases of its repository (api.github.com) at most once every 12 hours. Only the IP address of the site and a user agent with the theme version are visible to GitHub; no visitor data is sent. Add `define( 'WPLUSUI_DISABLE_UPDATES', true );` to wp-config.php to turn it off.
 
 == Changelog ==
+
+= 1.7.4 - Oct 15, 2026 =
+
+* Fix: the gallery pictures of the demo posts show again, also after an update.
+* Fix: importing the demo twice no longer doubles the menu items; an already doubled menu is cleaned up.
+* Fix: the theme screenshot shows the new name.
 
 = 1.7.3 - Oct 15, 2026 =
 

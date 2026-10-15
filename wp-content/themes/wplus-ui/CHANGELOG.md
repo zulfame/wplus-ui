@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.7.4 - 2026-10-15
+
+- Fix: the gallery pictures of the demo posts show again, also on a site that imported the demo before an update. They are back in the theme, in a lighter version (the theme download stays small).
+- Fix: importing the demo a second time no longer doubles the menu items. A menu that an earlier import already doubled is cleaned up automatically.
+- Fix: the theme screenshot shows the new name, WPlus UI.
+
 ## 1.7.3 - 2026-10-15
 
 - Changed: an ad slot you leave empty is no longer shown at all, with no frame, no text and no space. The "Show ad placeholders" checkbox is gone; to see where a slot sits, fill it with a picture.

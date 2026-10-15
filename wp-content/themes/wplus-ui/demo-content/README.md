@@ -2,7 +2,7 @@
 
 Contents: 19 posts (16 in *Documentation*), the About and Cookie Policy pages, the Primary and Quick Links menus, and the pictures in `images/`.
 
-The demo content is **not inside the installable theme zip** (it keeps the theme under 1 MB). It is its own zip, `wplus-ui-demo-<version>.zip`, in the same release. In the dashboard, **Appearance → WPlus UI Demo → Download demo content** fetches it once and unpacks it into `wp-content/uploads/wplus-ui-demo/`. A copy of the repository has this folder in the theme and needs no download.
+The demo content is **not inside the installable theme zip** (it keeps the theme small). It is its own zip, `wplus-ui-demo-<version>.zip`, in the same release. In the dashboard, **Appearance → WPlus UI Demo → Download demo content** fetches it once and unpacks it into `wp-content/uploads/wplus-ui-demo/`. A copy of the repository has this folder in the theme and needs no download. Importing the demo again is safe: existing posts, pages, pictures and categories are skipped and the demo menus are not added a second time.
 
 ## Import from the dashboard (no WP-CLI)
 

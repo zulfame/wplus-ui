@@ -11,7 +11,7 @@ Requires WordPress 6.3 or newer and PHP 7.4 or newer.
 1. Download `wplus-ui-<version>.zip` from the [latest release](../../releases/latest).
 2. In WordPress open **Appearance → Themes → Add New → Upload Theme**, choose the zip, install and activate it.
 3. Optional: install `wplus-ui-child-<version>.zip` the same way if you want a child theme for your own CSS and PHP.
-4. Optional: for a sample site, open **Appearance → WPlus UI Demo** and press **Download demo content**. The sample content is not part of the theme zip, to keep the theme small (under 1 MB).
+4. Optional: for a sample site, open **Appearance → WPlus UI Demo** and press **Download demo content**. The sample content is not part of the theme zip, to keep the theme small (about 1 MB).
 
 All settings are in **Appearance → Customize** (the sections start with "WPlus UI").
 

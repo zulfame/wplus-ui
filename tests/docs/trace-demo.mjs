@@ -48,7 +48,8 @@ try {
   const themeFiles = list(THEME_ZIP);
   const demoFiles = list(DEMO_ZIP);
   const themeSize = fs.statSync(THEME_ZIP).size;
-  claim('M03-1', `zip tema tanpa konten demo dan kecil (${(themeSize / 1048576).toFixed(2)} MB < 1.5 MB); paket demo terpisah berisi XML, skrip impor, README dan 30 gambar`, !themeFiles.some((f) => /demo-content\//.test(f)) && !themeFiles.some((f) => /assets\/images\/(?!wplus-ui-logo-square\.png)[^/]+$/.test(f)) && themeSize < 1.5 * 1048576 && demoFiles.includes('wplus-ui-demo/wplus-ui-demo-content.xml') && demoFiles.includes('wplus-ui-demo/import-demo.php') && demoFiles.filter((f) => /^wplus-ui-demo\/images\/[^/]+\.[a-z]+$/.test(f)).length === 30, [themeSize, themeFiles.length, demoFiles.length]);
+  const GALLERY = ['colorful-spider-fantasy', 'frosty-pine-cones', 'jungle-trekking-adventure', 'misty-grape-cluster', 'skydivers-holding-hands', 'urban-basketball-game', 'winter-alpine-village'];
+  claim('M03-1', `zip tema tanpa konten demo dan kecil (${(themeSize / 1048576).toFixed(2)} MB < 2 MB), hanya berisi logo dan 7 gambar galeri di assets/images (dirujuk teks pos demo lama); paket demo terpisah berisi XML, skrip impor, README dan 30 gambar`, !themeFiles.some((f) => /demo-content\//.test(f)) && themeFiles.filter((f) => /assets\/images\/[^/]+$/.test(f)).map((f) => f.split('/').pop()).sort().join() === ['wplus-ui-logo-square.png', ...GALLERY.map((g) => g + '.jpg')].sort().join() && themeSize < 2 * 1048576 && demoFiles.includes('wplus-ui-demo/wplus-ui-demo-content.xml') && demoFiles.includes('wplus-ui-demo/import-demo.php') && demoFiles.filter((f) => /^wplus-ui-demo\/images\/[^/]+\.[a-z]+$/.test(f)).length === 30, [themeSize, themeFiles.length, demoFiles.length]);
 
   // a fresh WordPress with the theme installed from its zip
   sh('rsync', ['-a', '--exclude', 'wp-content', '--exclude', 'wp-config.php', '--exclude', 'node_modules', '--exclude', '.git', '--exclude', 'tests', '--exclude', 'docs', '--exclude', 'bin', '--exclude', '.github', root + '/', W + '/']);
@@ -102,6 +103,22 @@ if(!defined('ABSPATH'))define('ABSPATH',__DIR__.'/');require_once ABSPATH.'wp-se
   const imgs = [...new Set([...html.matchAll(/src="([^"]*\/wp-content\/uploads\/[^"]+)"/g)].map((m) => m[1]))].slice(0, 12);
   const codes = imgs.map((u) => execFileSync('curl', ['-s', '-o', '/dev/null', '-w', '%{http_code}', u.startsWith('http') ? u : `http://127.0.0.1:${SITE}${u}`], { encoding: 'utf8' }));
   claim('M03-9', 'gambar di pos demo (galeri) dimuat dari media library: semua alamat menjawab 200', imgs.length > 0 && codes.every((c) => c === '200'), [imgs.length, codes.join()]);
+  // M03-12: the gallery pictures that demo posts point to in the theme folder are there (a site that imported the demo before an update has such posts)
+  const themeUrls = GALLERY.map((g) => `http://127.0.0.1:${SITE}/wp-content/themes/wplus-ui/assets/images/${g}.jpg`);
+  const tcodes = themeUrls.map((u) => execFileSync('curl', ['-s', '-o', '/dev/null', '-w', '%{http_code}', u], { encoding: 'utf8' }));
+  claim('M03-12', 'tujuh gambar galeri ada di folder tema (alamat lama di pos demo yang sudah diimpor sebelum pembaruan tetap berfungsi)', tcodes.every((c) => c === '200'), tcodes.join());
+  // M03-13: importing the demo twice keeps one copy of everything; a menu doubled by an earlier import is cleaned up
+  const twice = J(`require 'wp-load.php';wp_set_current_user(1);
+    foreach(['import','post','taxonomy','file','media','image'] as $f) require_once ABSPATH."wp-admin/includes/$f.php";
+    require_once ABSPATH.'wp-admin/includes/class-wp-importer.php';require_once WP_PLUGIN_DIR.'/wordpress-importer/wordpress-importer.php';
+    global $wpdb;$cnt=function() use($wpdb){return ['menuItems'=>(int)$wpdb->get_var("SELECT COUNT(*) FROM $wpdb->posts WHERE post_type='nav_menu_item' AND post_status='publish'"),'posts'=>(int)wp_count_posts()->publish,'pages'=>(int)wp_count_posts('page')->publish,'attachments'=>(int)$wpdb->get_var("SELECT COUNT(*) FROM $wpdb->posts WHERE post_type='attachment'")];};
+    $a=$cnt(); $i=new WP_Import(); $i->fetch_attachments=false; ob_start(); $i->import(wplusui_demo_dir().'/wplus-ui-demo-content.xml'); ob_end_clean(); $b=$cnt();
+    // a site whose menus were already doubled by an older theme version: import again with the new guard switched off (as the old theme behaved), then let the once-per-version clean-up run
+    remove_filter('wp_import_posts','wplusui_demo_skip_existing_menu_items');
+    $i=new WP_Import(); $i->fetch_attachments=false; ob_start(); $i->import(wplusui_demo_dir().'/wplus-ui-demo-content.xml'); ob_end_clean(); $c=$cnt();
+    delete_option('wplusui_demo_menu_cleanup'); wp_set_current_user(1); do_action('admin_init'); $d=$cnt();
+    echo json_encode(['first'=>$a,'afterSecondImport'=>$b,'doubledByHand'=>$c,'afterCleanup'=>$d]);`);
+  claim('M03-13', 'impor demo kedua kali (impor sungguhan): pos, halaman, lampiran dan item menu tetap satu salinan; menu yang sudah terlanjur dobel oleh impor lama dibersihkan otomatis', JSON.stringify(twice.afterSecondImport) === JSON.stringify(twice.first) && twice.doubledByHand.menuItems >= 2 * twice.first.menuItems && JSON.stringify(twice.afterCleanup) === JSON.stringify(twice.first), twice);
   let js = '';
   try { js = execFileSync('node', [path.join(root, 'tests/visual/js-errors.mjs'), `http://127.0.0.1:${SITE}`], { encoding: 'utf8', maxBuffer: 1 << 26 }); } catch (e) { js = (e.stdout || '') + (e.message || ''); }
   claim('M03-10', 'situs hasil instal bersih + paket demo: 17 jenis halaman, desktop dan mobile, tanpa galat JavaScript', /^OK: 34 page checks/m.test(js), js.trim().split('\n').slice(-4).join(' | '));

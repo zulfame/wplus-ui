@@ -126,6 +126,122 @@ function wplusui_demo_download_action() {
 add_action( 'admin_post_wplusui_demo_download', 'wplusui_demo_download_action' );
 
 /**
+ * How many items each demo menu has. Used to tell an untouched demo menu from one that an import doubled.
+ *
+ * @return array<string,int>
+ */
+function wplusui_demo_menu_sizes() {
+	return array(
+		'Primary Menu' => 15,
+		'Quick Links'  => 10,
+	);
+}
+
+/**
+ * Whether a list of imported posts is the demo content of this theme (its posts carry the demo placeholder address).
+ *
+ * @param array $posts Posts of the import file.
+ * @return bool
+ */
+function wplusui_demo_is_demo_import( $posts ) {
+	foreach ( (array) $posts as $post ) {
+		if ( isset( $post['guid'] ) && false !== strpos( (string) $post['guid'], 'wplusui-demo.invalid' ) ) {
+			return true;
+		}
+	}
+	return false;
+}
+
+/**
+ * The WordPress Importer skips posts, pages, pictures and categories it already has, but it adds every menu item
+ * again, so importing the demo a second time doubled the Primary and Quick Links menus. When the demo file is imported
+ * and one of its menus already has items, that menu's items are left out of the import.
+ *
+ * @param array $posts Posts of the import file.
+ * @return array
+ */
+function wplusui_demo_skip_existing_menu_items( $posts ) {
+	if ( ! is_array( $posts ) || ! wplusui_demo_is_demo_import( $posts ) ) {
+		return $posts;
+	}
+	$skip = array();
+	foreach ( $posts as $post ) {
+		if ( 'nav_menu_item' !== $post['post_type'] ) {
+			continue;
+		}
+		foreach ( (array) $post['terms'] as $term ) {
+			if ( 'nav_menu' === $term['domain'] && ! isset( $skip[ $term['slug'] ] ) ) {
+				$menu                  = wp_get_nav_menu_object( $term['slug'] );
+				$skip[ $term['slug'] ] = $menu && wp_get_nav_menu_items( $menu->term_id, array( 'post_status' => 'any' ) );
+			}
+		}
+	}
+	return array_values(
+		array_filter(
+			$posts,
+			function ( $post ) use ( $skip ) {
+				if ( 'nav_menu_item' !== $post['post_type'] ) {
+					return true;
+				}
+				foreach ( (array) $post['terms'] as $term ) {
+					if ( 'nav_menu' === $term['domain'] && ! empty( $skip[ $term['slug'] ] ) ) {
+						return false;
+					}
+				}
+				return true;
+			}
+		)
+	);
+}
+add_filter( 'wp_import_posts', 'wplusui_demo_skip_existing_menu_items' );
+
+/**
+ * Clean up a site whose demo menus an older version of the theme let the importer double: a demo menu that now has
+ * exactly two or more times its usual number of items keeps the oldest copies (the ones the setup has worked on).
+ *
+ * @return int How many items were removed.
+ */
+function wplusui_demo_remove_duplicate_menu_items() {
+	if ( ! get_page_by_path( 'ui-components-and-typography', OBJECT, 'post' ) ) {
+		return 0;
+	}
+	$removed = 0;
+	foreach ( wplusui_demo_menu_sizes() as $name => $size ) {
+		$menu = wp_get_nav_menu_object( $name );
+		if ( ! $menu ) {
+			continue;
+		}
+		$items = wp_get_nav_menu_items( $menu->term_id, array( 'post_status' => 'any' ) );
+		if ( ! $items || count( $items ) <= $size || 0 !== count( $items ) % $size ) {
+			continue;
+		}
+		usort(
+			$items,
+			function ( $a, $b ) {
+				return $a->ID <=> $b->ID;
+			}
+		);
+		foreach ( array_slice( $items, $size ) as $copy ) {
+			wp_delete_post( $copy->ID, true );
+			++$removed;
+		}
+	}
+	return $removed;
+}
+
+/**
+ * Once per theme version, clean up a site whose demo menus were already doubled by an earlier import.
+ */
+function wplusui_demo_menu_cleanup_once() {
+	if ( get_option( 'wplusui_demo_menu_cleanup' ) === WPLUSUI_VERSION || ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+	wplusui_demo_remove_duplicate_menu_items();
+	update_option( 'wplusui_demo_menu_cleanup', WPLUSUI_VERSION, false );
+}
+add_action( 'admin_init', 'wplusui_demo_menu_cleanup_once' );
+
+/**
  * Run the demo setup script and return its output.
  *
  * @return string
