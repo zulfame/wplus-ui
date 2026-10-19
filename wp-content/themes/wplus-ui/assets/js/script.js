@@ -4617,6 +4617,7 @@ document.addEventListener(
           c = {};
         s && (c.language = s);
         let l = await et(a, c);
+        l.explicit = !!s;
         return (
           i.length && ((r.innerHTML = l.value), (l.value = Qe(i, Ze(r), a))),
           (e.innerHTML = l.value),
@@ -4699,7 +4700,7 @@ document.addEventListener(
               (ie(t, `data-highlighted`),
               tt(t, { merge: t.tagName === `CODE` }).then((e) => {
                 (E(t, `data-highlighted`, `yes`),
-                  e.language && E(r || t, `data-result-language`, e.language));
+                  e.language && e.explicit && E(r || t, `data-result-language`, e.language));
               }));
           }
         },

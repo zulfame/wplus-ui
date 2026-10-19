@@ -258,9 +258,9 @@
 						null,
 						el(
 							c.PanelBody,
-							{ title: __( 'Code sample header', 'wplus-ui' ), initialOpen: false },
+							{ title: __( 'Code sample header', 'wplus-ui' ), initialOpen: true },
 							textField( props, 'wplusuiSource', __( 'File name (e.g. src/index.html)', 'wplus-ui' ) ),
-							textField( props, 'wplusuiComment', __( 'Comment (e.g. .html)', 'wplus-ui' ) )
+							textField( props, 'wplusuiComment', __( 'Label, top right (e.g. bash). Empty shows </>', 'wplus-ui' ) )
 						)
 					)
 				);

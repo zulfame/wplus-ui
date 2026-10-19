@@ -1329,7 +1329,7 @@ msgid "File name (e.g. src/index.html)"
 msgstr ""
 
 #: assets/js/editor.js:263
-msgid "Comment (e.g. .html)"
+msgid "Label, top right (e.g. bash). Empty shows </>"
 msgstr ""
 
 #: assets/js/editor.js:273

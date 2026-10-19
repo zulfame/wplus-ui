@@ -837,3 +837,53 @@ code mark.red {
 	height: auto;
 	margin: 0 auto;
 }
+
+/* Post card footer: author pill on the left, date badge on the right (replaces "Updated" + "Keep reading"). */
+.ntry .pInf.pSml:has(.pAu),
+.itm .pInf.pSml:has(.pAu) {
+  align-items: center;
+}
+.pInf .tfxM.pAu {
+  position: static;
+  inset: auto;
+  padding: 0;
+  min-width: 0;
+}
+.pInf .tfxM.pAu .aNm {
+  max-width: 100%;
+}
+.pInf .tfxM.pAu .nm {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.pInf:not(.ps) .pTtmp.pDtb {
+  opacity: 1;
+  flex-shrink: 0;
+  margin-inline-start: 8px;
+}
+.pInf:not(.ps) .pTtmp.pDtb:before {
+  content: attr(data-time);
+  background: var(--linkB);
+  color: #fff;
+  border-radius: 2px;
+  margin: 0;
+  padding: 2px 4px;
+  font-size: 11px;
+}
+.pInf:not(.ps) .pTtmp.pDtb:after {
+  content: none;
+}
+
+/* A picture in an ad slot has the same rounded corners as the cards, and the slot clips it exactly (no square edge showing at the corners). */
+.adB.is-live,
+.adB.is-live > a {
+  border-radius: var(--thumbEr, 8px);
+}
+.adB.is-live > a {
+  display: block;
+  overflow: hidden;
+}
+.adB.is-live img {
+  border-radius: inherit;
+}

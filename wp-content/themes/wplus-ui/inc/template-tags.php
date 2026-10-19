@@ -56,8 +56,10 @@ function wplusui_bookmark_attrs() {
  * Hover overlay on card thumbnails: "tfxM T" (edit link + bookmark button)
  * and "tfxM B" (author byline). The bookmark button carries the data-bm-*
  * attributes read by script.js (bookmark popup + localStorage).
+ *
+ * @param bool $byline Whether to print the author byline over the thumbnail (cards show it in the footer instead).
  */
-function wplusui_card_overlay_top() {
+function wplusui_card_overlay_top( $byline = true ) {
 	$labels = wp_list_pluck( get_the_category(), 'name' );
 	$thumb  = get_the_post_thumbnail_url( get_the_ID(), 'post-thumbnail' );
 	$edit   = admin_url( 'post.php?post=' . get_the_ID() . '&action=edit' );
@@ -70,14 +72,25 @@ function wplusui_card_overlay_top() {
 			<button aria-label="<?php esc_attr_e( 'Add to bookmark', 'wplus-ui' ); ?>" class="bM bm-button show-if-js"<?php echo wplusui_bookmark_attrs(); // phpcs:ignore WordPress.Security.EscapeOutput ?> type="button"><svg class="line" viewBox="0 0 24 24"><path class="a h c" d="M14.5 10.6499H9.5" stroke-miterlimit="10"></path><path class="a v c" d="M12 8.20996V13.21" stroke-miterlimit="10"></path><path d="M16.8199 2H7.17995C5.04995 2 3.31995 3.74 3.31995 5.86V19.95C3.31995 21.75 4.60995 22.51 6.18995 21.64L11.0699 18.93C11.5899 18.64 12.4299 18.64 12.9399 18.93L17.8199 21.64C19.3999 22.52 20.6899 21.76 20.6899 19.95V5.86C20.6799 3.74 18.9499 2 16.8199 2Z"></path><path class="t" d="M9.58997 11L11.09 12.5L15.09 8.5"></path></svg></button>
 		</div>
 	</div>
+	<?php if ( $byline ) : ?>
 	<div class="tfxM B">
 		<div class="tfxC">
+			<?php wplusui_card_author(); ?>
+		</div>
+	</div>
+	<?php endif; ?>
+	<?php
+}
+
+/**
+ * Author pill (avatar + name) used in the card byline and the card footer.
+ */
+function wplusui_card_author() {
+	?>
 			<div class="aNm">
 				<?php echo get_avatar( get_the_author_meta( 'ID' ), 15, '', get_the_author(), array( 'class' => 'im' ) ); ?>
 				<bdi class="nm" data-text="<?php echo esc_attr( get_the_author() ); ?>"></bdi>
 			</div>
-		</div>
-	</div>
 	<?php
 }
 
@@ -97,14 +110,15 @@ function wplusui_placeholder_variant( $seed ) {
  * color scheme and dark mode. Keeps the hover overlay (edit, bookmark, byline) of real thumbnails.
  *
  * @param bool $pinned Whether the card is the pinned/popular layout (.iThmb).
+ * @param bool $byline Whether the author byline is printed over the picture.
  */
-function wplusui_placeholder_thumb( $pinned = false ) {
+function wplusui_placeholder_thumb( $pinned = false, $byline = true ) {
 	?>
 		<div class="<?php echo $pinned ? 'iThmb pThmb nul' : 'pThmb nul'; ?>">
 			<a aria-label="<?php the_title_attribute(); ?>" class="thmb" href="<?php the_permalink(); ?>">
 				<span aria-hidden="true" class="imgThm plcH plcV<?php echo (int) wplusui_placeholder_variant( get_the_ID() ); ?>" data-text="<?php esc_attr_e( 'No image', 'wplus-ui' ); ?>"></span>
 			</a>
-			<?php wplusui_card_overlay_top(); ?>
+			<?php wplusui_card_overlay_top( $byline ); ?>
 		</div>
 	<?php
 }
@@ -164,10 +178,10 @@ function wplusui_post_card( $variant = 'grid' ) {
 				);
 				?>
 			</a>
-			<?php wplusui_card_overlay_top(); ?>
+			<?php wplusui_card_overlay_top( false ); ?>
 		</div>
 		<?php else : ?>
-			<?php wplusui_placeholder_thumb( $pinned ); ?>
+			<?php wplusui_placeholder_thumb( $pinned, false ); ?>
 		<?php endif; ?>
 
 		<div class="<?php echo $pinned ? 'iCtnt' : 'pCntn'; ?>">
@@ -193,8 +207,8 @@ function wplusui_post_card( $variant = 'grid' ) {
 			<?php endif; ?>
 			<div class="pSnpt"><?php echo esc_html( wp_trim_words( get_the_excerpt(), 20 ) ); ?></div>
 			<div class="pInf pSml">
-				<time class="aTtmp pTtmp upd" data-text="<?php esc_attr_e( 'Updated', 'wplus-ui' ); ?>" data-time="<?php echo esc_attr( get_the_modified_date( 'M j, Y' ) ); ?>" datetime="<?php echo esc_attr( get_the_modified_date( 'c' ) ); ?>" title="<?php echo esc_attr( get_the_modified_date() ); ?>"></time>
-				<a aria-label="<?php esc_attr_e( 'Keep reading', 'wplus-ui' ); ?>" class="pJmp" href="<?php the_permalink(); ?>"></a>
+				<div class="tfxM pAu"><div class="tfxC"><?php wplusui_card_author(); ?></div></div>
+				<time class="aTtmp pTtmp pDtb" data-time="<?php echo esc_attr( get_the_modified_date( 'M j, Y' ) ); ?>" datetime="<?php echo esc_attr( get_the_modified_date( 'c' ) ); ?>" title="<?php echo esc_attr( get_the_modified_date() ); ?>"></time>
 			</div>
 		</div>
 	</article>
