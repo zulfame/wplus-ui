@@ -47,7 +47,7 @@ Use the child theme (wplus-ui-child) or Appearance > Customize > Additional CSS.
 
 == Privacy ==
 
-The theme checks for updates by asking the GitHub releases of its repository (api.github.com) at most once every 12 hours. Only the IP address of the site and a user agent with the theme version are visible to GitHub; no visitor data is sent. Add `define( 'WPLUSUI_DISABLE_UPDATES', true );` to wp-config.php to turn it off.
+The theme checks for updates by asking the GitHub releases of its repository (api.github.com) whenever WordPress checks its themes for updates (twice a day, and when the Themes or Updates screen is opened). Only the IP address of the site and a user agent with the theme version are visible to GitHub; no visitor data is sent. Add `define( 'WPLUSUI_DISABLE_UPDATES', true );` to wp-config.php to turn it off.
 
 == Changelog ==
 

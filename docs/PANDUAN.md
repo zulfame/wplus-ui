@@ -403,7 +403,7 @@ Saat menguji, pakai **jendela pribadi** agar selalu seperti pengunjung baru.
 ## 20. Memperbarui tema
 
 **Dari panel WordPress (O01).** Mulai versi 1.7.1 tema memeriksa rilis terbaru di GitHub. Bila ada versi baru, muncul pemberitahuan di **Tampilan > Tema** dan **Dasbor > Pembaruan**, lengkap dengan tombol perbarui; pembaruan otomatis tema juga bisa dinyalakan di sana. Tautan **View version details** membuka catatan rilis.
-1. Buka **Tampilan > WPlus UI Update** untuk melihat versi terpasang dan terbaru, catatan rilis, dan tombol **Check now** (tanpa menunggu pengecekan 12 jam).
+1. Buka **Tampilan > WPlus UI Update** untuk melihat versi terpasang dan terbaru, catatan rilis, dan tombol **Check now** (tanpa menunggu pengecekan berikutnya dari WordPress).
 2. Tekan **Update now**. WordPress mengunduh zip dari rilis resmi repositori, mencocokkannya dengan checksum yang dipublikasikan GitHub (dibatalkan bila tidak cocok), lalu mengganti folder tema. Pengaturan Customizer, menu, dan widget tetap utuh.
 3. Tema anak tidak diperbarui lewat cara ini; bila ada versi baru tema anak, pasang zip-nya dari halaman rilis.
 4. Privasi: hanya alamat IP situs dan versi tema yang terlihat oleh GitHub; tidak ada data pengunjung. Untuk mematikan, tambahkan `define( 'WPLUSUI_DISABLE_UPDATES', true );` di `wp-config.php` (atau pakai filter `wplusui_updates_enabled`).

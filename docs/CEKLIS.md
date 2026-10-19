@@ -176,7 +176,7 @@ Jumlah fitur: **91**. Status per batch ada di bagian bawah.
 |---|---|---|---|---|---|---|---|
 | N01 | Placeholder thumbnail | ☑ | ☑ | ☑ | ☑ | ☑ | Kartu beranda/arsip, carousel, kotak pinned dan Popular Posts: gambar pengganti dengan empat variasi, ikon gambar, mode terang dan gelap sesuai warna aksen (1280 dan 390). `batch7-n1.mjs`, `batch7-n2.mjs`, `batch7-n3.mjs` |
 | N02 | Tanggal singkat di kartu | ☑ | ☑ | ☑ | ☑ | ☑ | Kartu menampilkan "Okt 13, 2026" (bentuk singkat). `batch7-n1.mjs` |
-| O01 | Pembaruan tema dari panel WordPress | ☑ | ☑ | ☑ | ☑ | ☑ | Server GitHub palsu: versi baru/sama/lama, draft, rilis tak layak, cache 12 jam, kegagalan, dimatikan, checksum benar/salah, catatan aman, jendela catatan, halaman pembaruan, pemberitahuan di Tema; pembaruan sungguhan (Theme_Upgrader) di WordPress terpisah, pengaturan utuh; checksum salah menghentikan pembaruan. `trace-update.mjs` |
+| O01 | Pembaruan tema dari panel WordPress | ☑ | ☑ | ☑ | ☑ | ☑ | Server GitHub palsu: versi baru/sama/lama, draft, rilis tak layak, cache singkat (15 menit untuk pengecekan WordPress), jawaban lama tidak menyembunyikan rilis baru, kegagalan, dimatikan, checksum benar/salah, catatan aman, jendela catatan, halaman pembaruan, pemberitahuan di Tema; pembaruan sungguhan (Theme_Upgrader) di WordPress terpisah, pengaturan utuh; checksum salah menghentikan pembaruan. `trace-update.mjs` |
 
 ## Status batch
 

@@ -73,7 +73,16 @@ try {
   run(`delete_site_transient('wplusui_latest_release');wplusui_latest_release();wplusui_latest_release();wplusui_latest_release();`);
   const afterCached = hits();
   run(`wplusui_latest_release();wplusui_latest_release(true);`, PRE.replace('delete_site_transient', 'delete_site_transient'));
-  claim('O01-6', 'hasil dicache 12 jam: tiga pengecekan = 1 permintaan; "Check now" memaksa permintaan baru', afterCached === 1 && hits() === 2, [afterCached, hits()]);
+  claim('O01-6', 'hasil dicache singkat: tiga pengecekan = 1 permintaan; "Check now" memaksa permintaan baru', afterCached === 1 && hits() === 2, [afterCached, hits()]);
+  // O01-6b a stored answer must not hide a release made since (the bug: a 12 hour cache made WordPress's own check say "up to date")
+  serve(release('v' + CUR)); resetHits();
+  run(`delete_site_transient('wplusui_latest_release');wplusui_latest_release(true);`); // cached: "no newer release", stored just now
+  serve(release('v1.7.9', { digest: 'sha256:' + z.sha }));
+  const probeKeep = probe.replace("delete_site_transient('wplusui_latest_release');", '');
+  const fresh = J(probeKeep); // WordPress asks within 15 minutes: the stored answer is reused
+  run(`$c=get_site_transient('wplusui_latest_release');$c['checked']=(string)(time()-3*HOUR_IN_SECONDS);set_site_transient('wplusui_latest_release',$c,12*HOUR_IN_SECONDS);`);
+  const aged = J(probeKeep); // three hours later WordPress asks again: the new release is found without pressing Check now
+  claim('O01-6b', 'WordPress pergi memeriksa tema: jawaban tersimpan yang lebih tua dari 15 menit tidak menyembunyikan rilis baru (pembaruan muncul tanpa menekan Check now); yang baru saja disimpan dipakai ulang', fresh.resp === null && aged.resp?.new_version === '1.7.9', [fresh.resp, aged.resp?.new_version]);
   // O01-7 failure: no update, no fatal error, remembered (no second request)
   serve('boom', 500); resetHits();
   const f = J(`delete_site_transient('wplusui_latest_release');$a=wplusui_latest_release();$b=wplusui_latest_release();echo json_encode([$a,$b,get_site_transient('wplusui_latest_release')]);`);

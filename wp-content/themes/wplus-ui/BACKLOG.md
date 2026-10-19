@@ -231,3 +231,4 @@ Status: `[x]` selesai · `[~]` sebagian · `[ ]` belum. Acuan: bandingkan ukuran
 - Tag artikel: tampil sebagai blok seperti widget Labels
 - Catatan rilis: label "New:" dengan titik dua, label "Changed" dikenali
 - Paket demo: about.png diganti WebP; tombol bookmark kartu terkait 24 px
+- Pembaruan tema: jawaban GitHub yang tersimpan tidak lagi menyembunyikan rilis baru dari pengecekan WordPress sendiri (pembaruan muncul di Tema/Dasbor tanpa menekan Check now)

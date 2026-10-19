@@ -4,7 +4,8 @@
  *
  * WordPress shows "update available" for the theme under Appearance > Themes and on Dashboard > Updates, with a
  * button (and optional automatic updates), and the release notes open in the usual "View version details" window.
- * The latest release is asked from api.github.com at most once every 12 hours (the answer is cached); nothing
+ * The latest release is asked from api.github.com whenever WordPress checks its themes for updates (twice a day, and
+ * again when the Themes or Updates screen is opened), reusing an answer that is under 15 minutes old; nothing
  * about the site is sent except its IP address and a user agent with the theme version. Turn it off with
  * `define( 'WPLUSUI_DISABLE_UPDATES', true );` in wp-config.php or the `wplusui_updates_enabled` filter.
  *
@@ -105,19 +106,24 @@ function wplusui_parse_release( $data ) {
 }
 
 /**
- * The latest release, from the cache or (when the cache is empty or $force is set) from GitHub.
- * A failed request is remembered for an hour so a slow or blocked connection does not slow every admin page.
+ * The latest release, from the cache or (when the cache is empty, older than $max_age or $force is set) from GitHub.
+ * A failed request is remembered for 15 minutes so a slow or blocked connection does not slow every admin page.
  *
- * @param bool $force Ask GitHub now.
+ * @param bool $force   Ask GitHub now.
+ * @param int  $max_age Oldest cached answer to accept, in seconds.
  * @return array<string,string>|null
  */
-function wplusui_latest_release( $force = false ) {
+function wplusui_latest_release( $force = false, $max_age = HOUR_IN_SECONDS ) {
 	if ( ! wplusui_updates_enabled() ) {
 		return null;
 	}
 	$cached = get_site_transient( 'wplusui_latest_release' );
 	// An answer stored by an older version of the theme may lack fields the current code reads: treat it as no answer.
 	if ( is_array( $cached ) && array_diff( array( 'checked', 'version', 'package', 'sha256', 'demo', 'demo_sha', 'notes', 'published', 'page' ), array_keys( $cached ) ) ) {
+		$cached = false;
+	}
+	// An old answer must not hide a release made since: WordPress asks on its own schedule and gets a fresh answer.
+	if ( is_array( $cached ) && time() - (int) $cached['checked'] > $max_age ) {
 		$cached = false;
 	}
 	if ( ! $force && false !== $cached ) {
@@ -138,7 +144,7 @@ function wplusui_latest_release( $force = false ) {
 	if ( ! is_wp_error( $response ) && 200 === (int) wp_remote_retrieve_response_code( $response ) ) {
 		$release = wplusui_parse_release( json_decode( wp_remote_retrieve_body( $response ), true ) );
 	}
-	set_site_transient( 'wplusui_latest_release', $release ? $release : 'none', $release ? 12 * HOUR_IN_SECONDS : HOUR_IN_SECONDS );
+	set_site_transient( 'wplusui_latest_release', $release ? $release : 'none', $release ? 12 * HOUR_IN_SECONDS : 15 * MINUTE_IN_SECONDS );
 	return $release;
 }
 
@@ -175,7 +181,7 @@ function wplusui_filter_update_themes( $transient ) {
 		return $transient;
 	}
 	$installed = (string) $transient->checked[ $slug ];
-	$release   = wplusui_latest_release();
+	$release   = wplusui_latest_release( false, 15 * MINUTE_IN_SECONDS );
 	$theme     = wp_get_theme( $slug );
 	$entry     = array(
 		'theme'        => $slug,
@@ -354,7 +360,7 @@ function wplusui_updates_menu() {
 add_action( 'admin_menu', 'wplusui_updates_menu' );
 
 /**
- * Check now: ask again and refresh the stored update information without waiting for the 12 hours.
+ * Check now: ask again and refresh the stored update information at once.
  */
 function wplusui_check_updates_now() {
 	if ( ! current_user_can( 'update_themes' ) ) {

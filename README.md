@@ -19,7 +19,7 @@ All settings are in **Appearance → Customize** (the sections start with "WPlus
 
 WordPress tells you when a new version is out: **Appearance → Themes** shows the notice, and **Appearance → WPlus UI Update** shows your version, the latest version and what is new. Press **Update now** (automatic updates can be switched on there too). Your settings are kept.
 
-The theme asks the releases of this repository for the latest version, at most every 12 hours. Only the IP address of the site and the theme version are visible to the server; the download is checked against its checksum before it is installed. To turn it off add `define( 'WPLUSUI_DISABLE_UPDATES', true );` to `wp-config.php`.
+The theme asks the releases of this repository for the latest version, whenever WordPress checks its themes (twice a day, and again when you open the Themes or Updates screen). Only the IP address of the site and the theme version are visible to the server; the download is checked against its checksum before it is installed. To turn it off add `define( 'WPLUSUI_DISABLE_UPDATES', true );` to `wp-config.php`.
 
 ## Documentation
 
