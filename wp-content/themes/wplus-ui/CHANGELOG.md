@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.7.5 - 2026-10-20
+
+- New: the links at the bottom of the sidebar menu (Sitemap, Disclaimer, Privacy) are a menu you can edit in Appearance > Menus. Without social icons they sit centered.
+- Improved: post cards show the author at the bottom left and the date in a badge at the bottom right.
+- Improved: the tags under a post look like the blocks of the Labels widget.
+- Fix: the label at the top right of a code sample is no longer guessed (it showed wrong names like vbnet or lua). It shows what you type in the code block settings, or </> when empty.
+- Fix: a picture in an ad slot has neat rounded corners like the cards.
+- Fix: a new theme version shows up on its own under Appearance > Themes and Dashboard > Updates, without pressing Check now. The first update to 1.7.5 may still need Check now once.
+- Improved: smaller demo download, a larger tap area for the bookmark button on related posts, and release note labels now end with a colon.
+
 ## 1.7.4 - 2026-10-15
 
 - Fix: the gallery pictures of the demo posts show again, also on a site that imported the demo before an update. They are back in the theme, in a lighter version (the theme download stays small).

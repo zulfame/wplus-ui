@@ -819,20 +819,20 @@ Setiap fitur di [FITUR.md](FITUR.md) dipecah menjadi klaim bernomor (`A01-1`, `A
 | Klaim | Pernyataan | Desktop | Mobile | Umum |
 |---|---|---|---|---|
 | M02-1 | Selesaikan demo dijalankan dua kali: jumlah pos, halaman, lampiran, menu, item menu, sticky, gambar unggulan tidak berubah |  |  | ✔ |
-| M02-2 | hasil: pos sticky ada, 19 gambar unggulan, 2 menu |  |  | ✔ |
+| M02-2 | hasil: pos sticky ada, 19 gambar unggulan, 3 menu |  |  | ✔ |
 | M02-3 | menimpa pengaturan Customizer dengan nilai demo (teks notifikasi buatan pemilik diganti teks demo) |  |  | ✔ |
 
 ### M03 Paket demo terpisah (13/13)
 
 | Klaim | Pernyataan | Desktop | Mobile | Umum |
 |---|---|---|---|---|
-| M03-1 | zip tema tanpa konten demo dan kecil (1.23 MB < 2 MB), hanya berisi logo dan 7 gambar galeri di assets/images (dirujuk teks pos demo lama); paket demo terpisah berisi XML, skrip impor, README dan 30 gambar |  |  | ✔ |
+| M03-1 | zip tema tanpa konten demo dan kecil (1.24 MB < 2 MB), hanya berisi logo dan 7 gambar galeri di assets/images (dirujuk teks pos demo lama); paket demo terpisah berisi XML, skrip impor, README dan 30 gambar |  |  | ✔ |
 | M03-2 | tema terpasang dari zip tidak punya folder demo-content dan tidak menemukan konten demo |  |  | ✔ |
 | M03-3 | halaman WPlus UI Demo tanpa paket: menawarkan "Download demo content" dan belum menampilkan langkah impor |  |  | ✔ |
 | M03-4 | rilis tanpa paket demo: pesan "tidak ditemukan"; checksum salah: dibatalkan; keduanya tidak meninggalkan berkas |  |  | ✔ |
 | M03-5 | unduh paket demo (checksum cocok): dibuka ke uploads/wplus-ui-demo dengan XML, skrip impor, 30 gambar; tautan XML menunjuk ke sana |  |  | ✔ |
 | M03-6 | halaman WPlus UI Demo sesudah unduh: langkah impor dan "Finish demo setup" tampil, tombol unduh hilang |  |  | ✔ |
-| M03-7 | impor XML dan "Finish demo setup" dari paket yang diunduh: 19 gambar unggulan, 2 menu, 1 pos sticky, tidak ada lagi alamat gambar di folder tema, 7 gambar galeri masuk media library |  |  | ✔ |
+| M03-7 | impor XML dan "Finish demo setup" dari paket yang diunduh: 19 gambar unggulan, 3 menu (utama, tautan cepat, tautan bawah sidebar), 1 pos sticky, tidak ada lagi alamat gambar di folder tema, 7 gambar galeri masuk media library |  |  | ✔ |
 | M03-8 | menjalankan "Finish demo setup" lagi tidak menggandakan lampiran |  |  | ✔ |
 | M03-9 | gambar di pos demo (galeri) dimuat dari media library: semua alamat menjawab 200 |  |  | ✔ |
 | M03-10 | situs hasil instal bersih + paket demo: 17 jenis halaman, desktop dan mobile, tanpa galat JavaScript |  |  | ✔ |

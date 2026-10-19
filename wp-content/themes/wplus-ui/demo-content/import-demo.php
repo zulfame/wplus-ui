@@ -21,9 +21,9 @@ require_once ABSPATH . 'wp-admin/includes/image.php';
 
 $dir = __DIR__ . '/images/';
 $map = array(
-	'ui-components-and-typography'      => array( 'ui-components-and-typography.png', array( 'featured' ), true ),
-	'getting-started-and-installation'  => array( 'getting-started-and-installation.png', array( 'featured' ) ),
-	'basic-setup-and-guidelines'        => array( 'basic-setup-and-guidelines.png', array( 'featured' ) ),
+	'ui-components-and-typography'      => array( 'ui-components-and-typography.png', array( 'featured', 'components', 'typography' ), true ),
+	'getting-started-and-installation'  => array( 'getting-started-and-installation.png', array( 'featured', 'tutorial', 'setup' ) ),
+	'basic-setup-and-guidelines'        => array( 'basic-setup-and-guidelines.png', array( 'featured', 'setup', 'guidelines' ) ),
 	'appearance-and-customization'      => array( 'appearance-and-customization.png' ),
 	'navigation-menu-customization'     => array( 'navigation-menu-customization.png' ),
 	'comment-settings-and-integrations' => array( 'comment-settings-and-integrations.png' ),
@@ -193,6 +193,34 @@ foreach ( array(
 	if ( $menu ) {
 		$locations[ $loc ] = $menu->term_id;
 	}
+}
+
+// Links at the bottom of the sidebar menu: a small menu of its own, so the demo shows how to edit them.
+$footer_menu = wp_get_nav_menu_object( 'Sidebar Footer Links' );
+if ( ! $footer_menu ) {
+	$footer_menu_id = wp_create_nav_menu( 'Sidebar Footer Links' );
+	if ( ! is_wp_error( $footer_menu_id ) ) {
+		foreach ( array(
+			'Sitemap'    => home_url( '/sitemap.xml' ),
+			'Disclaimer' => '#',
+			'Privacy'    => '#',
+		) as $label => $url ) {
+			wp_update_nav_menu_item(
+				$footer_menu_id,
+				0,
+				array(
+					'menu-item-title'  => $label,
+					'menu-item-url'    => $url,
+					'menu-item-type'   => 'custom',
+					'menu-item-status' => 'publish',
+				)
+			);
+		}
+		$footer_menu = wp_get_nav_menu_object( $footer_menu_id );
+	}
+}
+if ( $footer_menu ) {
+	$locations['drawer-footer'] = $footer_menu->term_id;
 }
 set_theme_mod( 'nav_menu_locations', $locations );
 

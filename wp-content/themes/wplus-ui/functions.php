@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'WPLUSUI_VERSION', '1.7.4' );
+define( 'WPLUSUI_VERSION', '1.7.5' );
 define( 'WPLUSUI_DIR', get_template_directory() );
 define( 'WPLUSUI_URI', get_template_directory_uri() );
 

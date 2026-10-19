@@ -1234,7 +1234,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Paragraph ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Paragraph ]--&gt;
 &lt;p&gt;<mark>This is a paragraph</mark>&lt;/p&gt;</code></pre>
 <!-- /wp:code -->
 
@@ -1247,7 +1247,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Text Indent paragraph ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Text Indent paragraph ]--&gt;
 &lt;p class='pIndent'&gt;<mark>This is a paragraph with text indent.</mark>&lt;/p&gt;</code></pre>
 <!-- /wp:code -->
 
@@ -1264,7 +1264,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Drop Cap paragraph ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Drop Cap paragraph ]--&gt;
 &lt;p&gt;&lt;span class='dropCap'&gt;<mark>T</mark>&lt;/span&gt;<mark>his is a paragraph with drop cap.</mark>&lt;/p&gt;</code></pre>
 <!-- /wp:code -->
 
@@ -1281,7 +1281,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Post Reference paragraph ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Post Reference paragraph ]--&gt;
 &lt;p class='pRef'&gt;<mark>Source:&lt;br&gt; www.example.com</mark>&lt;/p&gt;</code></pre>
 <!-- /wp:code -->
 
@@ -1298,7 +1298,7 @@
 <!-- /wp:html -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Standard image ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Standard image ]--&gt;
 &lt;img class='full' alt='<mark>alt_here</mark>' <mark data-before="Recommended (optional)">width='1280'</mark> <mark data-before="Recommended (optional)">height='720'</mark> src='<mark>image_link</mark>'/&gt;</code></pre>
 <!-- /wp:code -->
 
@@ -1329,7 +1329,7 @@
 <!-- /wp:image -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Image with Caption ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Image with Caption ]--&gt;
 &lt;table class='tr-caption-container'&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
@@ -1365,7 +1365,7 @@
 <!-- /wp:image -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Image with Caption ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Image with Caption ]--&gt;
 &lt;figure&gt;
   &lt;img alt='<mark>image_alt</mark>' src='<mark>image_src</mark>'/&gt;
   &lt;figcaption&gt;<mark>caption_here</mark>&lt;/figcaption&gt;
@@ -1433,7 +1433,7 @@
 <!-- /wp:gallery -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Images with Grid Layout ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Images with Grid Layout ]--&gt;
 &lt;div class='psImg grImg'&gt;
   &lt;img alt='<mark>image_alt</mark>' src='<mark>image_link</mark>'/&gt;
   &lt;img alt='<mark>image_alt</mark>' src='<mark>image_link</mark>'/&gt;
@@ -1481,7 +1481,7 @@
 <!-- /wp:gallery -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Images with Show All Function ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Images with Show All Function ]--&gt;
 &lt;input hidden class='inImg' id='<mark class="purple" data-before="Unique id">hideImg1</mark>' type='checkbox'&gt;
 &lt;div class='psImg hdImg'&gt;
   &lt;img alt='<mark>image_alt</mark>' src='<mark>image_link</mark>'/&gt;
@@ -1535,7 +1535,7 @@
 <!-- /wp:gallery -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Images with Scroll Layout (Style 1) ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Images with Scroll Layout (Style 1) ]--&gt;
 &lt;div class='glImg'&gt;
   &lt;img alt='<mark>image_alt</mark>' src='<mark>image_link</mark>'/&gt;
   &lt;img alt='<mark>image_alt</mark>' src='<mark>image_link</mark>'/&gt;
@@ -1559,7 +1559,7 @@
 <!-- /wp:html -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Images with Scroll Layout (Style 2) ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Images with Scroll Layout (Style 2) ]--&gt;
 &lt;div class='psImg scImg scrlH'&gt;
   &lt;img alt='<mark>image_alt</mark>' src='<mark>image_link</mark>'/&gt;
   &lt;img alt='<mark>image_alt</mark>' src='<mark>image_link</mark>'/&gt;
@@ -1579,7 +1579,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Lazyload Image ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Lazyload Image ]--&gt;
 &lt;img class='lazyload' alt='<mark>image_title</mark>' data-src='<mark>image_link</mark>' src='data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs='/&gt;</code></pre>
 <!-- /wp:code -->
 
@@ -1600,7 +1600,7 @@
 <!-- /wp:html -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;a class='extL' href='<mark>link_here</mark>' rel='nofollow noreferrer noopener' target='_blank'&gt;<mark>link_title</mark>&lt;/a&gt;</code></pre>
+<pre class="wp-block-code" data-comment="html"><code>&lt;a class='extL' href='<mark>link_here</mark>' rel='nofollow noreferrer noopener' target='_blank'&gt;<mark>link_title</mark>&lt;/a&gt;</code></pre>
 <!-- /wp:code -->
 
 <!-- wp:paragraph -->
@@ -1612,7 +1612,7 @@
 <!-- /wp:html -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;a class='extL alt' href='<mark>link_here</mark>' rel='nofollow noreferrer noopener' target='_blank'&gt;<mark>link_title</mark>&lt;/a&gt;</code></pre>
+<pre class="wp-block-code" data-comment="html"><code>&lt;a class='extL alt' href='<mark>link_here</mark>' rel='nofollow noreferrer noopener' target='_blank'&gt;<mark>link_title</mark>&lt;/a&gt;</code></pre>
 <!-- /wp:code -->
 
 <!-- wp:html -->
@@ -1620,7 +1620,7 @@
 <!-- /wp:html -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;a class='extL sec' href='<mark>link_here</mark>' rel='nofollow noreferrer noopener' target='_blank'&gt;<mark>link_title</mark>&lt;/a&gt;</code></pre>
+<pre class="wp-block-code" data-comment="html"><code>&lt;a class='extL sec' href='<mark>link_here</mark>' rel='nofollow noreferrer noopener' target='_blank'&gt;<mark>link_title</mark>&lt;/a&gt;</code></pre>
 <!-- /wp:code -->
 
 <!-- wp:heading -->
@@ -1638,7 +1638,7 @@
 <!-- /wp:buttons -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Button ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Button ]--&gt;
 &lt;a class='button' href='<mark>link_here</mark>'&gt;<mark>link_title</mark>&lt;/a&gt;</code></pre>
 <!-- /wp:code -->
 
@@ -1649,7 +1649,7 @@
 <!-- /wp:buttons -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Button outlined ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Button outlined ]--&gt;
 &lt;a class='button ln' href='<mark>link_here</mark>'&gt;<mark>link_title</mark>&lt;/a&gt;</code></pre>
 <!-- /wp:code -->
 
@@ -1660,7 +1660,7 @@
 <!-- /wp:buttons -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Button with download icon ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Button with download icon ]--&gt;
 &lt;a class='button' href='<mark>link_here</mark>'&gt;<mark class="block purple" data-before="Can be SVG icon">&lt;i class='icon dl'&gt;&lt;/i&gt;</mark><mark>link_title</mark>&lt;/a&gt;</code></pre>
 <!-- /wp:code -->
 
@@ -1671,7 +1671,7 @@
 <!-- /wp:buttons -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Button with demo icon ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Button with demo icon ]--&gt;
 &lt;a class='button' href='<mark>link_here</mark>'&gt;<mark class="block purple" data-before="Can be SVG icon">&lt;i class='icon demo'&gt;&lt;/i&gt;</mark><mark>link_title</mark>&lt;/a&gt;</code></pre>
 <!-- /wp:code -->
 
@@ -1686,7 +1686,7 @@
 <!-- wp:wplusui/download /-->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Download Box ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Download Box ]--&gt;
 &lt;div class='dlBox'&gt;
   &lt;!--&#91; Change data-text='...' atribute to add new file type ]--&gt;
   &lt;span class='fT' data-text='<mark>zip</mark>'&gt;&lt;/span&gt;
@@ -1712,7 +1712,7 @@
 <!-- /wp:quote -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Standard Blockquote ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Standard Blockquote ]--&gt;
 &lt;blockquote&gt;
   &lt;p&gt;<mark>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vestibulum dignissim diam, et efficitur felis commodo et. Mauris vel diam pellentesque lorem lacinia luctus.</mark>&lt;/p&gt;
   &lt;span&gt;<mark>Anonymous</mark>&lt;/span&gt;
@@ -1726,7 +1726,7 @@
 <!-- /wp:quote -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Blockquote (Style 1) ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Blockquote (Style 1) ]--&gt;
 &lt;blockquote class='s1'&gt;
   &lt;p&gt;<mark>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vestibulum dignissim diam, et efficitur felis commodo et. Mauris vel diam pellentesque lorem lacinia luctus.</mark>&lt;/p&gt;
   &lt;span&gt;<mark>Anonymous</mark>&lt;/span&gt;
@@ -1740,7 +1740,7 @@
 <!-- /wp:quote -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Blockquote (Style 2) ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Blockquote (Style 2) ]--&gt;
 &lt;blockquote class='s2'&gt;
   &lt;p&gt;<mark>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vestibulum dignissim diam, et efficitur felis commodo et. Mauris vel diam pellentesque lorem lacinia luctus.</mark>&lt;/p&gt;
   &lt;span&gt;<mark>Anonymous</mark>&lt;/span&gt;
@@ -1760,7 +1760,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Note info ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Note info ]--&gt;
 &lt;p class='note'&gt;&lt;b&gt;<mark>Info!</mark>&lt;/b&gt;&lt;br/&gt;
   <mark>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</mark>
 &lt;/p&gt;</code></pre>
@@ -1771,7 +1771,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Note warning ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Note warning ]--&gt;
 &lt;p class='note wr'&gt;&lt;b&gt;<mark>Warning!</mark>&lt;/b&gt;&lt;br/&gt;
   <mark>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</mark>
 &lt;/p&gt;</code></pre>
@@ -1792,7 +1792,7 @@
 <!-- /wp:group -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Alert default ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Alert default ]--&gt;
 &lt;div class='alert'&gt;&lt;b&gt;<mark>Default</mark>&lt;/b&gt;
   <mark>A simple default alert - Lorem ipsum dolor sit amet.</mark>
 &lt;/div&gt;</code></pre>
@@ -1805,7 +1805,7 @@
 <!-- /wp:group -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Alert outlined ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Alert outlined ]--&gt;
 &lt;div class='alert outline'&gt;&lt;b&gt;<mark>Outline</mark>&lt;/b&gt;
   <mark>A simple outline alert - Lorem ipsum dolor sit amet.</mark>
 &lt;/div&gt;</code></pre>
@@ -1818,7 +1818,7 @@
 <!-- /wp:group -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Alert variant info ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Alert variant info ]--&gt;
 &lt;div class='alert info'&gt;&lt;b&gt;<mark>Info!</mark>&lt;/b&gt;
   <mark>A simple info alert - Lorem ipsum dolor sit amet.</mark>
 &lt;/div&gt;</code></pre>
@@ -1831,7 +1831,7 @@
 <!-- /wp:group -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Alert variant warning ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Alert variant warning ]--&gt;
 &lt;div class='alert warning'&gt;&lt;b&gt;<mark>Warning!</mark>&lt;/b&gt;
   <mark>A simple warning alert - Lorem ipsum dolor sit amet.</mark>
 &lt;/div&gt;</code></pre>
@@ -1844,7 +1844,7 @@
 <!-- /wp:group -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Alert variant success ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Alert variant success ]--&gt;
 &lt;div class='alert success'&gt;&lt;b&gt;<mark>Success!</mark>&lt;/b&gt;
   <mark>A simple success alert - Lorem ipsum dolor sit amet.</mark>
 &lt;/div&gt;</code></pre>
@@ -1857,7 +1857,7 @@
 <!-- /wp:group -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Alert variant error ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Alert variant error ]--&gt;
 &lt;div class='alert error'&gt;&lt;b&gt;<mark>Error!</mark>&lt;/b&gt;
   <mark>A simple error alert - Lorem ipsum dolor sit amet.</mark>
 &lt;/div&gt;</code></pre>
@@ -1870,7 +1870,7 @@
 <!-- /wp:group -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Alert variant info outlined ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Alert variant info outlined ]--&gt;
 &lt;div class='alert info outline'&gt;&lt;b&gt;<mark>Info!</mark>&lt;/b&gt;
   <mark>A simple info alert - Lorem ipsum dolor sit amet.</mark>
 &lt;/div&gt;</code></pre>
@@ -1883,7 +1883,7 @@
 <!-- /wp:group -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Alert variant warning outlined ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Alert variant warning outlined ]--&gt;
 &lt;div class='alert warning outline'&gt;&lt;b&gt;<mark>Warning!</mark>&lt;/b&gt;
   <mark>A simple warning alert - Lorem ipsum dolor sit amet.</mark>
 &lt;/div&gt;</code></pre>
@@ -1896,7 +1896,7 @@
 <!-- /wp:group -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Alert variant success outlined ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Alert variant success outlined ]--&gt;
 &lt;div class='alert success outline'&gt;&lt;b&gt;<mark>Success!</mark>&lt;/b&gt;
   <mark>A simple success alert - Lorem ipsum dolor sit amet.</mark>
 &lt;/div&gt;</code></pre>
@@ -1909,7 +1909,7 @@
 <!-- /wp:group -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Alert variant error outlined ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Alert variant error outlined ]--&gt;
 &lt;div class='alert error outline'&gt;&lt;b&gt;<mark>Error!</mark>&lt;/b&gt;
   <mark>A simple error alert - Lorem ipsum dolor sit amet.</mark>
 &lt;/div&gt;</code></pre>
@@ -1928,7 +1928,7 @@
 <!-- /wp:table -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Table ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Table ]--&gt;
 &lt;div class='table sticky bordered stripped hovered'&gt;
   &lt;table&gt;
     &lt;thead&gt;
@@ -2032,7 +2032,7 @@
 <!-- /wp:list -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Steps ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Steps ]--&gt;
 &lt;ol class='steps'&gt;
   &lt;li&gt;step_1&lt;/li&gt;
   &lt;li&gt;step_2&lt;/li&gt;
@@ -2057,7 +2057,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;code&gt;<mark>escaped_code_here</mark>&lt;/code&gt;</code></pre>
+<pre class="wp-block-code" data-comment="html"><code>&lt;code&gt;<mark>escaped_code_here</mark>&lt;/code&gt;</code></pre>
 <!-- /wp:code -->
 
 <!-- wp:paragraph -->
@@ -2065,7 +2065,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;kbd&gt;<mark>⌘ + A</mark>&lt;/kbd&gt;</code></pre>
+<pre class="wp-block-code" data-comment="html"><code>&lt;kbd&gt;<mark>⌘ + A</mark>&lt;/kbd&gt;</code></pre>
 <!-- /wp:code -->
 
 <!-- wp:paragraph -->
@@ -2073,7 +2073,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>// mark examples
+<pre class="wp-block-code" data-comment="js"><code>// mark examples
 console.log("<mark>Hello World!</mark>");
 console.log("<mark class="block">Hello World!</mark>");
 console.log("<mark class="gray">Hello World!</mark>");
@@ -2169,7 +2169,7 @@ console.log("&lt;mark data-after='$'&gt;Hello World!&lt;/mark&gt;");</code></pre
 <!-- /wp:wplusui/tabs -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Multi-tabs Code Block Highlighter ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Multi-tabs Code Block Highlighter ]--&gt;
 &lt;div class='pre tabs'&gt;
   &lt;!--&#91; Active function ]--&gt;
   &lt;input id='preT1-1' type='radio' name='preTab1' checked/&gt;
@@ -2209,7 +2209,7 @@ console.log("&lt;mark data-after='$'&gt;Hello World!&lt;/mark&gt;");</code></pre
 <!-- /wp:details -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Spoiler ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Spoiler ]--&gt;
 &lt;details class='sp'&gt;
   &lt;summary data-show='Show all' data-hide='Hide all'&gt;Spoiler:&lt;/summary&gt;
   &lt;div&gt;
@@ -2233,7 +2233,7 @@ console.log("&lt;mark data-after='$'&gt;Hello World!&lt;/mark&gt;");</code></pre
 <!-- /wp:details -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Accordion ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Accordion ]--&gt;
 &lt;details class='ac'&gt;
   &lt;summary&gt;Title_here&lt;/summary&gt;
   &lt;div&gt;
@@ -2249,7 +2249,7 @@ console.log("&lt;mark data-after='$'&gt;Hello World!&lt;/mark&gt;");</code></pre
 <!-- /wp:details -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Accordion (Alternate) ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Accordion (Alternate) ]--&gt;
 &lt;details class='ac alt'&gt;
   &lt;summary&gt;Title_here&lt;/summary&gt;
   &lt;div&gt;
@@ -2285,7 +2285,7 @@ console.log("&lt;mark data-after='$'&gt;Hello World!&lt;/mark&gt;");</code></pre
 <!-- /wp:group -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Accordion (Grouped) ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Accordion (Grouped) ]--&gt;
 &lt;div class='showH'&gt;
   &lt;details class='ac'&gt;
     &lt;summary&gt;Title_here&lt;/summary&gt;
@@ -2323,7 +2323,7 @@ console.log("&lt;mark data-after='$'&gt;Hello World!&lt;/mark&gt;");</code></pre
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Accordion (FAQPage) ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Accordion (FAQPage) ]--&gt;
 &lt;div class='showH' itemscope itemtype='https://schema.org/FAQPage'&gt;
   &lt;details class='ac' itemscope itemprop='mainEntity' itemtype='https://schema.org/Question'&gt;
     &lt;summary itemprop='name'&gt;Title_here&lt;/summary&gt;
@@ -2385,7 +2385,7 @@ console.log("&lt;mark data-after='$'&gt;Hello World!&lt;/mark&gt;");</code></pre
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Automatic Table of Contents ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Automatic Table of Contents ]--&gt;
 &lt;details class='sp toc' open&gt;
   &lt;summary data-show='Show all' data-hide='Hide all'&gt;Table of Contents&lt;/summary&gt;
   &lt;div class='aToc'&gt;&lt;/div&gt;
@@ -2433,7 +2433,7 @@ console.log("&lt;mark data-after='$'&gt;Hello World!&lt;/mark&gt;");</code></pre
 <!-- /wp:group -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;div class='pRelate'&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;div class='pRelate'&gt;
   &lt;!--&#91; Related title ]--&gt;
   &lt;b&gt;You may want to read this post :&lt;/b&gt;
   &lt;ul&gt;
@@ -2453,7 +2453,7 @@ console.log("&lt;mark data-after='$'&gt;Hello World!&lt;/mark&gt;");</code></pre
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Automatic Related Posts ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Automatic Related Posts ]--&gt;
 &lt;details class='sp arp' open&gt;
   &lt;summary data-show='Show all' data-hide='Hide all'&gt;Related Posts&lt;/summary&gt;  
   &lt;div class='aRel'&gt;&lt;/div&gt;
@@ -2497,7 +2497,7 @@ console.log("&lt;mark data-after='$'&gt;Hello World!&lt;/mark&gt;");</code></pre
 <!-- wp:wplusui/youtube {"videoId":"r1XE8ON8fos"} /-->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Lazy YouTube ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Lazy YouTube ]--&gt;
 &lt;div class='lazyYt' data-embed='<mark data-before="YouTube video ID">video_id</mark>'&gt;&lt;/div&gt;</code></pre>
 <!-- /wp:code -->
 
@@ -2533,7 +2533,7 @@ console.log("&lt;mark data-after='$'&gt;Hello World!&lt;/mark&gt;");</code></pre
 <!-- /wp:html -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Defer YouTube ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Defer YouTube ]--&gt;
 &lt;div class='videoYt'&gt;
   &lt;iframe class='lazyload' data-src='https://www.youtube.com/embed/<mark data-before="YouTube video ID">video_id</mark>' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;</code></pre>
@@ -2569,7 +2569,7 @@ console.log("&lt;mark data-after='$'&gt;Hello World!&lt;/mark&gt;");</code></pre
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Explicitly sets post snippet ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Explicitly sets post snippet ]--&gt;
 &lt;div hidden aria-hidden='true' data-nosnippet&gt;<mark>post_snippet</mark>&lt;/div&gt;
 
 &lt;!--more--&gt;</code></pre>
@@ -2584,7 +2584,7 @@ console.log("&lt;mark data-after='$'&gt;Hello World!&lt;/mark&gt;");</code></pre
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Explicitly sets post thumbnail ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Explicitly sets post thumbnail ]--&gt;
 &lt;!--&#91;
   &lt;div class='separator'&gt;&lt;img src='<mark>image_src</mark>'/&gt;&lt;/div&gt;
 ]--&gt;
@@ -2597,7 +2597,7 @@ console.log("&lt;mark data-after='$'&gt;Hello World!&lt;/mark&gt;");</code></pre
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Explicitly sets post snippet ]--&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Explicitly sets post snippet ]--&gt;
 &lt;div hidden aria-hidden='true' data-nosnippet&gt;<mark>post_snippet</mark>&lt;/div&gt;
 
 &lt;!--&#91; Explicitly sets post thumbnail ]--&gt;
@@ -2617,7 +2617,7 @@ console.log("&lt;mark data-after='$'&gt;Hello World!&lt;/mark&gt;");</code></pre
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;style&gt;
+<pre class="wp-block-code" data-comment="html"><code>&lt;style&gt;
   /* Custom Header subtitle */
   .headH::after{content:'<mark>Subtitle</mark>'}
 &lt;/style&gt;</code></pre>
@@ -3059,7 +3059,7 @@ console.log("&lt;mark data-after='$'&gt;Hello World!&lt;/mark&gt;");</code></pre
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;!--&#91; Tabs, remove classname 'stick' to disable floating title ]-->
+<pre class="wp-block-code" data-comment="html"><code>&lt;!--&#91; Tabs, remove classname 'stick' to disable floating title ]-->
 &lt;div class='tabs stick'>
   &lt;!--&#91; Active function ]-->
   &lt;input id='tabT-1' type='radio' name='postTabs' checked=''>
@@ -3178,7 +3178,7 @@ console.log("&lt;mark data-after='$'&gt;Hello World!&lt;/mark&gt;");</code></pre
                                     Select '<span style="display: inline-flex; align-items: baseline"><svg viewBox="0 0 48 48" style="align-self: center"><path d="M0 0h48v48H0V0z" fill="none"></path><path d="M18.8 33.2L9.7 24l9.2-9.2L16 12 4 24l12 12 2.8-2.8zm10.4 0l9.2-9.2-9.2-9.2L32 12l12 12-12 12-2.8-2.8z"></path></svg><b style="text-indent: 4px">HTML View</b></span>'.
                                   </li><li>
                                     Copy and paste the following code and make appropriate changes.
-                                    <pre><code>&lt;div id='postSplit'&gt;
+                                    <pre data-comment="html"><code>&lt;div id='postSplit'&gt;
 page_1_contents
 
 &lt;!--nextpage--&gt;
@@ -3194,7 +3194,7 @@ page_4_contents
                                     just below the above code snippet.
                                     <p class="note wr"><b>Warning</b><br>
                                       Do not add it if you are using version above to 3.0.0
-                                    </p><pre><code>&lt;!--[ Split Post javascript ]--&gt;
+                                    </p><pre data-comment="js"><code>&lt;!--[ Split Post javascript ]--&gt;
 &lt;script&gt;
 /*! WPlus UI Javascript (split-post.js) | Authors: Deo Kumar, Armaan Kumar (https://fineshopdesign.com) | License: Unlicensed | Copyright (c) 2024 Fineshop Design */
 "use strict";((e,t,a,i)=&gt;{let{df:l,gId:s,mc:n,vw:o,eHTML:r}=e;o.iBt||l.then((()=&gt;{let e=s(i.id);if(e){let a=e.innerHTML.split("\x3c!--nextpage--\x3e"),i=a.length,l=t.location.search.match(/[?&amp;]page=(\d+)/),s=l&amp;&amp;l[1]?Number(l[1]):1;s&gt;i&amp;&amp;(s=1);let o=a[s-1],d="&lt;svg class='line' viewBox='0 0 24 24'&gt;&lt;path d='M9.57 5.92993L3.5 11.9999L9.57 18.0699' stroke-miterlimit='10'&gt;&lt;/path&gt;&lt;path d='M20.5 12H3.67004' stroke-miterlimit='10'&gt;&lt;/path&gt;&lt;/svg&gt;",p="&lt;svg class='line' viewBox='0 0 24 24'&gt;&lt;path d='M14.4301 5.92993L20.5001 11.9999L14.4301 18.0699' stroke-miterlimit='10'&gt;&lt;/path&gt;&lt;path d='M3.5 12H20.33' stroke-miterlimit='10'&gt;&lt;/path&gt;&lt;/svg&gt;";o+="&lt;div class='blogN numP'&gt;",o+=`&lt;div class='nPst' data-text='Page ${s} of ${i}:'&gt;&lt;/div&gt;`,s-1==0&amp;&amp;(o+=`&lt;div class='nwLnk nPst'&gt;${d}&lt;/div&gt;`);for(let e=1;e&lt;=i;e++)e===s?o+=`&lt;div class='nPst' data-text='${e}'&gt;&lt;/div&gt;`:e===s-1?o+=`&lt;a class='nwLnk' href='?page=${e}' rel='nofollow noreferrer noopener' aria-label='${r(n.previous,!0,!1)}' data-text='${e}'&gt;${d}&lt;/a&gt;`:e===s+1?o+=`&lt;a class='olLnk' href='?page=${e}' rel='nofollow noreferrer noopener' aria-label='${r(n.next,!0,!1)}' data-text='${e}'&gt;${p}&lt;/a&gt;`:e&gt;=s-3&amp;&amp;e&lt;=s+3||1===e||e===i?o+=`&lt;a href='?page=${e}' rel='nofollow noreferrer noopener' aria-label='Page ${e}' data-text='${e}'&gt;&lt;/a&gt;`:(e===s-4||e===s+4)&amp;&amp;(o+="&lt;div class='nPst' data-text='...'&gt;&lt;/div&gt;");s+1&gt;i&amp;&amp;(o+=`&lt;div class='olLnk nPst'&gt;${p}&lt;/div&gt;`),o+="&lt;/div&gt;",e.innerHTML=o}else console.warn(`Split post element with id '${i.id}' does not exist in document while split-post.js is used!`)}))})(PU,window,document,{id:"postSplit"});
@@ -4165,7 +4165,7 @@ page_4_contents
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX">&lt;/script>
+<pre class="wp-block-code" data-comment="html"><code>&lt;script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX">&lt;/script>
 &lt;script>
 window.dataLayer = window.dataLayer || &#91;];
 function gtag(){dataLayer.push(arguments);}
@@ -4295,7 +4295,7 @@ gtag("config", "G-XXXXXXXXXX");
 <!-- /wp:heading -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>const firebaseConfig = {
+<pre class="wp-block-code" data-comment="js"><code>const firebaseConfig = {
   apiKey: "YOUR_API_KEY",
   authDomain: "your-project.firebaseapp.com",
   databaseURL: "https://your-project-default-rtdb.firebaseio.com",
@@ -4353,7 +4353,7 @@ gtag("config", "G-XXXXXXXXXX");
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>First part of the article…
+<pre class="wp-block-code" data-comment="html"><code>First part of the article…
 &lt;!--nextpage-->
 Second part of the article…</code></pre>
 <!-- /wp:code -->
@@ -4413,7 +4413,7 @@ Second part of the article…</code></pre>
 <!-- /wp:heading -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>{
+<pre class="wp-block-code" data-comment="json"><code>{
   "name": "WPlus UI Demo",
   "short_name": "WPlus UI",
   "start_url": "/",
@@ -4624,7 +4624,7 @@ Second part of the article…</code></pre>
 <!-- /wp:paragraph -->
 
 <!-- wp:code -->
-<pre class="wp-block-code"><code>&lt;a class="extL" href="https://example.com" rel="nofollow noreferrer noopener" target="_blank">External Link&lt;/a></code></pre>
+<pre class="wp-block-code" data-comment="html"><code>&lt;a class="extL" href="https://example.com" rel="nofollow noreferrer noopener" target="_blank">External Link&lt;/a></code></pre>
 <!-- /wp:code -->
 
 <!-- wp:paragraph {"className":"is-style-note"} -->

@@ -6,7 +6,7 @@ Tags: blog, two-columns, right-sidebar, custom-logo, custom-menu, featured-image
 Requires at least: 6.3
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.7.4
+Stable tag: 1.7.5
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
@@ -50,6 +50,16 @@ Use the child theme (wplus-ui-child) or Appearance > Customize > Additional CSS.
 The theme checks for updates by asking the GitHub releases of its repository (api.github.com) whenever WordPress checks its themes for updates (twice a day, and when the Themes or Updates screen is opened). Only the IP address of the site and a user agent with the theme version are visible to GitHub; no visitor data is sent. Add `define( 'WPLUSUI_DISABLE_UPDATES', true );` to wp-config.php to turn it off.
 
 == Changelog ==
+
+= 1.7.5 - Oct 20, 2026 =
+
+* New: the links at the bottom of the sidebar menu (Sitemap, Disclaimer, Privacy) are a menu you can edit in Appearance > Menus. Without social icons they sit centered.
+* Improved: post cards show the author at the bottom left and the date in a badge at the bottom right.
+* Improved: the tags under a post look like the blocks of the Labels widget.
+* Fix: the label at the top right of a code sample is no longer guessed (it showed wrong names like vbnet or lua). It shows what you type in the code block settings, or </> when empty.
+* Fix: a picture in an ad slot has neat rounded corners like the cards.
+* Fix: a new theme version shows up on its own under Appearance > Themes and Dashboard > Updates, without pressing Check now. The first update to 1.7.5 may still need Check now once.
+* Improved: smaller demo download, a larger tap area for the bookmark button on related posts, and release note labels now end with a colon.
 
 = 1.7.4 - Oct 15, 2026 =
 
