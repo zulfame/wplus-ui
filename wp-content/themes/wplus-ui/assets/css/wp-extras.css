@@ -907,3 +907,15 @@ code mark.red {
   background: none;
   box-shadow: none;
 }
+
+/* Bookmark button on the small related-post cards: at least 24 x 24 px to tap (it was 22 px). */
+@media screen and (max-width: 500px) {
+  .itemRp .ntry .tfxM {
+    --itmPd: 5px;
+  }
+}
+
+/* The tag name is real text in the link (readable by search engines and when copied), so the Labels widget's generated label is not repeated. */
+.pTgs .lbL > a:before {
+  content: none;
+}

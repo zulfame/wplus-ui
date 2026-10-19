@@ -239,10 +239,10 @@
 									wp_nav_menu(
 										array(
 											'theme_location' => 'drawer-footer',
-											'container'      => false,
-											'depth'          => 1,
-											'items_wrap'     => '<ul class="mMenu">%3$s</ul>',
-											'fallback_cb'    => function () {
+											'container'   => false,
+											'depth'       => 1,
+											'items_wrap'  => '<ul class="mMenu">%3$s</ul>',
+											'fallback_cb' => function () {
 												?>
 									<ul class="mMenu">
 										<li><a href="<?php echo esc_url( home_url( '/sitemap.xml' ) ); ?>"><?php esc_html_e( 'Sitemap', 'wplus-ui' ); ?></a></li>

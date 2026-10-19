@@ -40,7 +40,7 @@ $map = array(
 	'resources-roundup'                 => array( 'frosty-pine-cones.webp' ),
 	'sponsored-post-example'            => array( 'colorful-spider-fantasy.webp' ),
 	'fullpage-layout-example'           => array( 'urban-basketball-game.webp' ),
-	'about-2'                           => array( 'about.png' ),
+	'about-2'                           => array( 'about.webp' ),
 );
 
 function wplusui_demo_attachment( $dir, $file ) {

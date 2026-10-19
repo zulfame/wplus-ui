@@ -1,6 +1,6 @@
 # Penelusuran klaim: kalimat FITUR.md ke uji
 
-**Ringkasan: 382 klaim, 382 lulus, 0 gagal; 93 dari 93 fitur punya klaim.**
+**Ringkasan: 387 klaim, 387 lulus, 0 gagal; 93 dari 93 fitur punya klaim.**
 
 Setiap fitur di [FITUR.md](FITUR.md) dipecah menjadi klaim bernomor (`A01-1`, `A01-2`, ...) yang diuji mesin oleh skrip `tests/docs/trace-*.mjs`. Tabel ini dibuat otomatis dari hasil nyata (`node tests/docs/trace-report.mjs` setelah semua skrip trace dijalankan).
 
@@ -580,14 +580,16 @@ Setiap fitur di [FITUR.md](FITUR.md) dipecah menjadi klaim bernomor (`A01-1`, `A
 | Klaim | Pernyataan | Desktop | Mobile | Umum |
 |---|---|---|---|---|
 | H01-1 | slot yang tampil di home: under_header, above_pinned, above_posts, below_posts, sidebar_sticky | ✔ | ✔ |  |
-| H01-2 | slot kosong tanpa placeholder tidak mencetak apa pun | ✔ | ✔ |  |
+| H01-2 | slot kosong tidak mencetak apa pun | ✔ | ✔ |  |
 
-### H02 Placeholder iklan (2/2)
+### H02 Ukuran gambar slot iklan (4/4)
 
 | Klaim | Pernyataan | Desktop | Mobile | Umum |
 |---|---|---|---|---|
-| H02-1 | placeholder "Ads go here (nama slot)" di lima slot | ✔ | ✔ |  |
-| H02-2 | bawaan mati: tidak ada placeholder |  |  | ✔ |
+| H02-1 | slot kosong tidak tampil sama sekali, juga bila pengaturan lama "Show ad placeholders" masih tersimpan | ✔ | ✔ |  |
+| H02-2 | hanya slot sticky yang diisi gambar yang tampil (tanpa bingkai putus-putus), gambar 300x250 |  |  | ✔ |
+| H02-3 | di ponsel slot sticky (khusus desktop) tidak tampil dan tidak menyisakan ruang |  |  | ✔ |
+| H02-4 | tiap slot di Customizer menyebut ukuran gambar yang disarankan, "Leave empty to hide this slot" dan contoh tag <img>; kotak centang placeholder lama sudah tidak ada |  |  | ✔ |
 
 ### H03 Kode header dan footer (3/3)
 
@@ -662,7 +664,7 @@ Setiap fitur di [FITUR.md](FITUR.md) dipecah menjadi klaim bernomor (`A01-1`, `A
 | I03-9 | ikon sosial tampil dan halaman tanpa luapan, noindex | ✔ | ✔ |  |
 | I03-10 | gambar latar dipakai | ✔ | ✔ |  |
 
-### I04 Pemberitahuan cookie (17/17)
+### I04 Pemberitahuan cookie (18/18)
 
 | Klaim | Pernyataan | Desktop | Mobile | Umum |
 |---|---|---|---|---|
@@ -683,6 +685,7 @@ Setiap fitur di [FITUR.md](FITUR.md) dipecah menjadi klaim bernomor (`A01-1`, `A
 | I04-15 | halaman Cookie Policy demo tampil dengan tombol "Forget my choice" |  |  | ✔ |
 | I04-16 | tombol reset menghapus pilihan dan banner tampil lagi |  |  | ✔ |
 | I04-17 | di ponsel kartu berada di atas bilah bawah dan selebar layar dikurangi margin |  |  | ✔ |
+| I04-18 | gambar promosi di slot iklan tampil sebelum OK (hanya skrip dan pemuat AdSense yang menunggu) |  |  | ✔ |
 
 ### J01 Meta, Open Graph, Twitter card (9/9)
 
@@ -819,11 +822,11 @@ Setiap fitur di [FITUR.md](FITUR.md) dipecah menjadi klaim bernomor (`A01-1`, `A
 | M02-2 | hasil: pos sticky ada, 19 gambar unggulan, 2 menu |  |  | ✔ |
 | M02-3 | menimpa pengaturan Customizer dengan nilai demo (teks notifikasi buatan pemilik diganti teks demo) |  |  | ✔ |
 
-### M03 Paket demo terpisah (11/11)
+### M03 Paket demo terpisah (13/13)
 
 | Klaim | Pernyataan | Desktop | Mobile | Umum |
 |---|---|---|---|---|
-| M03-1 | zip tema tanpa konten demo dan kecil (0.70 MB < 1.5 MB); paket demo terpisah berisi XML, skrip impor, README dan 30 gambar |  |  | ✔ |
+| M03-1 | zip tema tanpa konten demo dan kecil (1.23 MB < 2 MB), hanya berisi logo dan 7 gambar galeri di assets/images (dirujuk teks pos demo lama); paket demo terpisah berisi XML, skrip impor, README dan 30 gambar |  |  | ✔ |
 | M03-2 | tema terpasang dari zip tidak punya folder demo-content dan tidak menemukan konten demo |  |  | ✔ |
 | M03-3 | halaman WPlus UI Demo tanpa paket: menawarkan "Download demo content" dan belum menampilkan langkah impor |  |  | ✔ |
 | M03-4 | rilis tanpa paket demo: pesan "tidak ditemukan"; checksum salah: dibatalkan; keduanya tidak meninggalkan berkas |  |  | ✔ |
@@ -834,6 +837,8 @@ Setiap fitur di [FITUR.md](FITUR.md) dipecah menjadi klaim bernomor (`A01-1`, `A
 | M03-9 | gambar di pos demo (galeri) dimuat dari media library: semua alamat menjawab 200 |  |  | ✔ |
 | M03-10 | situs hasil instal bersih + paket demo: 17 jenis halaman, desktop dan mobile, tanpa galat JavaScript |  |  | ✔ |
 | M03-11 | log debug PHP kosong sepanjang pemasangan, unduh, impor, dan penelusuran halaman |  |  | ✔ |
+| M03-12 | tujuh gambar galeri ada di folder tema (alamat lama di pos demo yang sudah diimpor sebelum pembaruan tetap berfungsi) |  |  | ✔ |
+| M03-13 | impor demo kedua kali (impor sungguhan): pos, halaman, lampiran dan item menu tetap satu salinan; menu yang sudah terlanjur dobel oleh impor lama dibersihkan otomatis |  |  | ✔ |
 
 ### N01 Placeholder thumbnail (9/9)
 

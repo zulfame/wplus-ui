@@ -106,7 +106,7 @@ while ( have_posts() ) :
 						<div class="pTgs widget Label wL pSml bg">
 							<div class="lbL">
 								<?php foreach ( $tags as $wplusui_tag ) : ?>
-								<a aria-label="<?php echo esc_attr( $wplusui_tag->name ); ?>" data-label="<?php echo esc_attr( $wplusui_tag->name ); ?>" href="<?php echo esc_url( get_tag_link( $wplusui_tag ) ); ?>" rel="tag"></a>
+								<a href="<?php echo esc_url( get_tag_link( $wplusui_tag ) ); ?>" rel="tag"><?php echo esc_html( $wplusui_tag->name ); ?></a>
 								<?php endforeach; ?>
 							</div>
 						</div>

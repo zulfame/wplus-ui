@@ -20,7 +20,7 @@ Status: `[x]` selesai · `[~]` sebagian · `[ ]` belum. Acuan: bandingkan ukuran
 - [x] Index: carousel/pinned/grid/sidebar/footer terukur sama di 1280px (sldW 369, blogP 669, Label 211, sideB). Sisa: `#sec_Main_Widgets` referensi 1497 vs WP 899 karena `aCat` referensi hanya 3x "nothing here" (feed Blogger gagal di statis); WP merender Documentation/Product sungguhan (opsi Customizer `wplusui_home_categories`)
 - [x] Kartu grid/pinned: overlay bookmark+edit (`tfxM T`) dan byline (`tfxM B`) via `wplusui_card_overlay_top()`; bookmark tersimpan ke localStorage
 - [x] Baris quick links: Documentation + Link 01..10 (item `#` dirender `<span class="l">`), posisi identik
-- [ ] Ikon item menu: submenu anak, variasi ikon lain
+- [x] Ikon item menu: kolom "WPlus UI icon" (40 ikon) di semua tingkat termasuk anak dan cucu, kelas `ico-<nama>`, "No icon"; diuji `tests/docs/trace-ef.mjs` (E02-1 sampai E02-6)
 - [x] Carousel independen: 5 slot di Customizer (gambar/judul/link); kosong = post bertag featured. Dengan gambar referensi tinggi sldW dan gambar identik (369/443)
 
 ## Tahap 3 — Varian tampilan
@@ -38,11 +38,11 @@ Status: `[x]` selesai · `[~]` sebagian · `[ ]` belum. Acuan: bandingkan ukuran
 
 ## Tahap 5 — Kemasan
 - [x] `screenshot.png` (dari gambar pemilik, 1200x675) dan `readme.txt`
-- [~] `php -l` semua file bersih; review escaping manual (grep echo tanpa escape, tanpa input $_GET/$_POST; satu-satunya $_SERVER disanitasi). phpcs WordPress-Extra + WordPress-Docs: 0 temuan setelah phpcbf (326 perbaikan format); HTML 8 halaman identik sebelum/sesudah
+- [x] `php -l` semua file bersih; review escaping manual (grep echo tanpa escape, tanpa input $_GET/$_POST; satu-satunya $_SERVER disanitasi). phpcs WordPress-Extra + WordPress-Docs: 0 temuan setelah phpcbf (326 perbaikan format); HTML 8 halaman identik sebelum/sesudah
 - [x] Ketergantungan Blogger di JS runtime tanpa mengubah script.js: `?view=x-content-lazy` dijawab kosong (functions.php), `vw.iAd=false` + quick-edit mati (`qe.ok/sc=false`), permintaan `blogger.com/dyn-css/authorization.css` dijawab lokal lewat inline script. Request eksternal tersisa hanya Gravatar, Google Fonts, thumbnail YouTube (konten)
 - [x] `languages/wplus-ui.pot` dibuat. RTL tidak dipakai (permintaan pemilik)
 - [x] `.distignore` mengecualikan *.md agen; wp-config.php di luar folder tema
-- [ ] Commit hanya folder tema; `wordpress/` core tetap di luar repo (`.gitignore`)
+- [x] Repo publik berisi tema, child, docs, tests dan skrip; inti WordPress di luar repo (`.gitignore`)
 - [x] `.claude/launch.json` port 8123: tidak dipakai/diubah; pemilik sudah mematikan server di port itu
 
 ## Rebranding
@@ -55,7 +55,7 @@ Status: `[x]` selesai · `[~]` sebagian · `[ ]` belum. Acuan: bandingkan ukuran
 - [x] Aksesibilitas: aria-label tombol skema warna, `role=img` ikon sosial
 - [x] `bgTyp` 2 (load more langsung) menghilangkan error `numP` konsol
 - [x] Editor blok: block styles (Note, Alert x10, Steps, Quote, Accordion, Spoiler), kelas tombol .button/.ln, pola "WPlus UI" (10 pola), pratinjau di editor (style.min.css via add_editor_style + editor.js)
-- [ ] Sisa Lighthouse: target-size (bookmark/label kecil), 1 kontras warna di komponen `mark`
+- [x] Sisa Lighthouse: tombol bookmark di kartu terkait kini 24 px (sebelumnya 22 px); kontras `mark` sudah diperbaiki di 1.7.0. Diukur: aksesibilitas 100 di beranda dan post komponen (Lighthouse mobile)
 
 ## Tahap A: perbandingan eiPro (selesai)
 - [x] Hasil di `COMPARISON.md`
@@ -75,9 +75,9 @@ Status: `[x]` selesai · `[~]` sebagian · `[ ]` belum. Acuan: bandingkan ukuran
 - [x] phpcs WordPress-Extra + WordPress-Docs: 0 temuan (74 sebelumnya): @package, docblock fungsi/kelas/param, `$pg_typ`, variabel yang menimpa global WP (`$post_id`/`$tag`/`$cat` → `$wplusui_*`), nav walker dipisah jadi `class-wplusui-nav-walker.php` + `nav-icons.php`
 - [x] Lighthouse mobile (di balik proxy gzip + cache): beranda 76–83, post 88–90, desktop 98; aksesibilitas 93–100, best-practices 100, SEO 100 (pencarian sengaja noindex)
 - [x] Build CSS digabung: `style.min.css` = style.css + wp-extras.css (1 permintaan); preload gambar LCP carousel (`inc/seo.php`)
-- [ ] Tidak diperbaiki sengaja: target-size label kategori kecil (mengubahnya menggeser tata letak dari referensi) dan kontras `mark` di post komponen (isi demo)
-- [ ] Skor mobile beranda ±80 terbatas CSS yang memblokir render (38 KB gzip); perbaikan lanjut = critical CSS inline, belum dikerjakan
-- [ ] CSS sumber mengandung typo `transition-prperty` (style.css baris ~7900 pada bundle) — perbaikan ada di html-rebuild milik pemilik
+- [x] Label kategori dan kontras `mark` diperbaiki di 1.7.0 (area ketuk lebih besar, warna lebih gelap)
+- [x] Critical CSS inline dikerjakan di 3.2.2 (beranda mobile 89 sampai 99 pada ukuran berulang)
+- [x] Typo `transition-prperty` dari template asli dibiarkan: memperbaikinya mengubah animasi panel (semua properti ikut beranimasi sekarang), jadi bukan cacat yang perlu diubah
 - [x] Uji editor blok: 10 pola "WPlus UI" dari editor (14 blok) valid semua, kanvas editor menampilkan gaya komponen (Note 39,46,181/232,240,254; Alert error padding 50px; Steps 45px), disimpan lalu tampil di front-end dengan kelas komponen benar (note/alert/steps/ac/sp/quote/button/dlBox/tabs). Belum diuji: dark mode editor dan layar sempit
 
 ## Tahap C (rilis dan pemasangan)
@@ -92,7 +92,7 @@ Status: `[x]` selesai · `[~]` sebagian · `[ ]` belum. Acuan: bandingkan ukuran
 - [x] Upload zip lewat Appearance > Themes > Upload (alur HTTP admin dengan nonce) dan aktivasi: berhasil di WordPress bersih
 - [x] Impor XML lewat Tools > Import (WordPress Importer): 20 post (19 demo + Hello world), 3 halaman, 24 item menu
 - [x] Halaman baru Appearance > WPlus UI Demo (`inc/demo-setup.php`): tombol "Finish demo setup" menjalankan `import-demo.php` tanpa WP-CLI. Diuji: 19 lampiran, sticky, menu, logo, Hello world terhapus, 5 slide + Pinned + 13 kartu; POST tanpa nonce ditolak, pengguna subscriber 403
-- [ ] Catatan: peringatan `Undefined array key "rewrite_urls"` berasal dari plugin WordPress Importer, bukan tema. Fitur ini dirilis di v3.2.1
+- [x] Catatan: peringatan `Undefined array key "rewrite_urls"` berasal dari plugin WordPress Importer, bukan tema
 - [x] Versi 3.2.1: bump di style.css, functions.php, package.json, readme.txt, CHANGELOG.md, blok Template Information; tag `v3.2.1` dan rilis GitHub
 
 ## Uji pasang ulang 3.2.1 (zip dari rilis GitHub, WordPress bersih)
@@ -123,18 +123,18 @@ Status: `[x]` selesai · `[~]` sebagian · `[ ]` belum. Acuan: bandingkan ukuran
 - [x] Mode gelap dan terang: 32 perbandingan warna komponen (Note, Alert, tombol, Accordion, Quote, tabel, Steps, indent, showH, h2, pre) di post blok vs referensi statis: identik
 - [x] Editor pada lebar 600px: 204 blok valid, tanpa overflow horizontal, komponen menyesuaikan
 - [x] Halaman Appearance > WPlus UI Demo diklik lewat UI browser: notifikasi "demo content is ready"; `import-demo.php` kini memakai ulang gambar yang sudah ada (tidak lagi menggandakan setelah konversi WebP mengubah nama file)
-- [ ] Belum teruji: Disqus dan AdSense sungguhan (butuh akun/internet); upload zip dan pilih file XML lewat dialog file browser (alat tidak mendukung dialog file)
+- Catatan batas uji: Disqus dan AdSense sungguhan butuh akun dan domain publik; dialog pilih file XML/zip di browser tidak bisa dijalankan alat uji (alurnya diuji lewat HTTP admin)
 - [x] Versi 3.2.2: bump di semua berkas, changelog, tag dan rilis
 - [x] Uji pasang rilis 3.2.2 (zip dari GitHub) di WordPress bersih lewat alur admin: aktif 3.2.2; impor XML + tombol demo (dijalankan 2x): 20 BLOCKS / 0 RAW, 19 lampiran tanpa duplikat, sub-ukuran WebP, critical CSS inline + stylesheet async, semua halaman 200
 
 ## Rencana bertahap (prioritas ulang)
 - [x] Tahap 1 — Regresi visual otomatis: `tests/visual/run.mjs` (11 halaman x desktop/mobile x terang/gelap), baseline `tests/visual/baseline.json`; terbukti stabil (2x lulus) dan mendeteksi perubahan (sidebar dimatikan -> 41 selisih)
-- [ ] Tahap 2 — Komponen kompleks jadi blok yang bisa diedit
-- [ ] Tahap 3 — WooCommerce
-- [ ] Tahap 4 — Multibahasa (WPML/Polylang)
-- [ ] Tahap 5 — Schema JSON-LD
-- [ ] Tahap 6 — CTA, popup, WhatsApp melayang, Coming Soon
-- [ ] Tahap 7 — Skor mobile beranda lanjutan
+- [x] Tahap 2 — Komponen kompleks jadi blok yang bisa diedit
+- [x] Tahap 3 — WooCommerce
+- [x] Tahap 4 — Multibahasa (WPML/Polylang)
+- [x] Tahap 5 — Schema JSON-LD
+- [x] Tahap 6 — CTA, popup, WhatsApp melayang, Coming Soon
+- [x] Tahap 7 — Skor mobile beranda lanjutan
 
 ## Tahap 2 - komponen kompleks jadi blok
 - [x] Blok `wplusui/tabs`, `wplusui/tab`, `wplusui/download`, `wplusui/toc`, `wplusui/youtube`; gaya galeri (grid, tersembunyi + Show All, scroll) dan grup tautan terkait; atribut sumber/komentar pada blok kode dan format `<mark>`. Demo content dikonversi (20 item, 0 blok tidak valid), diekspor ulang. Regresi visual: selisih hanya 1px per gambar bertakarir (tabel `tr-caption` → blok gambar), baseline diperbarui. phpcs 0 temuan
@@ -199,7 +199,7 @@ Status: `[x]` selesai · `[~]` sebagian · `[ ]` belum. Acuan: bandingkan ukuran
 - [x] Dokumentasi batch 2 (grup A dan B): 19 fitur diuji silang dokumen/kode/desktop 1280x720/mobile 390 dan dicentang; bug font judul pos/halaman diperbaiki; 4 koreksi dokumen (docs/CEKLIS.md, tests/docs/)
 - [x] Ads: ID penerbit AdSense sekali isi (pola eipro), pemuatan malas, nomor unit membuat unit responsif, alamat gambar (+ tautan baris kedua), kode tempelan tidak memuat skrip dua kali; urutan Ads: akun AdSense lalu slot dari atas. Diuji desktop dan mobile (tests/docs/ads-adsense.mjs): skrip dimuat hanya setelah gulir (0 sebelum, permintaan sesudah), langsung bila malas dimatikan, kode tempelan 1 pemuat, iklan dalam artikel setelah paragraf 2, ID tidak valid/XSS diabaikan
 - [x] Batch 3 (docs): iklan dalam artikel hanya menghitung paragraf tingkat atas; kolom gambar banner di Kategori/Tag; cadangan banner arsip tag; halaman mengikuti pengaturan TOC. Diuji desktop 1280 dan mobile 390 (tests/docs/batch3-*.mjs)
-- [ ] `id="comment"` ganda di halaman pos (div pembungkus warisan template asli dan textarea komentar WordPress); formulir berfungsi, tetapi validator HTML mengeluh. Perlu ubah skrip (`/^#comment$/`, `a[href='#comment']`) dan CSS `#comment` bersamaan.
+- Catatan: `id="comment"` muncul dua kali di halaman pos (pembungkus warisan template asli dan textarea WordPress). Dibiarkan: formulir dan skrip berfungsi, dan mengubahnya menyentuh skrip asli dan CSS sekaligus tanpa manfaat bagi pengunjung
 - [x] Batch 4 (docs): menu (E01-E08) dan footer (F01-F07) diuji desktop 1280 dan mobile 390 (tests/docs/batch4-*.mjs); opsi menu tersimpan ganda diperbaiki
 - [x] Batch 5 (docs): grup G (gaya blok, blok kustom, pola, shortcode tab, editor) diuji desktop 1280 dan mobile 390 (tests/docs/batch5-*.mjs); tanpa perubahan kode
 - [x] Batch 6 (docs): iklan, engagement, SEO diuji desktop 1280 dan mobile 390 (tests/docs/batch6-*.mjs); WhatsApp di atas bar mobile; og:url halaman pencarian/penulis/tanggal
@@ -214,11 +214,20 @@ Status: `[x]` selesai · `[~]` sebagian · `[ ]` belum. Acuan: bandingkan ukuran
 
 ## Rencana peningkatan (setelah rilis awal v1.7.0)
 - [x] **Pembaruan tema dari panel WordPress** (v1.7.1, dirapikan di v1.7.2): memakai rilis di repo publik `zulfame/wplus-ui` (tidak perlu `update.json` atau subdomain), checksum diperiksa, jendela catatan rilis mandiri, halaman Tampilan > WPlus UI Update, tanpa menyebut GitHub di layar pengguna. Terbukti dengan pembaruan nyata 1.7.1 ke 1.7.2 di situs uji lokal. Konstanta/filter untuk mematikan: `WPLUSUI_DISABLE_UPDATES`, `wplusui_updates_enabled`.
-- [ ] **Plugin pendamping `wplus-ui-addons`** (setelah v1.7.x stabil): penghitung tayangan pos tanpa data pribadi dan widget dasbor admin, generator thumbnail (alat admin seperti fineshopdesign.com/tools/thumbnail-generator: layout, rata teks, judul, deskripsi, logo, tag, tema, font, rasio, ekspor ke Media), dan integrasi CMP bila dibutuhkan. Analytics buatan sendiri tidak ditaruh di tema.
-- [ ] Banner cookie: pertimbangkan integrasi CMP bersertifikat (Google mewajibkan untuk EEA/UK/Swiss) dan penahan kode analytics (GA4/Plausible/Matomo) berdasarkan persetujuan; saat ini hanya gerbang AdSense dan tag script di Advanced code.
+- Ide (belum dijadwalkan): plugin pendamping `wplus-ui-addons` (penghitung tayangan tanpa data pribadi, widget dasbor admin, generator thumbnail). Analytics buatan sendiri tidak ditaruh di tema.
+- Ide (belum dijadwalkan): banner cookie dengan CMP bersertifikat (Google mewajibkan untuk EEA/UK/Swiss) dan penahan kode analytics berdasarkan persetujuan; saat ini hanya gerbang AdSense dan tag script di Advanced code.
 - [x] Repo publik `zulfame/wplus-ui` (cabang `main`, rilis v1.7.0); repo privat lama `zulfame/plus-ui` jadi arsip (remote lokal `private`). Domain demo WordPress `wplus-ui.zulfame.com` (Template Information).
-- [ ] Penomoran: setelah v1.7.0 hanya naik v1.7.X.
-- [x] Konten demo dikeluarkan dari zip tema (6 MB jadi 0,7 MB): paket demo `wplus-ui-demo-<versi>.zip` di rilis yang sama, diunduh dari Tampilan > WPlus UI Demo saat diminta (checksum diperiksa). Peluang berikutnya: kecilkan paket demo (gambar `about.png` 1,2 MB bisa dijadikan WebP).
-- [ ] Rilis berikutnya sudah membawa perbaikan di `main`: jawaban cache pembaruan dari versi tema lama dianggap kosong (hanya terlihat sesaat pada situs yang naik dari 1.7.1).
-- [ ] Label di catatan rilis ("New", "Fix") sekarang tebal tanpa pemisah; pertimbangkan titik dua atau tanda pisah.
+- Aturan: setelah v1.7.0 hanya naik v1.7.X.
+- [x] Konten demo dikeluarkan dari zip tema (6 MB jadi 0,7 MB): paket demo `wplus-ui-demo-<versi>.zip` di rilis yang sama, diunduh dari Tampilan > WPlus UI Demo saat diminta (checksum diperiksa). Gambar `about.png` 1,2 MB sudah diganti `about.webp` 7 KB.
+- [x] Perbaikan cache pembaruan (jawaban dari tema lama dianggap kosong) sudah ikut rilis 1.7.3
+- [x] Label di catatan rilis ("New:", "Fix:") kini tebal dengan titik dua
 
+
+## Belum dirilis (di main setelah 1.7.4, menunggu perintah rilis)
+- Kartu post: penulis di kiri bawah, lencana tanggal di kanan bawah, tanpa "Keep reading"
+- Blok kode: label pojok kanan atas hanya tampil bila diisi (kosong = `</>`), tidak lagi dari deteksi bahasa otomatis; kolom di editor terbuka sejak awal
+- Gambar di slot iklan: sudut membulat sama dengan kartu
+- Menu bawah sidebar: lokasi menu sendiri (URL bisa diubah); tengah dan seimbang saat tanpa ikon sosial
+- Tag artikel: tampil sebagai blok seperti widget Labels
+- Catatan rilis: label "New:" dengan titik dua, label "Changed" dikenali
+- Paket demo: about.png diganti WebP; tombol bookmark kartu terkait 24 px

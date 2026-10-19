@@ -244,8 +244,8 @@ function wplusui_notes_html( $text ) {
 		$line = rtrim( $line );
 		if ( preg_match( '/^\s*[-*]\s+(.*)$/', $line, $m ) ) {
 			$label = '';
-			if ( preg_match( '/^(New|Fix|Improved|Safe)\s*:\s*(.*)$/', $m[1], $l ) ) {
-				$label = '<strong>' . esc_html( $l[1] ) . '</strong> ';
+			if ( preg_match( '/^(New|Fix|Improved|Safe|Changed)\s*:\s*(.*)$/', $m[1], $l ) ) {
+				$label = '<strong>' . esc_html( $l[1] ) . ':</strong> ';
 				$m[1]  = $l[2];
 			}
 			$html   .= ( $in_list ? '' : '<ul>' ) . '<li>' . $label . wplusui_notes_inline( $m[1] ) . '</li>';
