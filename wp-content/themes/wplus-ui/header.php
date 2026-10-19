@@ -235,28 +235,44 @@
 							</div>
 							<div class="bl-hide-title section" id="sec_Nav_Widgets_2">
 								<div class="widget PageList" data-version="2" id="PageList02">
+									<?php
+									wp_nav_menu(
+										array(
+											'theme_location' => 'drawer-footer',
+											'container'      => false,
+											'depth'          => 1,
+											'items_wrap'     => '<ul class="mMenu">%3$s</ul>',
+											'fallback_cb'    => function () {
+												?>
 									<ul class="mMenu">
 										<li><a href="<?php echo esc_url( home_url( '/sitemap.xml' ) ); ?>"><?php esc_html_e( 'Sitemap', 'wplus-ui' ); ?></a></li>
 										<li><span><?php esc_html_e( 'Disclaimer', 'wplus-ui' ); ?></span></li>
 										<li><span><?php esc_html_e( 'Privacy', 'wplus-ui' ); ?></span></li>
 									</ul>
+												<?php
+											},
+										)
+									);
+									?>
 								</div>
+								<?php
+								$wplusui_drawer_social = array();
+								foreach ( wplusui_social_icon_svgs() as $key => $svg ) {
+									$url = get_theme_mod( 'wplusui_social_' . $key );
+									if ( $url ) {
+										$wplusui_drawer_social[ $key ] = array( $url, $svg );
+									}
+								}
+								?>
+								<?php if ( $wplusui_drawer_social ) : ?>
 								<div class="widget LinkList" data-version="2" id="LinkList04">
 									<ul class="mSoc">
-										<?php
-										foreach ( wplusui_social_icon_svgs() as $key => $svg ) :
-											$label = wplusui_social_networks()[ $key ];
-											$url   = get_theme_mod( 'wplusui_social_' . $key );
-											if ( ! $url ) {
-												continue;
-											}
-											?>
-										<li><a class="a tIc" href="<?php echo esc_url( $url ); ?>" aria-label="<?php echo esc_attr( $label ); ?>" target="_blank" rel="noreferrer noopener"><?php echo $svg; // phpcs:ignore ?></a></li>
-											<?php
-endforeach;
-										?>
+										<?php foreach ( $wplusui_drawer_social as $key => $item ) : ?>
+										<li><a class="a tIc" href="<?php echo esc_url( $item[0] ); ?>" aria-label="<?php echo esc_attr( wplusui_social_networks()[ $key ] ); ?>" target="_blank" rel="noreferrer noopener"><?php echo $item[1]; // phpcs:ignore ?></a></li>
+										<?php endforeach; ?>
 									</ul>
 								</div>
+								<?php endif; ?>
 							</div>
 						</div>
 					</div>

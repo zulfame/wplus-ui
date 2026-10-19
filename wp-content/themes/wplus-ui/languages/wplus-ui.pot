@@ -136,6 +136,10 @@ msgstr ""
 msgid "Under-header Quick Links"
 msgstr ""
 
+#: functions.php:86
+msgid "Sidebar menu footer links (Sitemap, Disclaimer, Privacy)"
+msgstr ""
+
 #: functions.php:138
 msgid "Footer Column 1 (Product)"
 msgstr ""

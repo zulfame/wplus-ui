@@ -887,3 +887,23 @@ code mark.red {
 .adB.is-live img {
   border-radius: inherit;
 }
+
+/* Sidebar menu footer: with no social icons the links sit centered with even padding, and the dot between links has room on both sides. */
+.mnMob .widget:last-child .mMenu {
+  margin-bottom: 0;
+}
+.mnMob:not(:has(.mSoc)) {
+  padding-block: 15px;
+}
+.mMenu > :not(:last-child):after {
+  margin-inline: 0.3em;
+}
+
+/* Tags under a post: the same blocks as the Labels widget. */
+.pTgs.widget {
+  margin: 1.5em 0 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+}

@@ -92,12 +92,13 @@ function wplusui_setup() {
 
 	register_nav_menus(
 		array(
-			'primary'    => __( 'Primary Menu (desktop + mobile drawer)', 'wplus-ui' ),
-			'footer-1'   => __( 'Footer Column: Product', 'wplus-ui' ),
-			'footer-2'   => __( 'Footer Column: Resources', 'wplus-ui' ),
-			'footer-3'   => __( 'Footer Column: Support', 'wplus-ui' ),
-			'footer-4'   => __( 'Footer Column: Company', 'wplus-ui' ),
-			'quicklinks' => __( 'Under-header Quick Links', 'wplus-ui' ),
+			'primary'       => __( 'Primary Menu (desktop + mobile drawer)', 'wplus-ui' ),
+			'footer-1'      => __( 'Footer Column: Product', 'wplus-ui' ),
+			'footer-2'      => __( 'Footer Column: Resources', 'wplus-ui' ),
+			'footer-3'      => __( 'Footer Column: Support', 'wplus-ui' ),
+			'footer-4'      => __( 'Footer Column: Company', 'wplus-ui' ),
+			'quicklinks'    => __( 'Under-header Quick Links', 'wplus-ui' ),
+			'drawer-footer' => __( 'Sidebar menu footer links (Sitemap, Disclaimer, Privacy)', 'wplus-ui' ),
 		)
 	);
 }
